@@ -9,11 +9,17 @@
     <!-- Sign up form -->
     <form name="input" action="html_form_action.asp" method="get" class="sign-up-log-in-form">
 
-        <input type="text" name="firstName" id="firstNameInput" placeholder="First name">
+        <input type="text" name="name" placeholder="Name">
 
-        <input type="text" name="lastName" id="lastNameInput" placeholder="Last name">
+        <input type="email" name="email" placeholder="Email">
 
-        <input type="password" name="password" id="passwordInput" placeholder="Password">
+        <input type="password" name="password" placeholder="Password">
+
+        <input type='file' name='userFile'>
+
+        <input type="text" name="graduationYear" placeholder="Highschool Grad Year">
+
+        <textarea name="bio" placeholder="Bio"></textarea>
 
         <input type="submit" value="Submit">
         <p>Already have an account? <a href="log_in.php">Log in</a></p>

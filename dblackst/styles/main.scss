@@ -61,12 +61,20 @@ body {
     }
 }
 
+// sign up and log in forms
 .sign-up-log-in-form {
     text-align: center;
+    @include span-columns(6);
+    @include shift(3);
 
-    input {
+
+    input, textarea {
         display: block;
-        margin: 5px auto;
+        margin: 10px auto;
+    }
+
+    input[type="submit"] {
+
     }
 }
 

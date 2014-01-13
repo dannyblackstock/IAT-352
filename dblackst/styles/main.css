@@ -110,10 +110,18 @@ body {
 
 .sign-up-log-in-form {
   text-align: center;
-}
-.sign-up-log-in-form input {
+  float: left;
   display: block;
-  margin: 5px auto;
+  margin-right: 2.35765%;
+  width: 48.82117%;
+  margin-left: 25.58941%;
+}
+.sign-up-log-in-form:last-child {
+  margin-right: 0;
+}
+.sign-up-log-in-form input, .sign-up-log-in-form textarea {
+  display: block;
+  margin: 10px auto;
 }
 
 #footer {
