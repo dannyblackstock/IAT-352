@@ -2,12 +2,24 @@
 <?php require("includes/header.php"); ?>
 
 <!-- Main menu bar for all pages -->
-<div id="main-menu-bar">
-    <div id="main-logo">SIAT SFU</div>
-    <div id="sign-up-link">Don't have an account yet? <a href="sign_up.php">Sign up!</a></div>
-    <div id="log-in-button">
-        <a href="log_in.php">Log in</a>
-    </div>
+<?php require("includes/main_menu_bar.php"); ?>
+
+<div id="content-container">
+    <h1>Members</h1>
+    <table id="members-table">
+        <tr>
+            <th>Photo</th>
+            <th>Name</th>
+            <th>High School</th>
+            <th>High School Graduation Year</th>
+        </tr>
+        <tr>
+            <td>:)</td>
+            <td>Danny Blackstock</td>
+            <td>ACRSS</td>
+            <td>2011</td>
+        </tr>
+    </table>
 </div>
 
 <?php require("includes/footer.php"); ?>
