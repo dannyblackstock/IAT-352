@@ -6,6 +6,15 @@ body {
     margin: 0;
 }
 
+// for IE placeholder text
+.placeholder {
+    color: #aaa;
+}
+
+.center-text {
+    text-align: center;
+}
+
 // ----- START Menu bar for all pages ----- //
 #main-menu-bar-container {
     width: 100%;
@@ -36,7 +45,7 @@ body {
 }
 // ----- END Menu bar ----- //
 
-// content
+// ----- START content ----- //
 #content-container {
     @include outer-container;
     padding: 10px;
@@ -50,4 +59,19 @@ body {
     th, td {
         border: 1px solid #ccc;
     }
+}
+
+.sign-up-log-in-form {
+    text-align: center;
+
+    input {
+        display: block;
+        margin: 5px auto;
+    }
+}
+
+// ----- START footer ----- //
+#footer {
+    text-align: center;
+    margin: 10px 0
 }

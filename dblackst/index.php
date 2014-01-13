@@ -5,7 +5,7 @@
 <?php require("includes/main_menu_bar.php"); ?>
 
 <div id="content-container">
-    <h1>Members</h1>
+    <h1 class="center-text">Members</h1>
     <table id="members-table">
         <tr>
             <th>Photo</th>

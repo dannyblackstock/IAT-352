@@ -8,6 +8,14 @@ body {
   margin: 0;
 }
 
+.placeholder {
+  color: #aaa;
+}
+
+.center-text {
+  text-align: center;
+}
+
 #main-menu-bar-container {
   width: 100%;
   background-color: #eee;
@@ -98,4 +106,17 @@ body {
 }
 #members-table th, #members-table td {
   border: 1px solid #ccc;
+}
+
+.sign-up-log-in-form {
+  text-align: center;
+}
+.sign-up-log-in-form input {
+  display: block;
+  margin: 5px auto;
+}
+
+#footer {
+  text-align: center;
+  margin: 10px 0;
 }
