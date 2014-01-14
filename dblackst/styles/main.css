@@ -124,7 +124,32 @@ body {
   margin: 10px auto;
 }
 
-#footer {
+#sign-up-results {
+  width: 400px;
+  margin: 0 auto;
+}
+
+#footer-container {
+  *zoom: 1;
+  max-width: 68em;
+  margin-left: auto;
+  margin-right: auto;
   text-align: center;
   margin: 10px 0;
+}
+#footer-container:before, #footer-container:after {
+  content: " ";
+  display: table;
+}
+#footer-container:after {
+  clear: both;
+}
+#footer-container .footer-p {
+  float: left;
+  display: block;
+  margin-right: 2.35765%;
+  width: 100%;
+}
+#footer-container .footer-p:last-child {
+  margin-right: 0;
 }

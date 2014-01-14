@@ -78,8 +78,18 @@ body {
     }
 }
 
+#sign-up-results {
+    width: 400px;
+    margin: 0 auto;
+}
+
 // ----- START footer ----- //
-#footer {
+#footer-container {
+    @include outer-container;
     text-align: center;
-    margin: 10px 0
+    margin: 10px 0;
+
+    .footer-p {
+        @include span-columns(12);
+    }
 }

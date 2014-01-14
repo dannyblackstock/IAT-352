@@ -19,6 +19,20 @@
             <td>ACRSS</td>
             <td>2011</td>
         </tr>
+        <?php
+            // load info file for all users
+            $userInfo = file_get_contents("user_info.txt");
+
+            // create an array of each user
+            $userInfo = explode("\n", $userInfo);
+            print_r($userInfo);
+
+            // loop through fields for each user
+            foreach($userInfo as $user){
+                $user = explode(" | ", $user);
+                echo "<br>".$user[0]."<br>";
+            }
+        ?>
     </table>
 </div>
 

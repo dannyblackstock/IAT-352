@@ -7,7 +7,7 @@
 <div id="content-container">
     <h1 class="center-text">Sign up</h1>
     <!-- Sign up form -->
-    <form name="input" action="html_form_action.asp" method="get" class="sign-up-log-in-form">
+    <form name="input" action="sign_up_submit.php" method="post" class="sign-up-log-in-form">
 
         <input type="text" name="name" placeholder="Name">
 
@@ -15,13 +15,14 @@
 
         <input type="password" name="password" placeholder="Password">
 
-        <input type='file' name='userFile'>
+        <!-- Profile picture upload-->
+        <input type='file' name='profilePicture'>
 
         <input type="text" name="graduationYear" placeholder="Highschool Grad Year">
 
         <textarea name="bio" placeholder="Bio"></textarea>
 
-        <input type="submit" value="Submit">
+        <input type="submit"  name="submit" value="Submit">
         <p>Already have an account? <a href="log_in.php">Log in</a></p>
     </form> 
 </div>
