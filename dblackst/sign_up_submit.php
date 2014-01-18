@@ -39,6 +39,13 @@
             $profilePicture = '';
         }
 
+        if(isset($_POST['highschool'])) {
+            $highschool = $_POST['highschool'];
+        }
+        else {
+            $highschool = '';
+        }
+
         if(isset($_POST['graduationYear'])) {
             $graduationYear = $_POST['graduationYear'];
         }
@@ -53,7 +60,7 @@
             $bio = '';
         }
 
-        $userDataString = $name." | ".$email." | ".$password." | ".$profilePicture." | ".$graduationYear." | ".$bio."\n";
+        $userDataString = "\n".$name." | ".$email." | ".$password." | ".$profilePicture." | ".$highschool." | ".$graduationYear." | ".$bio;
 
         // write the user info to a text file
         file_put_contents("user_info.txt", $userDataString, FILE_APPEND);
@@ -65,6 +72,7 @@
             <p>Email: ".$email."</p>
             <p>Password: ".$password."</p>
             <p>Profile picture: ".$profilePicture."</p>
+            <p>Highschool: ".$highschool."</p>
             <p>Graduation Year: ".$graduationYear."</p>
             <p>Bio: ".$bio."</p>
             </div>";

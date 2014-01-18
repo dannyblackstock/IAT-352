@@ -9,9 +9,7 @@
     <!-- Sign up form -->
     <form name="input" action="html_form_action.asp" method="get" class="sign-up-log-in-form">
 
-        <input type="text" name="firstName" id="firstNameInput" placeholder="First name">
-
-        <input type="text" name="lastName" id="lastNameInput" placeholder="Last name">
+        <input type="email" name="email" id="emailInput" placeholder="Email">
 
         <input type="password" name="password" id="passwordInput" placeholder="Password">
 

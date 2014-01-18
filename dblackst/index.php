@@ -6,18 +6,15 @@
 
 <div id="content-container">
     <h1 class="center-text">Members</h1>
+
+    <p>
+        <a href="high_schools_list.php">View Highschools</a>
+    </p>
+
     <table id="members-table">
         <tr>
             <th>Photo</th>
             <th>Name</th>
-            <th>High School</th>
-            <th>High School Graduation Year</th>
-        </tr>
-        <tr>
-            <td>:)</td>
-            <td>Danny Blackstock</td>
-            <td>ACRSS</td>
-            <td>2011</td>
         </tr>
         <?php
             // load info file for all users
@@ -25,12 +22,15 @@
 
             // create an array of each user
             $userInfo = explode("\n", $userInfo);
-            print_r($userInfo);
+            // print_r($userInfo);
 
             // loop through fields for each user
             foreach($userInfo as $user){
                 $user = explode(" | ", $user);
-                echo "<br>".$user[0]."<br>";
+                // print name at index 0 from user array
+                echo "<tr><td><img src=\"img/user_icon.png\" alt=\"Placeholder user photo\" width=\"50\" height=\"50\"</td>";
+                echo "<td>".$user[0]."</td>";
+                echo "</tr>";
             }
         ?>
     </table>

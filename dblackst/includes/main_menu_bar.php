@@ -3,7 +3,9 @@
     <div id="main-menu-bar">
 
         <!-- SIAT logo / home button -->
-        <a href="index.php"><div id="main-menu-bar-logo">SIAT SFU</div></a>
+        <a href="index.php">
+            <img  id="main-menu-bar-logo" src="img/siat_white_logo.png" alt="SIAT SFU LOGO">
+        </a>
 
         <!-- right side of menu bar -->
         <div id="main-menu-bar-right">

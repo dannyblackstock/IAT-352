@@ -18,6 +18,8 @@
         <!-- Profile picture upload-->
         <input type='file' name='profilePicture'>
 
+        <input type="text" name="highschool" placeholder="Highschool">
+
         <input type="text" name="graduationYear" placeholder="Highschool Grad Year">
 
         <textarea name="bio" placeholder="Bio"></textarea>
