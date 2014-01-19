@@ -1,0 +1,66 @@
+// ----- START Menu bar for all pages ----- //
+#main-menu-bar-container {
+    width: 100%;
+    background-color: $sfu-grey;
+}
+
+#main-menu-bar {
+    @include outer-container;
+    background-color: $sfu-grey;
+    padding: 10px;
+    color: #fff;
+    text-align: center;
+
+    @include media($bigger-than-small) {
+        padding: 10px 25px;
+    }
+}
+
+// SIAT logo
+#main-menu-bar-left {
+    $logo-width: 80px;
+
+    color: white;
+    text-decoration: none;
+    font-size: 0.6em;
+    display: block;
+    margin: 0 auto;
+    text-align: right;
+    width: $logo-width;
+
+    @include media($bigger-than-tiny) {
+        float: left;
+        margin-bottom: 0;
+    }
+
+    #main-menu-bar-logo {
+        width: $logo-width;
+        display: block;
+        margin: 0 auto -5px auto;
+
+        @include media($bigger-than-tiny) {
+            margin-bottom: -5px;
+        }
+    }
+}
+
+#main-menu-bar-right {
+    @include media($bigger-than-tiny) {
+        float: right;
+    }
+}
+
+#sign-up-button {
+    margin: 5px 0 0 0;
+    display: inline-block;
+
+    @include media($bigger-than-tiny) {
+        margin: 5px 5px 0 0;
+    }
+}
+
+#log-in-button {
+    margin-top: 5px;
+    display: inline-block;
+}
+// ----- END Menu bar ----- //

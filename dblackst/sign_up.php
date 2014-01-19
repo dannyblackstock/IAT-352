@@ -9,22 +9,22 @@
     <!-- Sign up form -->
     <form name="input" action="sign_up_submit.php" method="post" class="sign-up-log-in-form">
 
-        <input type="text" name="name" placeholder="Name">
+        <input class="form-input" type="text" name="name" placeholder="Name">
 
-        <input type="email" name="email" placeholder="Email">
+        <input class="form-input" type="email" name="email" placeholder="Email">
 
-        <input type="password" name="password" placeholder="Password">
+        <input class="form-input" type="password" name="password" placeholder="Password">
 
         <!-- Profile picture upload-->
-        <input type='file' name='profilePicture'>
+        <input class="form-file-input" type='file' name='profilePicture'>
 
-        <input type="text" name="highschool" placeholder="Highschool">
+        <input class="form-input" type="text" name="highschool" placeholder="High School">
 
-        <input type="text" name="graduationYear" placeholder="Highschool Grad Year">
+        <input class="form-input" type="text" name="graduationYear" placeholder="High School Grad Year">
 
-        <textarea name="bio" placeholder="Bio"></textarea>
+        <textarea class="form-textarea" name="bio" placeholder="Bio"></textarea>
 
-        <input type="submit"  name="submit" value="Submit">
+        <input class="form-button" type="submit"  name="submit" value="Submit">
         <p>Already have an account? <a href="log_in.php">Log in</a></p>
     </form> 
 </div>

@@ -2,117 +2,91 @@
 @import "neat/neat";
 
 // responsive breakpoints
-$bigger-than-mobile: new-breakpoint(min-width 450px 4);
+$bigger-than-tiny: new-breakpoint(min-width 286px 4);
+$bigger-than-small: new-breakpoint(min-width 590px 12);
 
 // colours
 $sfu-grey: #6e6d64;
 $sfu-red: #b5111a;
+$default-text-color: #333;
+
+@import "main_menu_bar.scss";
+@import "buttons_toggles.scss";
 
 // the font
 @import url(http://fonts.googleapis.com/css?family=Gudea:400,700,400italic);
 
 // important!
-body, input {
+body, input, textarea, button {
     margin: 0;
     font-family: 'Gudea', sans-serif;
-    color: #333;
+    color: $default-text-color;
 }
 
-a {
-    color: #69ABED;
-    &:hover {
-        color: darken(#69ABED, 20);
-    }
-}
+// ----- START General styles ----- //
 
 // for IE placeholder text
 .placeholder {
     color: #aaa;
 }
 
+// headers h1
+.main-header {
+    text-align: center;
+    margin-top: 0;
+    margin-bottom: 10px;
+
+    @include media($bigger-than-small) {
+        text-align: left;
+        margin-bottom: 20px;
+        @include span-columns(6);
+    }
+}
+
+//links
+a {
+    color: #69ABED;
+    &:hover {
+        color: darken(#69ABED, 20);
+    }
+    &:visited {
+        color: #69ABED;
+    }
+}
+
 .center-text {
     text-align: center;
 }
-
-// ----- START General buttons ----- //
-@mixin custom-button($bg-color: #ddd, $text-color: #333) {
-    border: 1px solid darken($bg-color, 20);
-    background-color: $bg-color;
-    color: $text-color;
-    border-radius: 4px;
-    padding: 4px 10px 5px 10px;
-
-    &:hover {
-        background-color: lighten($bg-color, 5);
-        cursor: pointer;
-    }
-
-    &:active {
-        background-color: darken($bg-color, 5);
-    }
-}
-
-.button {
-    @include custom-button();
-}
-// ----- END General buttons ----- //
-
-// ----- START Menu bar for all pages ----- //
-#main-menu-bar-container {
-    width: 100%;
-    background-color: $sfu-grey;
-}
-
-#main-menu-bar {
-    @include outer-container;
-    background-color: $sfu-grey;
-    padding: 10px;
-    line-height: 24px;
-    color: #fff;
-    text-align: center;
-    font-size: 0.9em;
-}
-
-#main-menu-bar-logo {
-    height: 40px;
-    @include media($bigger-than-mobile) {
-        float: left;
-    }
-}
-
-#main-menu-bar-right {
-    @include media($bigger-than-mobile) {
-        float: right;
-    }
-}
-
-#sign-up-link {
-    display: inline-block;
-    margin-right: 10px;
-}
-
-#log-in-button {
-    display: inline-block;
-    @include custom-button($sfu-red, #ffffff);
-
-}
-// ----- END Menu bar ----- //
+// ----- END General styles ----- //
 
 // ----- START content ----- //
 #content-container {
     @include outer-container;
     padding: 10px;
-    background-color: #eee;
+    // background-color: #eee;
+
+    @include media($bigger-than-small) {
+        padding: 25px;
+    }
 }
 
 #members-table {
     width: 100%;
-    border-collapse:collapse;
+    border-collapse: collapse;
+
+    .profile-picture-cell {
+        width: 50px;
+    }
 
     th, td {
         border: 1px solid #ccc;
         padding: 5px;
     }
+}
+
+#high-schools-list {
+    @include span-columns(12);
+    margin-top: 20px;
 }
 
 // sign up and log in forms
@@ -142,7 +116,7 @@ a {
     @include outer-container;
     text-align: center;
     padding: 10px 0;
-    background-color: #eee;
+    // background-color: #eee;
 
     .footer-p {
         @include span-columns(12);

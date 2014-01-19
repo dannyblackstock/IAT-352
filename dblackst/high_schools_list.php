@@ -5,29 +5,54 @@
 <?php require("includes/main_menu_bar.php"); ?>
 
 <div id="content-container">
-    <h1 class="center-text">High Schools</h1>
+    <h1 class="main-header">High Schools</h1>
+    
+    <div class="toggle-switch" id="hs-members-toggle">
+        <!-- <div class="sort-label">SORT BY </div> -->
+        <a class="toggle-switch-left" href="index.php">
+            Name</a><a class="toggle-switch-right active" href="high_schools_list.php">
+            High School</a>
+    </div>
 
-    <p>
-        <a href="index.php">View Members</a>
-    </p>
+    <table id="members-table">
+        <tr>
+            <th>Photo</th>
+            <th>Name</th>
+            <th>High School</th>
+        </tr>
+        <?php
+            // compare two high school names using the "human order" algrorithm
+            function compare_lastname($a, $b) {
+                return strnatcasecmp($a[5], $b[5]);
+            }
 
-        <ul>
-            <?php
-                // load info file for all users
-                $userInfo = file_get_contents("user_info.txt");
+            // array to hold users when all fields are separated and sorted
+            $usersSortedArray = array();
 
-                // create an array of each user
-                $userInfo = explode("\n", $userInfo);
-                // print_r($userInfo);
+            // load info file for all users
+            $userFile = file_get_contents("user_info.txt");
 
-                // loop through fields for each user
-                foreach($userInfo as $user){
-                    $user = explode(" | ", $user);
-                    // print highschool at index 4 from user array
-                    echo "<li>".$user[4]."</li>";
-                }
-            ?>
-        </ul>
+            // create an array of each user by splitting it every new line
+            $usersArray = explode("\n", $userFile);
+
+            foreach ($usersArray as $user) {
+                // split each user into an array of fields and add it to an array
+                $user = explode(" | ", $user);
+                array_push($usersSortedArray, $user);
+            }
+
+            // sort the array of arrays alphabetically by last name
+            usort($usersSortedArray, 'compare_lastname');
+
+            // print the sorted array
+            foreach($usersSortedArray as $user){
+                echo "<tr><td class=\"profile-picture-cell\"><img src=\"img/user_icon.png\" alt=\"Placeholder user photo\" width=\"50\" height=\"50\"</td>";
+                echo "<td class=\"user-name-cell\">".$user[1]."</td>";
+                echo "<td class=\"high-school-name-cell\">".$user[5]."</td>";
+                echo "</tr>";
+            }
+        ?>
+    </table>
 </div>
 
 <?php require("includes/footer.php"); ?>
