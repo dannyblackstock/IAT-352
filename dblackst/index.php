@@ -14,12 +14,12 @@
             High School</a>
     </div>
 
-    <table id="members-table" class="container">
-        <tr>
+    <div id="members-table" class="container">
+<!--         <tr>
             <th>Photo</th>
             <th>Name</th>
             <th>High School</th>
-        </tr>
+        </tr> -->
         <?php
             // compare two names using the "human order" algrorithm
             function compare_name($a, $b) {
@@ -47,14 +47,17 @@
 
                 // print the sorted array
                 foreach($usersSortedArray as $user){
-                    echo "<tr><td class=\"profile-picture-cell\"><img src=\"img/user_icon.png\" alt=\"Placeholder user photo\" width=\"50\" height=\"50\"</td>";
-                    echo "<td class=\"user-name-cell\"><a href=\"user.php?id=".$user[0]."\">".$user[1]."</a></td>";
-                    echo "<td class=\"high-school-name-cell\">".$user[5]."</td>";
-                    echo "</tr>";
+                    echo "<a href=\"user.php?id=".$user[0]."\" class=\"user-container\">
+                            <img src=\"img/user_icon.png\" alt=\"Placeholder user photo\" class=\"user-profile-picture\">
+                            <div class=\"user-info-container\">
+                                <div class=\"user-name\">".$user[1]."</div>
+                                <div class=\"user-high-school\">".$user[5]."</div>
+                            </div>
+                        </a>";
                 }
             }
         ?>
-    </table>
+    </div>
 </div>
 
 <?php require("includes/footer.php"); ?>

@@ -491,6 +491,13 @@ a:hover {
   width: 100%;
   border-collapse: collapse;
   background-color: #FFF;
+  float: left;
+  display: block;
+  margin-right: 2.35765%;
+  width: 100%;
+}
+#members-table:last-child {
+  margin-right: 0;
 }
 #members-table .profile-picture-cell {
   width: 50px;
@@ -498,6 +505,69 @@ a:hover {
 #members-table th, #members-table td {
   border: 1px solid #ccc;
   padding: 5px 10px;
+}
+#members-table .user-container {
+  float: left;
+  display: block;
+  margin-right: 2.35765%;
+  width: 100%;
+  color: #333333;
+  text-decoration: none;
+  border: 1px solid #ddd;
+  margin: 0 0 10px 0;
+  padding: 5px;
+  -webkit-transition: background-color 0.2s;
+  -moz-transition: background-color 0.2s;
+  transition: background-color 0.2s;
+}
+#members-table .user-container:last-child {
+  margin-right: 0;
+}
+@media screen and (min-width: 545px) {
+  #members-table .user-container {
+    float: left;
+    display: block;
+    margin-right: 2.35765%;
+    width: 31.76157%;
+    min-height: 245px;
+    text-align: center;
+  }
+  #members-table .user-container:last-child {
+    margin-right: 0;
+  }
+  #members-table .user-container * {
+    margin: 0 auto;
+  }
+  #members-table .user-container:nth-child(3n+3) {
+    margin-right: 0;
+  }
+}
+#members-table .user-container:hover {
+  background-color: #eee;
+}
+#members-table .user-container img {
+  max-width: 49%;
+  max-height: 100%;
+  display: inline-block;
+  vertical-align: top;
+}
+@media screen and (min-width: 545px) {
+  #members-table .user-container img {
+    display: block;
+  }
+}
+#members-table .user-container .user-info-container {
+  display: inline-block;
+  max-width: 49%;
+  padding: 5px;
+}
+@media screen and (min-width: 545px) {
+  #members-table .user-container .user-info-container {
+    display: block;
+  }
+}
+#members-table .user-container .user-info-container .user-name {
+  font-weight: bold;
 }
 
 .sign-up-log-in-form {

@@ -94,6 +94,7 @@ a {
     width: 100%;
     border-collapse: collapse;
     background-color: #FFF;
+    @include span-columns(12);
 
     .profile-picture-cell {
         width: 50px;
@@ -102,6 +103,60 @@ a {
     th, td {
         border: 1px solid #ccc;
         padding: 5px 10px;
+    }
+
+    .user-container {
+        @include span-columns(12);
+        color: $default-text-color;
+        text-decoration: none;
+        border: 1px solid #ddd;
+        margin: 0 0 10px 0;
+        padding: 5px;
+
+        @include media($bigger-than-medium) {
+            @include span-columns(4);
+            min-height: 245px;
+            text-align: center;
+
+            * {
+                margin: 0 auto;
+            }
+            // every 3rd child
+            &:nth-child(3n+3) {
+                @include omega();
+            }
+        }
+
+        @include transition(background-color 0.2s);
+
+        &:hover {
+            background-color: #eee;
+        }
+
+        img {
+            max-width: 49%;
+            max-height: 100%;
+            display: inline-block;
+            vertical-align: top;
+
+            @include media($bigger-than-medium) {
+                display: block;
+            }
+        }
+
+        .user-info-container {
+            display: inline-block;
+            max-width: 49%;
+            padding: 5px;
+
+            @include media($bigger-than-medium) {
+                display: block;
+            }
+
+            .user-name {
+                font-weight: bold;
+            }
+        }
     }
 }
 
@@ -172,7 +227,6 @@ a {
         }
 
         .post-info-right {
-
             @include media($bigger-than-small){
                 float: right;
             }
@@ -192,7 +246,6 @@ a {
     @include outer-container;
     text-align: center;
     padding: 10px 0;
-    // background-color: #eee;
 
     .footer-p {
         @include span-columns(12);
