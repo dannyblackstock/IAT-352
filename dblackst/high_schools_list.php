@@ -14,21 +14,15 @@
             High School</a>
     </div>
 
-    <table id="members-table" class="container">
-        <tr>
-            <th>Photo</th>
-            <th>Name</th>
-            <th>High School</th>
-        </tr>
-        <?php
-            // compare two high school names using the "human order" algrorithm
-            function compare_lastname($a, $b) {
-                return strnatcasecmp($a[5], $b[5]);
-            }
+    <div id="high-school-list" class="container">
 
+        <?php
             if (filesize("user_info.txt") > 0) {
+                // array to hold users when all fields are separated
+                $usersSplitFieldsArray = array();
+
                 // array to hold users when all fields are separated and sorted
-                $usersSortedArray = array();
+                $highSchoolsArray = array();
 
                 // load info file for all users
                 $userFile = file_get_contents("user_info.txt");
@@ -39,18 +33,39 @@
                 foreach ($usersArray as $user) {
                     // split each user into an array of fields and add it to an array
                     $user = explode(" | ", $user);
-                    array_push($usersSortedArray, $user);
+                    array_push($usersSplitFieldsArray, $user);
                 }
 
-                // sort the array of arrays alphabetically by high school
-                usort($usersSortedArray, 'compare_lastname');
+                // go through each user
+                foreach($usersSplitFieldsArray as $user) {
 
-                // print the sorted array
-                foreach($usersSortedArray as $user){
-                    echo "<tr><td class=\"profile-picture-cell\"><img src=\"img/user_icon.png\" alt=\"Placeholder user photo\" width=\"50\" height=\"50\"</td>";
-                    echo "<td class=\"user-name-cell\"><a href=\"user.php?id=".$user[0]."\">".$user[1]."</a></td>";
-                    echo "<td class=\"high-school-name-cell\">".$user[5]."</td>";
-                    echo "</tr>";
+                    // check if the user's high school is not in the list of high schools
+                    if (in_array($user[5], $highSchoolsArray) == false) {
+
+                        // add it to the list of high schools if it's not there
+                        array_push($highSchoolsArray, $user[5]);
+                    }
+                }
+
+                // sort the high schools using a natural order algorithm
+                natcasesort($highSchoolsArray);
+
+                // loop through all the high schools
+                foreach($highSchoolsArray as $highSchool) {
+
+                    echo "<div><b>".$highSchool."</b></div><ul>";
+
+                    // loop through all the users
+                    foreach($usersSplitFieldsArray as $user){
+
+                        // check if the user's high school matches the one currently being checked
+                        if ($user[5] == $highSchool) {
+
+                            // print it as a list item if it is
+                            echo "<li><a href=\"user.php?id=".$user[0]."\">".$user[1]."</a></li>";
+                        }
+                    }
+                    echo "</ul>";
                 }
             }
         ?>

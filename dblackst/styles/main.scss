@@ -82,6 +82,14 @@ a {
     box-shadow: 0 2px 2px rgba(0,0,0, 0.1);
 }
 
+#high-school-list{
+    @include span-columns(12);
+
+    @include media($bigger-than-medium) {
+        padding: 25px;
+    }
+}
+
 #members-table {
     width: 100%;
     border-collapse: collapse;
@@ -93,7 +101,7 @@ a {
 
     th, td {
         border: 1px solid #ccc;
-        padding: 5px;
+        padding: 5px 10px;
     }
 }
 

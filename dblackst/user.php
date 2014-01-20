@@ -52,7 +52,44 @@
             echo "</div>
                 </div>
                 <div id=\"user-posts\" class=\"container\">
-                    <h1>Posts</h1>
+                    <h1 id=\"user-posts-header\">Posts</h1>
+                    <div class=\"post-container\">
+
+                        <div class=\"post-info\">
+                            
+                            <div class=\"post-info-left\">
+                                <img class=\"user-profile-pic\" src=\"img/user_icon.png\" alt=\"User Profile Picture\">
+                                <div class=\"user-name\">Danny Blackstock</div>
+                            </div>
+
+                            <div class=\"post-info-right\">
+                                <div class=\"time-posted\">Posted on Tuesday at 5:19pm</div>
+                            </div>
+                        </div>
+
+                        <div class=\"post-contents\">
+                            This is my first post! Yipee!
+                        </div>
+                    </div>
+
+                    <div class=\"post-container\">
+
+                        <div class=\"post-info\">
+                            
+                            <div class=\"post-info-left\">
+                                <img class=\"user-profile-pic\" src=\"img/user_icon.png\" alt=\"User Profile Picture\">
+                                <div class=\"user-name\">Danny Blackstock</div>
+                            </div>
+
+                            <div class=\"post-info-right\">
+                                <div class=\"time-posted\">Posted on Tuesday at 5:19pm</div>
+                            </div>
+                        </div>
+
+                        <div class=\"post-contents\">
+                            This is my second post! Yipee!
+                        </div>
+                    </div>
                 </div>";
         }
 
