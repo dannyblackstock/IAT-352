@@ -42,7 +42,7 @@
                     array_push($usersSortedArray, $user);
                 }
 
-                // sort the array of arrays alphabetically by last name
+                // sort the array of arrays alphabetically by name
                 usort($usersSortedArray, 'compare_name');
 
                 // print the sorted array

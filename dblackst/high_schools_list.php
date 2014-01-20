@@ -17,9 +17,14 @@
     <div id="high-school-list" class="container">
 
         <?php
+            // compare two names using the "human order" algrorithm
+            function compare_name($a, $b) {
+                return strnatcasecmp($a[1], $b[1]);
+            }
+
             if (filesize("user_info.txt") > 0) {
                 // array to hold users when all fields are separated
-                $usersSplitFieldsArray = array();
+                $usersSortedArray = array();
 
                 // array to hold users when all fields are separated and sorted
                 $highSchoolsArray = array();
@@ -33,11 +38,11 @@
                 foreach ($usersArray as $user) {
                     // split each user into an array of fields and add it to an array
                     $user = explode(" | ", $user);
-                    array_push($usersSplitFieldsArray, $user);
+                    array_push($usersSortedArray, $user);
                 }
 
                 // go through each user
-                foreach($usersSplitFieldsArray as $user) {
+                foreach($usersSortedArray as $user) {
 
                     // check if the user's high school is not in the list of high schools
                     if (in_array($user[5], $highSchoolsArray) == false) {
@@ -50,13 +55,16 @@
                 // sort the high schools using a natural order algorithm
                 natcasesort($highSchoolsArray);
 
+                // sort the array of arrays alphabetically by name
+                usort($usersSortedArray, 'compare_name');
+
                 // loop through all the high schools
                 foreach($highSchoolsArray as $highSchool) {
 
                     echo "<div><b>".$highSchool."</b></div><ul>";
 
                     // loop through all the users
-                    foreach($usersSplitFieldsArray as $user){
+                    foreach($usersSortedArray as $user){
 
                         // check if the user's high school matches the one currently being checked
                         if ($user[5] == $highSchool) {
