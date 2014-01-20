@@ -14,7 +14,7 @@
             High School</a>
     </div>
 
-    <table id="members-table">
+    <table id="members-table" class="container">
         <tr>
             <th>Photo</th>
             <th>Name</th>
@@ -42,13 +42,13 @@
                     array_push($usersSortedArray, $user);
                 }
 
-                // sort the array of arrays alphabetically by last name
+                // sort the array of arrays alphabetically by high school
                 usort($usersSortedArray, 'compare_lastname');
 
                 // print the sorted array
                 foreach($usersSortedArray as $user){
                     echo "<tr><td class=\"profile-picture-cell\"><img src=\"img/user_icon.png\" alt=\"Placeholder user photo\" width=\"50\" height=\"50\"</td>";
-                    echo "<td class=\"user-name-cell\">".$user[1]."</td>";
+                    echo "<td class=\"user-name-cell\"><a href=\"user.php?id=".$user[0]."\">".$user[1]."</a></td>";
                     echo "<td class=\"high-school-name-cell\">".$user[5]."</td>";
                     echo "</tr>";
                 }

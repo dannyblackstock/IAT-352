@@ -3,7 +3,9 @@
 
 // responsive breakpoints
 $bigger-than-tiny: new-breakpoint(min-width 286px 4);
-$bigger-than-small: new-breakpoint(min-width 590px 12);
+$bigger-than-small: new-breakpoint(min-width 350px 12);
+$bigger-than-medium: new-breakpoint(min-width 545px 12);
+$bigger-than-large: new-breakpoint(min-width 780px 12);
 
 // colours
 $sfu-grey: #6e6d64;
@@ -12,9 +14,14 @@ $default-text-color: #333;
 
 @import "main_menu_bar.scss";
 @import "buttons_toggles.scss";
+@import "user_page.scss";
 
 // the font
 @import url(http://fonts.googleapis.com/css?family=Gudea:400,700,400italic);
+
+body {
+    background-color: rgb(237, 238, 239);
+}
 
 // important!
 body, input, textarea, button {
@@ -36,7 +43,7 @@ body, input, textarea, button {
     margin-top: 0;
     margin-bottom: 10px;
 
-    @include media($bigger-than-small) {
+    @include media($bigger-than-medium) {
         text-align: left;
         margin-bottom: 20px;
         @include span-columns(6);
@@ -46,11 +53,9 @@ body, input, textarea, button {
 //links
 a {
     color: #69ABED;
+
     &:hover {
         color: darken(#69ABED, 20);
-    }
-    &:visited {
-        color: #69ABED;
     }
 }
 
@@ -65,14 +70,22 @@ a {
     padding: 10px;
     // background-color: #eee;
 
-    @include media($bigger-than-small) {
+    @include media($bigger-than-medium) {
         padding: 25px;
     }
+}
+
+.container {
+    background-color: #FFF;
+    border: 1px solid #ddd;
+    padding: 10px;
+    box-shadow: 0 2px 2px rgba(0,0,0, 0.1);
 }
 
 #members-table {
     width: 100%;
     border-collapse: collapse;
+    background-color: #FFF;
 
     .profile-picture-cell {
         width: 50px;
@@ -84,31 +97,86 @@ a {
     }
 }
 
-#high-schools-list {
-    @include span-columns(12);
-    margin-top: 20px;
-}
-
 // sign up and log in forms
 .sign-up-log-in-form {
+    @include span-columns(12);
     text-align: center;
-    @include span-columns(6);
-    @include shift(3);
-
 
     input, textarea {
         display: block;
         margin: 10px auto;
     }
+    
+    .form-input, .form-textarea {
+        // box-shadow: none;
+        border: 1px solid #ddd;
+        padding: 5px;
+        font-size: 1em;
+        width: 200px;
+    }
 
-    input[type="submit"] {
+    .form-button {
+        width: 200px;
+    }
 
+    @include media($bigger-than-tiny) {
+        @include span-columns(4);
+    }
+
+    @include media($bigger-than-medium) {
     }
 }
 
 #sign-up-results {
     width: 400px;
     margin: 0 auto;
+}
+
+// ----- START viewing posts styles ----- //
+
+.post-container {
+    @include span-columns(12);
+    margin-bottom: 20px;
+
+    .post-info {
+        @include clearfix;
+        border-bottom: 1px solid #eee;
+        padding: 0 0 10px;
+        margin: 0 0 10px 0;
+
+        .post-info-left {
+            @include media($bigger-than-small){
+                float: left;
+            }
+
+            .user-profile-pic {
+                max-width: 50px;
+                max-height: 50px;
+                display: inline-block;
+                border: 1px solid #ddd;
+                margin-right: 5px;
+                vertical-align: middle;
+            }
+
+            .user-name {
+                display: inline-block;
+            }
+        }
+
+        .post-info-right {
+
+            @include media($bigger-than-small){
+                float: right;
+            }
+
+            color: #bbb;
+            padding-top: 14px;
+        }
+    }
+
+    .post-contents {
+        padding: 10px 0 10px 0;
+    }
 }
 
 // ----- START footer ----- //

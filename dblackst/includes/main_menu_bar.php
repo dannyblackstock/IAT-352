@@ -12,7 +12,7 @@
         <div id="main-menu-bar-right">
 
             <!-- sign up prompt -->
-            <a  class="button-red" id="sign-up-button" href="sign_up.php">
+            <a  class="button-grey" id="sign-up-button" href="sign_up.php">
                 Sign up
             </a>
 

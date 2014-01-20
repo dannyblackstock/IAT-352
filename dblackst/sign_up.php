@@ -5,9 +5,11 @@
 <?php require("includes/main_menu_bar.php"); ?>
 
 <div id="content-container">
-    <h1 class="center-text">Sign up</h1>
+    
     <!-- Sign up form -->
-    <form name="input" action="sign_up_submit.php" method="post" class="sign-up-log-in-form">
+    <form name="input" action="sign_up_submit.php" method="post" class="sign-up-log-in-form container">
+
+        <h1 class="center-text">Sign up</h1>
 
         <input class="form-input" type="text" name="name" placeholder="Name">
 
@@ -24,7 +26,7 @@
 
         <textarea class="form-textarea" name="bio" placeholder="Bio"></textarea>
 
-        <input class="form-button" type="submit"  name="submit" value="Submit">
+        <input class="form-button button-grey" type="submit"  name="submit" value="Submit">
         <p>Already have an account? <a href="log_in.php">Log in</a></p>
     </form> 
 </div>

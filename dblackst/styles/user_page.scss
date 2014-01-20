@@ -1,0 +1,66 @@
+// ----- START user page ----- //
+#user-info-box {
+    @include span-columns(12);
+}
+
+#user-main-profile-picture {
+    @include span-columns(12);
+    background-color: #FFF;
+    position: relative;
+
+    img {
+        display: block;
+        margin: 0 auto;
+        max-width: 100%;
+        max-height: 100%;
+    }
+
+    @include media($bigger-than-small) {
+        text-align: center;
+        img {
+            max-width: 328px;
+        }
+    }
+
+    @include media ($bigger-than-medium) {
+        @include span-columns(5);
+        img {
+            max-width: 100%;
+            max-height: 100%;
+        }
+    }
+
+    @include media($bigger-than-large) {
+        @include span-columns(3);
+    }
+}
+
+#user-info-content {
+    padding: 0 10px;
+
+    @include span-columns(12);
+
+    @include media ($bigger-than-medium) {
+        @include span-columns(7);
+    }
+
+    @include media($bigger-than-large) {
+        @include span-columns(9);
+        @include omega();
+    }
+
+    .user-name {
+        margin: 10px 0 5px 0;
+    }
+}
+
+#user-posts {
+    @include span-columns(12);
+    margin-top: 10px;
+    padding: 10px;
+
+    h1 {
+        text-align: center;
+    }
+}
+// ----- END user page ----- //

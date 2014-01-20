@@ -1,17 +1,19 @@
 // ----- START Menu bar for all pages ----- //
 #main-menu-bar-container {
     width: 100%;
-    background-color: $sfu-grey;
+    background-color: desaturate($sfu-red, 20);
+    border-bottom: 1px solid darken($sfu-red,20);
+    box-shadow: 0 2px 2px rgba(0,0,0,0.1);
 }
 
 #main-menu-bar {
     @include outer-container;
-    background-color: $sfu-grey;
+    background-color: desaturate($sfu-red, 20);
     padding: 10px;
     color: #fff;
     text-align: center;
 
-    @include media($bigger-than-small) {
+    @include media($bigger-than-medium) {
         padding: 10px 25px;
     }
 }

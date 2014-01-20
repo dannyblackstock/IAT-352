@@ -2,7 +2,8 @@
 2 | Marcus | sucka@asdvkajs.com | password2 |  | High School 2 | 2999 | Biology is my fav
 3 | Jimmy Smithwood | jim@123.com | password9000 |  | Richmond High | 1985 | I like squirrels!
 4 | abacka | asjkdfhl@gmail.com | poop |  | Centennial Secondary | 1999 | I like PS3!
-5 | Billy Bob | bob@bob.com | PASSW0RDSZZZZ |  | Terry Fox Secondary | 2013 | I'm in SIAT.
+5 | Billy Bob | bob@bob.com | PASSW0RDSZZZZ |  | Terry Fox Secondary | 2013 | I'm in SIAT. I'm in SIAT. I'm in SIAT. I'm in SIAT. I'm in SIAT. I'm in SIAT. I'm in SIAT. I'm in SIAT. I'm in SIAT. I'm in SIAT. I'm in SIAT. 
 6 | Billy Gob | jkasfhklajf@asjnfjkansfd.com | p455w0rd |  | ACRSS | 12 | Goop doop sha woop
 7 | Kim Brasosfkzi | kimbra@gmail.com | kimspassword! |  | King George School | 1492 | I like school so much
 8 | TEST BOY | testboy@fotmail.cosdfn | passy |  | 2 Cool 4 School | 1966 | Cool guy, likes MGS.
+9 | Joaquin Phoenix | jp@jp.com | passwordssszzz |  | Joaquin's School for the Awesome | 1984 | American actor, music video director, producer, musician, and social activist.

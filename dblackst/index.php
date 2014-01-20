@@ -14,7 +14,7 @@
             High School</a>
     </div>
 
-    <table id="members-table">
+    <table id="members-table" class="container">
         <tr>
             <th>Photo</th>
             <th>Name</th>
