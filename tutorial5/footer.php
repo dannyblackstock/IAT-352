@@ -1,0 +1,1 @@
+<p> &copy; 2014 <strong>IAT 352</strong> &nbsp;&nbsp; | Valid: <a href="http://validator.w3.org/check/referer">XHTML</a> | <a href="http://jigsaw.w3.org/css-validator/check/referer">CSS</a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a href="index.php">Home</a>&nbsp; </p>
