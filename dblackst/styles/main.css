@@ -528,31 +528,58 @@ a:hover {
     float: left;
     display: block;
     margin-right: 2.35765%;
-    width: 31.76157%;
-    min-height: 245px;
+    width: 48.82117%;
     text-align: center;
   }
   #members-table .user-container:last-child {
     margin-right: 0;
   }
+  #members-table .user-container:nth-child(2n) {
+    margin-right: 0;
+  }
+  #members-table .user-container:nth-child(2n+1) {
+    clear: left;
+  }
   #members-table .user-container * {
     margin: 0 auto;
   }
-  #members-table .user-container:nth-child(3n+3) {
+}
+@media screen and (min-width: 780px) {
+  #members-table .user-container {
+    float: left;
+    display: block;
+    margin-right: 2.35765%;
+    width: 31.76157%;
+  }
+  #members-table .user-container:last-child {
     margin-right: 0;
+  }
+  #members-table .user-container:nth-child(2n) {
+    margin-right: 2.35765%;
+  }
+  #members-table .user-container:nth-child(2n+1) {
+    clear: none;
+  }
+  #members-table .user-container:nth-child(3n) {
+    margin-right: 0;
+  }
+  #members-table .user-container:nth-child(3n+1) {
+    clear: left;
   }
 }
 #members-table .user-container:hover {
   background-color: #eee;
 }
-#members-table .user-container img {
-  max-width: 49%;
-  max-height: 100%;
+#members-table .user-container .user-profile-picture {
+  min-width: 49%;
+  height: 200px;
   display: inline-block;
   vertical-align: top;
+  background-size: cover;
+  background-position: center;
 }
 @media screen and (min-width: 545px) {
-  #members-table .user-container img {
+  #members-table .user-container .user-profile-picture {
     display: block;
   }
 }
@@ -564,6 +591,7 @@ a:hover {
 @media screen and (min-width: 545px) {
   #members-table .user-container .user-info-container {
     display: block;
+    max-width: 100%;
   }
 }
 #members-table .user-container .user-info-container .user-name {

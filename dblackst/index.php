@@ -44,11 +44,11 @@
 
                 // sort the array of arrays alphabetically by name
                 usort($usersSortedArray, 'compare_name');
-
+// background-image:url('paper.gif');
                 // print the sorted array
                 foreach($usersSortedArray as $user){
                     echo "<a href=\"user.php?id=".$user[0]."\" class=\"user-container\">
-                            <img src=\"img/user_icon.png\" alt=\"Placeholder user photo\" class=\"user-profile-picture\">
+                            <div style=\"background-image:url('img/user_icon.png');\" alt=\"Placeholder user photo\" class=\"user-profile-picture\"></div>
                             <div class=\"user-info-container\">
                                 <div class=\"user-name\">".$user[1]."</div>
                                 <div class=\"user-high-school\">".$user[5]."</div>
