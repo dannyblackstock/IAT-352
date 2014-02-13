@@ -40,8 +40,7 @@
             $userBio = $pageUser[7];
 
             echo "<div id=\"user-info-box\" class=\"container\">
-                    <div id=\"user-main-profile-picture\">
-                        <img src=\"img/profile_pic.jpg\" alt=\"".$userName."'s Profile Picture\">
+                    <div id=\"user-main-profile-picture\"  style=\"background-image:url('img/profile_pic.jpg');\" >
                     </div>
                     <div id=\"user-info-content\">";
 
