@@ -11,13 +11,11 @@
 
         <h1 class="center-text">Sign up</h1>
 
-        <input class="form-input" type="text" name="username" placeholder="User name" class="required">
+        <input class="form-input" type="email" name="email" placeholder="Email" class="required">
 
         <input class="form-input" type="password" name="password" placeholder="Password" class="required">
 
         <input class="form-input" type="text" name="name" placeholder="Full Name" class="required">
-
-        <input class="form-input" type="email" name="email" placeholder="Email" class="required">
 
         <!-- Profile picture upload-->
         <!-- <input class="form-file-input" type='file' name='profilePicture'> -->
@@ -36,7 +34,7 @@
         <textarea class="form-textarea" name="bio" placeholder="Bio"></textarea>
 
 
-        <input class="form-button button-grey" type="submit"  name="submit" value="Submit">
+        <input class="form-button button-grey" type="submit" name="submit" value="Submit">
 
         <p>Already have an account? <a href="log_in.php">Log in</a></p>
     </form> 

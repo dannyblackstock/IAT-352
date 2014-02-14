@@ -1,0 +1,23 @@
+<!-- HTML header, title, body tags, etc -->
+<?php require("includes/header.php"); ?>
+
+<!-- Main menu bar for all pages -->
+<?php require("includes/main_menu_bar.php"); ?>
+
+<div id="content-container">
+
+    <!-- Sign up form -->
+    <form name="input" action="login_authenticate.php" method="post" class="sign-up-log-in-form container">
+
+        <h1 class="center-text">Log in</h1>
+
+        <input class="form-input" type="email" name="email" id="emailInput" placeholder="Email">
+
+        <input class="form-input" type="password" name="password" id="passwordInput" placeholder="Password">
+
+        <input class="form-button button-grey" name="submit" type="submit" value="Submit">
+        <p>Don't have an account? <a href="sign_up.php">Sign up</a></p>
+    </form> 
+</div>
+
+<?php require("includes/footer.php"); ?>

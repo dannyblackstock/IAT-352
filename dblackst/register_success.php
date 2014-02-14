@@ -7,5 +7,4 @@
 <div id="content-container">
       <h1>User successfully registered.</h1>
 
-
 <?php require("includes/footer.php"); ?>

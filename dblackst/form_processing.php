@@ -1,32 +1,13 @@
 <?php
-      // 1. Create a database connection
-    $dbhost = "localhost";
-    $dbuser = "dblackst";
-    $dbpass = "dblackst";
-    $dbname = "dblackst";
-
-      // create new connection
-    @$db = new mysqli($dbhost, $dbuser, $dbpass, $dbname);
-
-      // Test if connection succeeded
-        // if connection failed, skip the rest of PHP code, and print an error
-    if ($db->connect_error)  {
-        die('Connect Error: ' . $db->connect_error);
-    }
+    require("includes/database_info.php");
 
     // if the form was submitted
     if(isset($_POST['submit'])) {
         // check if each form input was filled,  read values from $_POST if not, make the variable and empty string
-        if(isset($_POST['username'])) {
-            $username = $_POST['username'];
-        }
-        else {
-            $username = '';
-        }
 
         if(isset($_POST['password'])) {
             $password = $_POST['password'];
-            $password = md5($password);
+            $password = hash("sha256", $password);
         }
         else {
             $password = '';
@@ -88,7 +69,7 @@
             $isPhonePreferred = 'NULL';
         }
 
-        if(isset($_POST['bio']) && $_POST['bio'] !== "")) {
+        if(isset($_POST['bio']) && ($_POST['bio'] !== "")) {
             $bio = $_POST['bio'];
         }
         else {
@@ -96,13 +77,11 @@
         }
     }
 
-	// 2. Perform database query
+	// Perform database query
 
-    $query = "INSERT INTO `members`(`username`, `password`, `name`, `email`, `bio`, `location`, `high_school`, `grad_year`, `phone`, `is_phone_preferred`) 
-    VALUES ('{$username}', '{$password}', '{$name}', '{$email}', '{$bio}', '{$location}', '{$highschool}', {$graduationYear}, {$phone}, {$isPhonePreferred})";
-    // print_r($query);
-    // echo"<br>";
-	// check for results
+    $query = "INSERT INTO `members`(`password`, `name`, `email`, `bio`, `location`, `high_school`, `grad_year`, `phone`, `is_phone_preferred`) 
+    VALUES ('{$password}', '{$name}', '{$email}', {$bio}, '{$location}', '{$highschool}', {$graduationYear}, {$phone}, {$isPhonePreferred})";
+
     $result = $db->query($query);
 
     echo $query;
@@ -110,7 +89,7 @@
 	// if success - redirect to info_success.php
     if ($result) {
         echo "Success!";
-        header('Location: info_success.php');
+        header('Location: register_success.php');
     }
 
 	// else if error - skip the rest of PHP code, and print an error
