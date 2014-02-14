@@ -57,6 +57,8 @@ $TEXT['status-cgi']="Common Gateway Interface (CGI)";
 $TEXT['status-ssi']="Server Side Includes (SSI)";
 $TEXT['status-mmcache']="PHP extension &#187;eAccelerator&#171;";
 $TEXT['status-mmcache-url']="http://www.apachefriends.org/faq-lampp-en.html#mmcache";
+$TEXT['status-opcache']="PHP extension &#187;OPcache&#171;";
+$TEXT['status-opcache-url']="http://www.apachefriends.org/en/faq-xampp-linux.html#opcache";
 $TEXT['status-smtp']="Serveur SMTP";
 $TEXT['status-ftp']="Serveur FTP";
 $TEXT['status-oci8']="PHP extension &#187;OCI8/Oracle&#171;";
@@ -140,7 +142,7 @@ $TEXT['manuals-list1']="
 <li><a href=http://httpd.apache.org/docs/2.4/>Documentation Apache 2</a>
 <li><a href=http://www.php.net/manual/en/>Documentation de <b>référence </b>PHP</a>
 <li><a href=http://perldoc.perl.org/index.html>Documentation Perl </a>
-<li><a href=http://dev.mysql.com/doc/refman/5.5/en/>Documentation MySQL</a>
+<li><a href=http://dev.mysql.com/doc/refman/5.6/en/>Documentation MySQL</a>
 <li><a href=http://pdf-php.sourceforge.net/index.php/documentation.html>Documentation class pdf </a>
 </ul>";
 

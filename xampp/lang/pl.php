@@ -62,6 +62,8 @@ $TEXT['status-ssi']="Server Side Includes (SSI)";
 $TEXT['status-python']="Python z mod_python";
 $TEXT['status-mmcache']="PHP extension &#187;eAccelerator&#171;";
 $TEXT['status-mmcache-url']="http://www.apachefriends.org/faq-lampp-en.html#mmcache";
+$TEXT['status-opcache']="PHP extension &#187;OPcache&#171;";
+$TEXT['status-opcache-url']="http://www.apachefriends.org/en/faq-xampp-linux.html#opcache";
 $TEXT['status-smtp']="Us&#322;uga SMTP";
 $TEXT['status-ftp']="Us&#322;uga FTP";
 $TEXT['status-tomcat']="Us&#322;uga Tomcat";
@@ -149,7 +151,7 @@ $TEXT['manuals-list1']="
 <li><a href=http://httpd.apache.org/docs/2.4/>Dokumentacja Apache 2</a>
 <li><a href=http://www.php.net/manual/en/>Dokumentacja PHP</a>
 <li><a href=http://perldoc.perl.org/index.html>Dokumentacja Perl</a>
-<li><a href=http://dev.mysql.com/doc/refman/5.5/en/>Dokumentacja MySQL</a>
+<li><a href=http://dev.mysql.com/doc/refman/5.6/en/>Dokumentacja MySQL</a>
 <li><a href=http://pdf-php.sourceforge.net/index.php/documentation.html>Dokumentacja pdf class</a>
 </ul>";
 
