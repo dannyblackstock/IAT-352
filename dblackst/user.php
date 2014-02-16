@@ -11,7 +11,6 @@ require_once("includes/main_menu_bar.php");
 require_once("includes/database_info.php");
 ?>
 
-
 <div id="content-container">
 
         <?php
@@ -19,13 +18,13 @@ require_once("includes/database_info.php");
         if (is_numeric($_GET['id'])) {
             $userID = mysql_escape_string($_GET['id']);
 
-            $query = "SELECT * FROM members WHERE id=".$userID.";";
-            $result = $db->query($query);
+            $user_info_query = "SELECT * FROM members WHERE id=".$userID.";";
+            $user_info_result = $db->query($user_info_query);
 
-            if ($result) {
-                if ($result->num_rows > 0) {
+            if ($user_info_result) {
+                if ($user_info_result->num_rows > 0) {
                     // fetch associative array
-                    $user = $result->fetch_array(MYSQLI_ASSOC);
+                    $user = $user_info_result->fetch_array(MYSQLI_ASSOC);
 
                     echo "<div id=\"user-info-box\" class=\"container\">
                             <div id=\"user-main-profile-picture\"  style=\"background-image:url('img/profile_pic.jpg');\" >
@@ -49,52 +48,45 @@ require_once("includes/database_info.php");
                     if (!empty($user['bio']) && $user['bio'] !== "NULL") {
                         echo "<p>".$user['bio']."</p>";
                     }
+                    echo "</div></div>";
 
-                    // print_r($user);
-                    echo "</div>
-                            </div>
-                            <div id=\"user-posts\" class=\"container\">
-                                <h1 id=\"user-posts-header\">Posts</h1>
-                                <div class=\"post-container\">
+                    $user_posts_query = "SELECT * FROM posts WHERE user_id=".$userID.";";
+                    $user_posts_result = $db->query($user_posts_query);
 
+                    if ($user_posts_result) {
+
+                        echo "<div id=\"user-posts\" class=\"container\">
+                        <h1 id=\"user-posts-header\">Posts</h1>";
+
+                        if ($user_posts_result->num_rows > 0) {
+                            // fetch associative array
+
+                            while ($post = $user_posts_result->fetch_assoc()) {
+                                echo "<div class=\"post-container\">
                                     <div class=\"post-info\">
-                                        
                                         <div class=\"post-info-left\">
                                             <img class=\"user-profile-pic\" src=\"img/user_icon.png\" alt=\"User Profile Picture\">
-                                            <div class=\"user-name\">Danny Blackstock</div>
+                                            <div class=\"user-name\">".$user['name']."</div>
                                         </div>
 
                                         <div class=\"post-info-right\">
-                                            <div class=\"time-posted\">Posted on Tuesday at 5:19pm</div>
+                                            <div class=\"time-posted\">Posted on ".$post['date']."</div>
                                         </div>
                                     </div>
 
                                     <div class=\"post-contents\">
-                                        This is my first post! Yipee!
+                                        <b>".$post['title']."</b>
+                                        <p>".$post['content']."</p>
                                     </div>
-                                </div>
+                                </div>";
+                            }
+                            echo "</div>";
+                        }
 
-                                <div class=\"post-container\">
-
-                                    <div class=\"post-info\">
-                                        
-                                        <div class=\"post-info-left\">
-                                            <img class=\"user-profile-pic\" src=\"img/user_icon.png\" alt=\"User Profile Picture\">
-                                            <div class=\"user-name\">Danny Blackstock</div>
-                                        </div>
-
-                                        <div class=\"post-info-right\">
-                                            <div class=\"time-posted\">Posted on Tuesday at 5:19pm</div>
-                                        </div>
-                                    </div>
-
-                                    <div class=\"post-contents\">
-                                        This is my second post! Yipee!
-                                    </div>
-                                </div>
-                            </div>";
-                    // free result set
-                    $result->free();
+                        else {
+                            echo "<p>This user has no posts!</p>";
+                        }
+                    }
                 }
 
                 else {

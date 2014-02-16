@@ -24,12 +24,15 @@
                 if ($result) {
                     if ($result->num_rows > 0) {
                         $user = $result->fetch_array(MYSQLI_ASSOC);
-                        echo "Logged in as ".$user['name'].". ";
+                        echo "Logged in as <a href=\"user.php?id=".$user['id']."\">".$user['name']."</a>. ";
                         echo "<a href=\"logout.php\">Logout</a>";
+                        echo "<a href=\"new_post.php\"> New Post</a>";
                     }
                     else {
-                        echo "You are logged in as: ".$_SESSION['valid_user']."</p>";
+                        // if the name couldn't be retrieved, use the email
+                        echo "Logged in as  ".$_SESSION['valid_user']."</p>";
                         echo "<a href=\"logout.php\">Logout</a>";
+                        echo " <a href=\"new_post.php\">New Post</a>";
                     }
                 }
                 else {

@@ -18,9 +18,9 @@ if (session_status() == PHP_SESSION_NONE) {
 }
 
 //let's see how we got here
-echo "<p>callback_URL is: "; 
-if (isset($_SESSION['callback_URL'])) echo $_SESSION['callback_URL'];
-echo "</p>";
+// echo "<p>callback_URL is: "; 
+// if (isset($_SESSION['callback_URL'])) echo $_SESSION['callback_URL'];
+// echo "</p>";
 
 
 if (!isset($_SESSION['valid_user'])) {

@@ -7,6 +7,7 @@
             <img id="main-menu-bar-logo" src="img/siat_white_logo.png" alt="SIAT SFU LOGO">
             OUTREACH
         </a>
+        <a href="index.php">Browse members</a>
 
         <!-- right side of menu bar -->
         <div id="main-menu-bar-right">
@@ -30,10 +31,13 @@
                         $user = $result->fetch_array(MYSQLI_ASSOC);
                         echo "Logged in as <a href=\"user.php?id=".$user['id']."\">".$user['name']."</a>. ";
                         echo "<a href=\"logout.php\">Logout</a>";
+                        echo "<a href=\"new_post.php\"> New Post</a>";
                     }
                     else {
-                        echo "You are logged in as: ".$_SESSION['valid_user']."</p>";
+                        // if the name couldn't be retrieved, use the email
+                        echo "Logged in as  ".$_SESSION['valid_user']."</p>";
                         echo "<a href=\"logout.php\">Logout</a>";
+                        echo " <a href=\"new_post.php\">New Post</a>";
                     }
                 }
                 else {
