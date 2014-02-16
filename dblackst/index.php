@@ -1,8 +1,12 @@
 <!-- HTML header, title, body tags, etc -->
-<?php require("includes/header.php"); ?>
+<?php require("includes/header.php");
 
-<!-- Main menu bar for all pages -->
-<?php require("includes/main_menu_bar.php"); ?>
+//Main menu bar for all pages
+require("includes/main_menu_bar.php");
+
+// connect to database
+require("includes/database_info.php");
+?>
 
 <div id="content-container">
     <h1 class="main-header">Members</h1>
@@ -15,47 +19,35 @@
     </div>
 
     <div id="members-table" class="container">
-<!--         <tr>
-            <th>Photo</th>
-            <th>Name</th>
-            <th>High School</th>
-        </tr> -->
+
         <?php
-            // compare two names using the "human order" algrorithm
-            function compare_name($a, $b) {
-                return strnatcasecmp($a[1], $b[1]);
-            }
+        // Perform database query
 
-            if (filesize("user_info.txt") > 0) {
-                // array to hold users when all fields are separated and sorted
-                $usersSortedArray = array();
+        $query = "SELECT `id`, `name` , `high_school` FROM `members` ORDER BY `members`.`name` ASC LIMIT 0 , 30";
 
-                // load info file for all users
-                $userFile = file_get_contents("user_info.txt");
+        $result = $db->query($query);
 
-                // create an array of each user by splitting it every new line
-                $usersArray = explode("\n", $userFile);
+        if ($result = $db->query($query)) {
 
-                foreach ($usersArray as $user) {
-                    // split each user into an array of fields and add it to an array
-                    $user = explode(" | ", $user);
-                    array_push($usersSortedArray, $user);
-                }
-
-                // sort the array of arrays alphabetically by name
-                usort($usersSortedArray, 'compare_name');
-// background-image:url('paper.gif');
-                // print the sorted array
-                foreach($usersSortedArray as $user){
-                    echo "<a href=\"user.php?id=".$user[0]."\" class=\"user-container\">
+            /* fetch associative array */
+            while ($user = $result->fetch_assoc()) {
+                // printf ("%s (%s)\n", $user["name"], $user["high_school"]);
+                echo "<a href=\"user.php?id=".$user['id']."\" class=\"user-container\">
                             <div style=\"background-image:url('img/user_icon.png');\" alt=\"Placeholder user photo\" class=\"user-profile-picture\"></div>
                             <div class=\"user-info-container\">
-                                <div class=\"user-name\">".$user[1]."</div>
-                                <div class=\"user-high-school\">".$user[5]."</div>
+                                <div class=\"user-name\">".$user['name']."</div>
+                                <div class=\"user-high-school\">".$user['high_school']."</div>
                             </div>
                         </a>";
-                }
             }
+
+            /* free result set */
+            $result->free();
+        }
+
+
+        /* close connection */
+        $db->close();
         ?>
     </div>
 </div>

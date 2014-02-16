@@ -1,10 +1,30 @@
 <?php
-      // 1. Create a database connection
-    require("includes/database_info.php");
+// 1. Create a database connection
+require("includes/database_info.php");
+require("includes/header.php");
+require("includes/main_menu_bar.php");
+
+// force HTTPS for the form submission if not set already
+if($_SERVER["HTTPS"] != "on") {
+    //header("Location: https://". $_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI']);
+    header("Location: https://". str_replace(":8080", "", $_SERVER['HTTP_HOST']) .$_SERVER['REQUEST_URI']);
+
+    exit;
+}
+
+session_start();
+
+//let's see how we got here
+echo "<p>callback_URL is: "; 
+if (isset($_SESSION['callback_URL'])) echo $_SESSION['callback_URL'];
+echo "</p>";
+
+
+if (!isset($_SESSION['valid_user'])) {
 
     // if the form was submitted
     if(isset($_POST['submit'])) {
-        // check if each form input was filled,  read values from $_POST if not, make the variable and empty string
+        // check if each form input was filled, read values from $_POST if not, make the variable and empty string
 
         if(isset($_POST['password'])) {
             $password = $_POST['password'];
@@ -20,29 +40,84 @@
         else {
             $email = '';
         }
+
+
+        // Perform database query
+
+        $query = "SELECT * FROM members WHERE `email`=\"".$email."\" AND `password`=\"".$password."\";";
+
+        // check for results
+        $result = $db->query($query);
+
+        echo $query;
+
+        // if success - redirect to info_success.php
+        if ($result) {
+            // visitor's name and password combination are correct
+            // do whatever matching is necessary - against the DB here
+            $_SESSION['valid_user'] = $_POST['email'];
+            echo "<br><br>Success!";
+              // header('Location: info_success.php');
+        }
+
+        else {
+            //login failed, let them try again
+            echo "<h1>Invalid login info, please try again</h1>";
+        }
+
+
+        // else if error - skip the rest of PHP code, and print an error
+        if ($db->connect_error)  {
+            die('Connect Error: ' . $db->connect_error);
+        }
+
+        // Close database connection 
+        $db->close();
+
     }
 
-	// Perform database query
+    else {
+        //login info missing - signing in first time
+        echo "<h1>Please Log In</h1>";
+    }
+}
 
-    $query = "SELECT * FROM members WHERE `email`=\"".$email."\" AND `password`=\"".$password."\";";
-
-	// check for results
-    $result = $db->query($query);
-
-    echo $query;
-
-	// if success - redirect to info_success.php
-    if ($result) {
-        // print_r($result);
-        echo "<br><br>Success!";
-          // header('Location: info_success.php');
+if (isset($_SESSION['valid_user'])) {
+    //autheticated correctly 
+    if (isset($_SESSION['callback_URL'])) {
+        // go back where you came from
+        $callback_URL=$_SESSION['callback_URL'];
+        unset($_SESSION['callback_URL']);
+        echo $callback_URL;
+        header('Location: '.$callback_URL);
+        exit();
     }
 
-	// else if error - skip the rest of PHP code, and print an error
-    if ($db->connect_error)  {
-        die('Connect Error: ' . $db->connect_error);
+    else {
+        echo "<h1>You are now logged in.</h1>";
     }
+}
 
-    // Close database connection 
-    $db->close();
+else {
+    //did not authenticate yet or failed previous attempt
+    //show form
+    ?>
+    <div id="content-container">
+
+        <!-- Sign up form -->
+        <form name="input" action="login_authenticate.php" method="post" class="sign-up-log-in-form container">
+
+            <h1 class="center-text">Log in</h1>
+
+            <input class="form-input" type="email" name="email" id="emailInput" placeholder="Email">
+
+            <input class="form-input" type="password" name="password" id="passwordInput" placeholder="Password">
+
+            <input class="form-button button-grey" name="submit" type="submit" value="Submit">
+            <p>Don't have an account? <a href="sign_up.php">Sign up</a></p>
+        </form> 
+    </div>
+<?php
+}
+require("includes/footer.php");
 ?>

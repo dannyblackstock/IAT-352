@@ -17,7 +17,7 @@
             </a>
 
             <!-- log in / sign out button -->
-            <a  class="button" id="log-in-button" href="log_in.php">
+            <a  class="button" id="log-in-button" href="login_authenticate.php">
                 Log in
             </a>
 

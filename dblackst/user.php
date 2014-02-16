@@ -1,102 +1,103 @@
 <!-- HTML header, title, body tags, etc -->
-<?php require("includes/header.php"); ?>
+<!-- HTML header, title, body tags, etc -->
+<?php require("includes/header.php");
 
-<!-- Main menu bar for all pages -->
-<?php require("includes/main_menu_bar.php"); ?>
+//Main menu bar for all pages
+require("includes/main_menu_bar.php");
+
+// connect to database
+require("includes/database_info.php");?>
+
 
 <div id="content-container">
 
-    <?php
+        <?php
+        // Perform database query
         if (is_numeric($_GET['id'])) {
+            $userID = mysql_escape_string($_GET['id']);
 
-            // set id for the current user view
-            $userID = $_GET['id'];
+            $query = "SELECT * FROM members WHERE id=".$userID.";";
+            $result = $db->query($query);
 
-            // load user file
-            $userFile = file_get_contents("user_info.txt");
+            if ($result) {
+                if ($result->num_rows > 0) {
+                    // fetch associative array
+                    $user = $result->fetch_array(MYSQLI_ASSOC);
 
-            // split into an array at every new line
-            $usersArray = explode("\n", $userFile);
+                    echo "<div id=\"user-info-box\" class=\"container\">
+                            <div id=\"user-main-profile-picture\"  style=\"background-image:url('img/profile_pic.jpg');\" >
+                            </div>
+                            <div id=\"user-info-content\">";
 
-            // array to hold users when all fields are separated
-            $usersSortedArray = array();
+                    echo "<h1 class=\"user-name\">".$user['name']."</h1>";
+                    echo "<div><a href=\"mailto:".$user['email']."?Subject=Regarding%20SIAT%20Outreach%Page\" target=\"_top\">".$user['email']."</a></div>";
+                    echo "<p>Graduated from ".$user['high_school']." in ".$user['grad_year'].".</p>";
 
-            foreach ($usersArray as $user) {
-                // split each user into an array of fields and add it to an array
-                $user = explode(" | ", $user);
-                array_push($usersSortedArray, $user);
+                    if (!empty($user['bio']) && $user['bio'] !== "NULL") {
+                        echo "<p>".$user['bio']."</p>";
+                    }
+
+                    // print_r($user);
+                    echo "</div>
+                            </div>
+                            <div id=\"user-posts\" class=\"container\">
+                                <h1 id=\"user-posts-header\">Posts</h1>
+                                <div class=\"post-container\">
+
+                                    <div class=\"post-info\">
+                                        
+                                        <div class=\"post-info-left\">
+                                            <img class=\"user-profile-pic\" src=\"img/user_icon.png\" alt=\"User Profile Picture\">
+                                            <div class=\"user-name\">Danny Blackstock</div>
+                                        </div>
+
+                                        <div class=\"post-info-right\">
+                                            <div class=\"time-posted\">Posted on Tuesday at 5:19pm</div>
+                                        </div>
+                                    </div>
+
+                                    <div class=\"post-contents\">
+                                        This is my first post! Yipee!
+                                    </div>
+                                </div>
+
+                                <div class=\"post-container\">
+
+                                    <div class=\"post-info\">
+                                        
+                                        <div class=\"post-info-left\">
+                                            <img class=\"user-profile-pic\" src=\"img/user_icon.png\" alt=\"User Profile Picture\">
+                                            <div class=\"user-name\">Danny Blackstock</div>
+                                        </div>
+
+                                        <div class=\"post-info-right\">
+                                            <div class=\"time-posted\">Posted on Tuesday at 5:19pm</div>
+                                        </div>
+                                    </div>
+
+                                    <div class=\"post-contents\">
+                                        This is my second post! Yipee!
+                                    </div>
+                                </div>
+                            </div>";
+                    // free result set
+                    $result->free();
+                }
+
+                else {
+                    echo "<h1 class=\"main-header\">User not found!</h1>";
+                }
             }
-
-            // set the user based on the current ID of the GET with the page
-            $pageUser = $usersSortedArray[($userID-1)];
-
-            // get the variables for the user
-            $userName = $pageUser[1];
-            $userEmail = $pageUser[2];
-            // $userPassword = $pageUser[3];
-            // $userProfilePhoto = $pageUser[4];
-            $userHighSchool = $pageUser[5];
-            $userGradYear = $pageUser[6];
-            $userBio = $pageUser[7];
-
-            echo "<div id=\"user-info-box\" class=\"container\">
-                    <div id=\"user-main-profile-picture\"  style=\"background-image:url('img/profile_pic.jpg');\" >
-                    </div>
-                    <div id=\"user-info-content\">";
-
-            echo "<h1 class=\"user-name\">".$userName."</h1>";
-            echo "<div><a href=\"mailto:".$userEmail."?Subject=Hello%20again\" target=\"_top\">".$userEmail."</a></div>";
-            echo "<p>Graduated from ".$userHighSchool." in ".$userGradYear.".</p>";
-            echo "<p>".$userBio."</p>";
-            echo "</div>
-                </div>
-                <div id=\"user-posts\" class=\"container\">
-                    <h1 id=\"user-posts-header\">Posts</h1>
-                    <div class=\"post-container\">
-
-                        <div class=\"post-info\">
-                            
-                            <div class=\"post-info-left\">
-                                <img class=\"user-profile-pic\" src=\"img/user_icon.png\" alt=\"User Profile Picture\">
-                                <div class=\"user-name\">Danny Blackstock</div>
-                            </div>
-
-                            <div class=\"post-info-right\">
-                                <div class=\"time-posted\">Posted on Tuesday at 5:19pm</div>
-                            </div>
-                        </div>
-
-                        <div class=\"post-contents\">
-                            This is my first post! Yipee!
-                        </div>
-                    </div>
-
-                    <div class=\"post-container\">
-
-                        <div class=\"post-info\">
-                            
-                            <div class=\"post-info-left\">
-                                <img class=\"user-profile-pic\" src=\"img/user_icon.png\" alt=\"User Profile Picture\">
-                                <div class=\"user-name\">Danny Blackstock</div>
-                            </div>
-
-                            <div class=\"post-info-right\">
-                                <div class=\"time-posted\">Posted on Tuesday at 5:19pm</div>
-                            </div>
-                        </div>
-
-                        <div class=\"post-contents\">
-                            This is my second post! Yipee!
-                        </div>
-                    </div>
-                </div>";
+            else {
+                echo "<h1 class=\"main-header\">Query failed!</h1>";
+            }
+            // close connection
+            $db->close();
         }
-
         else {
             echo "<h1 class=\"main-header\">User not found!</h1>";
         }
-    ?>
-
+        ?>
 </div>
 
 <?php require("includes/footer.php"); ?>
