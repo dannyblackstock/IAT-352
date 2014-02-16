@@ -2,7 +2,7 @@
 // 1. Create a database connection
 require("includes/database_info.php");
 require("includes/header.php");
-require("includes/main_menu_bar.php");
+require("includes/main_menu_bar_login.php");
 
 // force HTTPS for the form submission if not set already
 if($_SERVER["HTTPS"] != "on") {
@@ -12,7 +12,10 @@ if($_SERVER["HTTPS"] != "on") {
     exit;
 }
 
-session_start();
+// if the session isn't already running
+if (session_status() == PHP_SESSION_NONE) {
+    session_start();
+}
 
 //let's see how we got here
 echo "<p>callback_URL is: "; 

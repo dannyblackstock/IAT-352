@@ -1,11 +1,11 @@
 <!-- HTML header, title, body tags, etc -->
-<?php require("includes/header.php");
+<?php require_once("includes/header.php");
 
 //Main menu bar for all pages
-require("includes/main_menu_bar.php");
+require_once("includes/main_menu_bar.php");
 
 // connect to database
-require("includes/database_info.php");
+require_once("includes/database_info.php");
 ?>
 
 <div id="content-container">
@@ -52,4 +52,4 @@ require("includes/database_info.php");
     </div>
 </div>
 
-<?php require("includes/footer.php"); ?>
+<?php require_once("includes/footer.php"); ?>

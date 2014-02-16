@@ -8,6 +8,7 @@ if (isset($_SESSION['valid_user'])) {
 } else {
 	echo "<h1>You were not logged in.</h1>";
 }
+echo "<a href=\"index.php\">Index</a>";
 
 //session_destroy();
 

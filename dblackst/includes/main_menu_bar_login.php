@@ -17,18 +17,14 @@
                 session_start();
             }
 
-            // set the callback URL
-            $_SESSION['callback_URL'] = (isset($_SERVER['HTTPS']) ? "https://" : "http://") . 
-                $_SERVER['HTTP_HOST'] .  $_SERVER['REQUEST_URI'];
-
             if (isset($_SESSION['valid_user'])) {
-                $query = "SELECT `id`, `name` FROM `members` WHERE email=\"".mysql_real_escape_string($_SESSION['valid_user'])."\";";
+                $query = "SELECT 'id', 'name' FROM members WHERE email=\"".mysql_real_escape_string($_SESSION['valid_user'])."\";";
                 $result = $db->query($query);
 
                 if ($result) {
                     if ($result->num_rows > 0) {
                         $user = $result->fetch_array(MYSQLI_ASSOC);
-                        echo "Logged in as <a href=\"user.php?id=".$user['id']."\">".$user['name']."</a>. ";
+                        echo "Logged in as ".$user['name'].". ";
                         echo "<a href=\"logout.php\">Logout</a>";
                     }
                     else {

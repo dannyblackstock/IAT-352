@@ -1,12 +1,15 @@
 <!-- HTML header, title, body tags, etc -->
 <!-- HTML header, title, body tags, etc -->
-<?php require("includes/header.php");
+<?php
+
+require_once("includes/header.php");
 
 //Main menu bar for all pages
-require("includes/main_menu_bar.php");
+require_once("includes/main_menu_bar.php");
 
 // connect to database
-require("includes/database_info.php");?>
+require_once("includes/database_info.php");
+?>
 
 
 <div id="content-container">
@@ -30,9 +33,19 @@ require("includes/database_info.php");?>
                             <div id=\"user-info-content\">";
 
                     echo "<h1 class=\"user-name\">".$user['name']."</h1>";
-                    echo "<div><a href=\"mailto:".$user['email']."?Subject=Regarding%20SIAT%20Outreach%Page\" target=\"_top\">".$user['email']."</a></div>";
+                    echo "<div><a href=\"mailto:".$user['email']."?Subject=SIAT\" target=\"_top\">".$user['email']."</a>";
+                    if (!empty($user['phone']) && $user['phone'] !== "NULL") {
+                        echo " | ".$user['phone']."</div>";
+                        if ($user['is_phone_preferred'] == "1") {
+                            echo "<div>".$user['name']." prefers to be contacted by phone.</div>";
+                        }
+                    }
+                    else {
+                        echo "</div>";
+                    }
                     echo "<p>Graduated from ".$user['high_school']." in ".$user['grad_year'].".</p>";
 
+                    echo "<p>Currently lives in ".$user['location'].".</p>";
                     if (!empty($user['bio']) && $user['bio'] !== "NULL") {
                         echo "<p>".$user['bio']."</p>";
                     }
@@ -100,4 +113,4 @@ require("includes/database_info.php");?>
         ?>
 </div>
 
-<?php require("includes/footer.php"); ?>
+<?php require_once("includes/footer.php"); ?>
