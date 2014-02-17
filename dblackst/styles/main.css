@@ -360,7 +360,7 @@
   margin-right: 2.35765%;
   width: 100%;
   margin-top: 10px;
-  padding: 10px;
+  padding: 10px 20px;
 }
 #user-posts:last-child {
   margin-right: 0;
@@ -443,17 +443,17 @@ a:hover {
   box-shadow: 0 2px 2px rgba(0, 0, 0, 0.1);
 }
 
-#high-school-list {
+#high-schools-table {
   float: left;
   display: block;
   margin-right: 2.35765%;
   width: 100%;
 }
-#high-school-list:last-child {
+#high-schools-table:last-child {
   margin-right: 0;
 }
 @media screen and (min-width: 545px) {
-  #high-school-list {
+  #high-schools-table {
     padding: 25px;
   }
 }

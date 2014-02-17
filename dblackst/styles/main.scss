@@ -84,7 +84,7 @@ a {
     box-shadow: 0 2px 2px rgba(0,0,0, 0.1);
 }
 
-#high-school-list{
+#high-schools-table{
     @include span-columns(12);
 
     @include media($bigger-than-medium) {

@@ -1,6 +1,12 @@
 <?php
+require_once("includes/header.php");
 
-session_start();
+//Main menu bar for all pages
+require_once("includes/main_menu_bar.php");
+
+if (session_status() == PHP_SESSION_NONE) {
+    session_start();
+}
 
 if (isset($_SESSION['valid_user'])) {
 	unset($_SESSION['valid_user']);
@@ -15,4 +21,4 @@ echo "<a href=\"index.php\">Index</a>";
 // echo '<p>Menu: <a href="protectedPage1.php">Page 1</a>, 
 // 			<a href="protectedPage2.php">Page 2</a></p>';
 	
-?>
+ require("includes/footer.php"); ?>
