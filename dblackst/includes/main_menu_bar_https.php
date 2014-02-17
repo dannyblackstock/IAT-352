@@ -16,16 +16,21 @@ if($_SERVER["HTTPS"] != "on") {
             <img id="main-menu-bar-logo" src="img/siat_white_logo.png" alt="SIAT SFU LOGO">
             OUTREACH
         </a>
-        <a href="index.php">Browse members</a>
 
         <!-- right side of menu bar -->
         <div id="main-menu-bar-right">
+            <a href="index.php">Browse members</a>
             <?php
             require_once("database_info.php");
 
             if (session_status() == PHP_SESSION_NONE) {
                 session_start();
             }
+
+
+
+
+
             if (isset($_SESSION['valid_member']) || isset($_SESSION['valid_visitor'])) {
                 if (isset($_SESSION['valid_member'])) {
                     $query = "SELECT `id`, `name` FROM `members` WHERE email=\"".mysql_real_escape_string($_SESSION['valid_member'])."\";";
@@ -33,15 +38,15 @@ if($_SERVER["HTTPS"] != "on") {
                     if ($result) {
                         if ($result->num_rows > 0) {
                             $user = $result->fetch_array(MYSQLI_ASSOC);
+                            echo "<a href=\"new_post.php\"> New Post</a>";
                             echo "Logged in as <a href=\"user.php?id=".$user['id']."\">".$user['name']."</a>. ";
                             echo "<a href=\"logout.php\">Log out</a>";
-                            echo "<a href=\"new_post.php\"> New Post</a>";
                         }
                         else {
                             // if the name couldn't be retrieved, use the email
+                            echo " <a href=\"new_post.php\">New Post</a>";
                             echo "Logged in as ".$_SESSION['valid_member']."</p>";
                             echo "<a href=\"logout.php\">Log out</a>";
-                            echo " <a href=\"new_post.php\">New Post</a>";
                         }
                     }
                     else {
@@ -54,11 +59,13 @@ if($_SERVER["HTTPS"] != "on") {
                     if ($result) {
                         if ($result->num_rows > 0) {
                             $user = $result->fetch_array(MYSQLI_ASSOC);
+                            echo "<a href='post_feed.php'>Post Feed</a>";
                             echo "Logged in as ".$user['name'].". ";
                             echo "<a href=\"logout.php\">Log out</a>";
                         }
                         else {
                             // if the name couldn't be retrieved, use the email
+                            echo "<a href='post_feed.php'>Post Feed</a>";
                             echo "Logged in as ".$_SESSION['valid_visitor']."</p>";
                             echo "<a href=\"logout.php\">Log out</a>";
                         }

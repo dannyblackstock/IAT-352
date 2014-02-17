@@ -10,7 +10,7 @@ require_once("includes/database_info.php");
 
 if (!isset($_SESSION['valid_member'])) {
     //use proper https URL with a full path
-    header("Location: login_authenticate.php");
+    header("Location: login_member_authenticate.php");
     exit;
 }
 
@@ -56,8 +56,22 @@ if ($stmt->execute()) {
     echo "Success!\n";
     printf("%d Row inserted.\n", $stmt->affected_rows);
     $stmt->close();
-    // header('Location: register_success.php');
+
+    $current_user_query = "SELECT `id` FROM `members` WHERE email=\"".mysql_real_escape_string($_SESSION['valid_member'])."\"";
+    $current_user_result = $db->query($current_user_query);
+
+    echo $current_user_query;
+    // if the user's info exists
+    if ($current_user_result) {
+        $user = $current_user_result->fetch_assoc();
+        // send back to the user's page
+        header("Location: user.php?id=".$user['id']);
+    }
+    else {
+
     echo "<BR>POST SUBMITTED";
+    }
+
 }
 
 if ($db->connect_error)  {

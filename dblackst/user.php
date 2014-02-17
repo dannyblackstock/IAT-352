@@ -14,8 +14,9 @@ require_once("includes/database_info.php");
 <div id="content-container">
 
     <?php
-    // Perform database query
-    if (is_numeric($_GET['id'])) {
+    // if this is a proper user page URL
+    if (isset($_GET['id']) && is_numeric($_GET['id'])) {
+        // Perform database query
         $userID = mysql_escape_string($_GET['id']);
 
         $user_info_query = "SELECT * FROM members WHERE id=".$userID.";";
@@ -37,14 +38,16 @@ require_once("includes/database_info.php");
                 // user's name
                 echo "<h1 class='user-name'>".$user['name']."</h1>";
 
+
+
+
+                // Code for follow/unfollow button
+
                 // user must login to a visitor account if they want to follow
                 if (!isset($_SESSION['valid_member']) && !isset($_SESSION['valid_visitor'])) {
                     echo "<a href='login_visitor_authenticate.php'>Follow</a>";
                 }
 
-
-
-                // Code for follow/unfollow button
                 // if they are a visitor
                 else if (isset($_SESSION['valid_visitor'])) {
 
@@ -65,8 +68,6 @@ require_once("includes/database_info.php");
                         echo "<a href='follow.php?follow=".$userID."'>Follow</a>";
                     }
                 }
-
-
 
                 // email address
                 echo "<div><a href='mailto:".$user['email']."?Subject=SIAT' target='_top'>".$user['email']."</a>";
@@ -98,7 +99,7 @@ require_once("includes/database_info.php");
 
 
                 // user's posts
-                $user_posts_query = "SELECT * FROM posts WHERE user_id=".$userID.";";
+                $user_posts_query = "SELECT * FROM posts WHERE user_id=".$userID." ORDER BY date DESC;";
                 $user_posts_result = $db->query($user_posts_query);
 
                 if ($user_posts_result) {

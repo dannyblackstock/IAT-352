@@ -15,7 +15,8 @@ require_once("includes/database_info.php");
         <?php
         // user must login to a visitor account if they want to follow
         if (!isset($_SESSION['valid_visitor'])) {
-            echo "<a href='login_visitor_authenticate.php'>NOT A VISITOR</a>";
+            header('Location: login_visitor_authenticate.php');
+            exit;
         }
 
         // Code for follow/unfollow button

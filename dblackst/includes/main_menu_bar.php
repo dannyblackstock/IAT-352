@@ -38,15 +38,15 @@ if( isset($_SERVER['HTTPS'] )  && $_SERVER['HTTPS'] != 'off' )  {
                     if ($result) {
                         if ($result->num_rows > 0) {
                             $user = $result->fetch_array(MYSQLI_ASSOC);
+                            echo "<a href=\"new_post.php\"> New Post</a>";
                             echo "Logged in as <a href=\"user.php?id=".$user['id']."\">".$user['name']."</a>. ";
                             echo "<a href=\"logout.php\">Log out</a>";
-                            echo "<a href=\"new_post.php\"> New Post</a>";
                         }
                         else {
                             // if the name couldn't be retrieved, use the email
+                            echo " <a href=\"new_post.php\">New Post</a>";
                             echo "Logged in as ".$_SESSION['valid_member']."</p>";
                             echo "<a href=\"logout.php\">Log out</a>";
-                            echo " <a href=\"new_post.php\">New Post</a>";
                         }
                     }
                     else {
@@ -65,6 +65,7 @@ if( isset($_SERVER['HTTPS'] )  && $_SERVER['HTTPS'] != 'off' )  {
                         }
                         else {
                             // if the name couldn't be retrieved, use the email
+                            echo "<a href='post_feed.php'>Post Feed</a>";
                             echo "Logged in as ".$_SESSION['valid_visitor']."</p>";
                             echo "<a href=\"logout.php\">Log out</a>";
                         }
