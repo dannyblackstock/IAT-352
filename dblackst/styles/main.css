@@ -457,21 +457,27 @@ a:hover {
 }
 
 .container {
+  *zoom: 1;
+  float: left;
+  display: block;
+  margin-right: 2.35765%;
+  width: 100%;
   background-color: #FFF;
   border: 1px solid #ddd;
   padding: 10px;
   box-shadow: 0 2px 2px rgba(0, 0, 0, 0.1);
 }
-
-#high-schools-table {
-  float: left;
-  display: block;
-  margin-right: 2.35765%;
-  width: 100%;
+.container:before, .container:after {
+  content: " ";
+  display: table;
 }
-#high-schools-table:last-child {
+.container:after {
+  clear: both;
+}
+.container:last-child {
   margin-right: 0;
 }
+
 @media screen and (min-width: 545px) {
   #high-schools-table {
     padding: 25px;
@@ -482,13 +488,6 @@ a:hover {
   width: 100%;
   border-collapse: collapse;
   background-color: #FFF;
-  float: left;
-  display: block;
-  margin-right: 2.35765%;
-  width: 100%;
-}
-#members-table:last-child {
-  margin-right: 0;
 }
 #members-table .profile-picture-cell {
   width: 50px;

@@ -78,6 +78,8 @@ a {
 }
 
 .container {
+    @include clearfix;
+    @include span-columns(12);
     background-color: #FFF;
     border: 1px solid #ddd;
     padding: 10px;
@@ -85,8 +87,7 @@ a {
 }
 
 #high-schools-table{
-    @include span-columns(12);
-
+    
     @include media($bigger-than-medium) {
         padding: 25px;
     }
@@ -96,7 +97,6 @@ a {
     width: 100%;
     border-collapse: collapse;
     background-color: #FFF;
-    @include span-columns(12);
 
     .profile-picture-cell {
         width: 50px;

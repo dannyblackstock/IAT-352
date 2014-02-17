@@ -16,10 +16,10 @@ if( isset($_SERVER['HTTPS'] )  && $_SERVER['HTTPS'] != 'off' )  {
             <img id="main-menu-bar-logo" src="img/siat_white_logo.png" alt="SIAT SFU LOGO">
             OUTREACH
         </a>
-        <a href="index.php">Browse members</a>
 
         <!-- right side of menu bar -->
         <div id="main-menu-bar-right">
+            <a href="index.php">Browse members</a>
             <?php
             require_once("database_info.php");
 
@@ -59,6 +59,7 @@ if( isset($_SERVER['HTTPS'] )  && $_SERVER['HTTPS'] != 'off' )  {
                     if ($result) {
                         if ($result->num_rows > 0) {
                             $user = $result->fetch_array(MYSQLI_ASSOC);
+                            echo "<a href='post_feed.php'>Post Feed</a>";
                             echo "Logged in as ".$user['name'].". ";
                             echo "<a href=\"logout.php\">Log out</a>";
                         }
