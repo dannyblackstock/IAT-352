@@ -1,19 +1,28 @@
 <?php
 require_once("includes/header.php");
 
-//Main menu bar for all pages
-require_once("includes/main_menu_bar.php");
-
 if (session_status() == PHP_SESSION_NONE) {
     session_start();
 }
 
-if (isset($_SESSION['valid_user'])) {
-	unset($_SESSION['valid_user']);
-	echo "<h1>You have been logged out.</h1>";
+if (isset($_SESSION['valid_member']) || isset($_SESSION['valid_visitor'])) {
+    unset($_SESSION['valid_member']);
+    unset($_SESSION['valid_visitor']);
+    $loggedOut = True;
 } else {
-	echo "<h1>You were not logged in.</h1>";
+    $loggedOut = False;
 }
+
+//Main menu bar for all pages
+require_once("includes/main_menu_bar_https.php");
+
+if ($loggedOut == True) {
+    echo "<h1>You have been logged out.</h1>";
+}
+else if ($loggedOut == False) {
+    echo "<h1>You were not logged in.</h1>";
+}
+
 echo "<a href=\"index.php\">Index</a>";
 
 //session_destroy();

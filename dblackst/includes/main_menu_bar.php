@@ -1,3 +1,12 @@
+<?php 
+// force HTTPS for the form submission if not set already
+if( isset($_SERVER['HTTPS'] )  && $_SERVER['HTTPS'] != 'off' )  {
+    //header("Location: https://". $_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI']);
+    // Return to normal http on port 8080
+    // header("Location: http://".$_SERVER['HTTP_HOST'] . ":8080" . $_SERVER['REQUEST_URI']);
+    // exit;
+}
+?>
 <!-- START Main menu bar for all pages -->
 <div id="main-menu-bar-container">
     <div id="main-menu-bar">
@@ -22,28 +31,49 @@
             $_SESSION['callback_URL'] = (isset($_SERVER['HTTPS']) ? "https://" : "http://") . 
                 $_SERVER['HTTP_HOST'] .  $_SERVER['REQUEST_URI'];
 
-            if (isset($_SESSION['valid_user'])) {
-                $query = "SELECT `id`, `name` FROM `members` WHERE email=\"".mysql_real_escape_string($_SESSION['valid_user'])."\";";
-                $result = $db->query($query);
-
-                if ($result) {
-                    if ($result->num_rows > 0) {
-                        $user = $result->fetch_array(MYSQLI_ASSOC);
-                        echo "Logged in as <a href=\"user.php?id=".$user['id']."\">".$user['name']."</a>. ";
-                        echo "<a href=\"logout.php\">Logout</a>";
-                        echo "<a href=\"new_post.php\"> New Post</a>";
+            if (isset($_SESSION['valid_member']) || isset($_SESSION['valid_visitor'])) {
+                if (isset($_SESSION['valid_member'])) {
+                    $query = "SELECT `id`, `name` FROM `members` WHERE email=\"".mysql_real_escape_string($_SESSION['valid_member'])."\";";
+                    $result = $db->query($query);
+                    if ($result) {
+                        if ($result->num_rows > 0) {
+                            $user = $result->fetch_array(MYSQLI_ASSOC);
+                            echo "Logged in as <a href=\"user.php?id=".$user['id']."\">".$user['name']."</a>. ";
+                            echo "<a href=\"logout.php\">Log out</a>";
+                            echo "<a href=\"new_post.php\"> New Post</a>";
+                        }
+                        else {
+                            // if the name couldn't be retrieved, use the email
+                            echo "Logged in as ".$_SESSION['valid_member']."</p>";
+                            echo "<a href=\"logout.php\">Log out</a>";
+                            echo " <a href=\"new_post.php\">New Post</a>";
+                        }
                     }
                     else {
-                        // if the name couldn't be retrieved, use the email
-                        echo "Logged in as  ".$_SESSION['valid_user']."</p>";
-                        echo "<a href=\"logout.php\">Logout</a>";
-                        echo " <a href=\"new_post.php\">New Post</a>";
+                        echo "<h1 class=\"main-header\">Query failed!</h1>";
                     }
                 }
-                else {
-                    echo "<h1 class=\"main-header\">Query failed!</h1>";
+                if (isset($_SESSION['valid_visitor'])) {
+                    $query = "SELECT `id`, `name` FROM `visitors` WHERE email=\"".mysql_real_escape_string($_SESSION['valid_visitor'])."\";";
+                    $result = $db->query($query);
+                    if ($result) {
+                        if ($result->num_rows > 0) {
+                            $user = $result->fetch_array(MYSQLI_ASSOC);
+                            echo "Logged in as ".$user['name'].". ";
+                            echo "<a href=\"logout.php\">Log out</a>";
+                        }
+                        else {
+                            // if the name couldn't be retrieved, use the email
+                            echo "Logged in as ".$_SESSION['valid_visitor']."</p>";
+                            echo "<a href=\"logout.php\">Log out</a>";
+                        }
+                    }
+                    else {
+                        echo "<h1 class=\"main-header\">Query failed!</h1>";
+                    }
                 }
             }
+
             else {
             ?>
 
@@ -53,7 +83,7 @@
             </a>
 
             <!-- log in / sign out button -->
-            <a  class="button" id="log-in-button" href="login_authenticate.php">
+            <a  class="button" id="log-in-button" href="login.php">
                 Log in
             </a>
             <?php

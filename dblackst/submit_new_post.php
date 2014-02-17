@@ -8,7 +8,7 @@ require_once("includes/main_menu_bar.php");
 // connect to database
 require_once("includes/database_info.php");
 
-if (!isset($_SESSION['valid_user'])) {
+if (!isset($_SESSION['valid_member'])) {
     //use proper https URL with a full path
     header("Location: login_authenticate.php");
     exit;
@@ -16,7 +16,7 @@ if (!isset($_SESSION['valid_user'])) {
 
 // Prepared statement
 if (!($stmt = $db->prepare("INSERT INTO `posts` (`user_id`, `title`, `content`, `date`) 
-    VALUES ((SELECT `id` FROM `members` WHERE email=\"".mysql_real_escape_string($_SESSION['valid_user'])."\"), ?, ?, NOW())"))) {
+    VALUES ((SELECT `id` FROM `members` WHERE email=\"".mysql_real_escape_string($_SESSION['valid_member'])."\"), ?, ?, NOW())"))) {
     echo "Prepare failed: (" . $db->errno . ") " . $db->error;
 }
 

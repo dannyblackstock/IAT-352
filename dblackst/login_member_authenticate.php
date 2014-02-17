@@ -2,15 +2,15 @@
 // 1. Create a database connection
 require("includes/database_info.php");
 require("includes/header.php");
-require("includes/main_menu_bar_login.php");
+require("includes/main_menu_bar_https.php");
 
-// force HTTPS for the form submission if not set already
-if($_SERVER["HTTPS"] != "on") {
-    //header("Location: https://". $_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI']);
-    header("Location: https://". str_replace(":8080", "", $_SERVER['HTTP_HOST']) .$_SERVER['REQUEST_URI']);
+// // force HTTPS for the form submission if not set already
+// if($_SERVER["HTTPS"] != "on") {
+//     //header("Location: https://". $_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI']);
+//     header("Location: https://". str_replace(":8080", "", $_SERVER['HTTP_HOST']) .$_SERVER['REQUEST_URI']);
 
-    exit;
-}
+//     exit;
+// }
 
 // if the session isn't already running
 if (session_status() == PHP_SESSION_NONE) {
@@ -21,9 +21,15 @@ if (session_status() == PHP_SESSION_NONE) {
 // echo "<p>callback_URL is: "; 
 // if (isset($_SESSION['callback_URL'])) echo $_SESSION['callback_URL'];
 // echo "</p>";
+// if logged in as a member
+if (isset($_SESSION['valid_visitor'])) {
+        echo "<h1 class=\"center-text\">Already logged in!</h1>
+            <p>You are already logged in as a visitor! Please <a href=\"logout.php\">log out</a> before logging into a member account.</p>";
+        require_once("includes/footer.php");
+        exit;
+}
 
-
-if (!isset($_SESSION['valid_user'])) {
+if (!isset($_SESSION['valid_member'])) {
 
     // if the form was submitted
     if(isset($_POST['submit'])) {
@@ -58,7 +64,7 @@ if (!isset($_SESSION['valid_user'])) {
         if ($result) {
             // visitor's name and password combination are correct
             // do whatever matching is necessary - against the DB here
-            $_SESSION['valid_user'] = $_POST['email'];
+            $_SESSION['valid_member'] = $_POST['email'];
             echo "<br><br>Success!";
               // header('Location: info_success.php');
         }
@@ -81,11 +87,11 @@ if (!isset($_SESSION['valid_user'])) {
 
     else {
         //login info missing - signing in first time
-        echo "<h1>Please Log In</h1>";
+        // echo "<h1>Please Log In</h1>";
     }
 }
 
-if (isset($_SESSION['valid_user'])) {
+if (isset($_SESSION['valid_member'])) {
     //autheticated correctly 
     if (isset($_SESSION['callback_URL'])) {
         // go back where you came from
@@ -108,9 +114,9 @@ else {
     <div id="content-container">
 
         <!-- Sign up form -->
-        <form name="input" action="login_authenticate.php" method="post" class="sign-up-log-in-form container">
+        <form name="input" action="login_member_authenticate.php" method="post" class="sign-up-log-in-form container">
 
-            <h1 class="center-text">Log in</h1>
+            <h1 class="center-text">Member log in</h1>
 
             <input class="form-input" type="email" name="email" id="emailInput" placeholder="Email">
 
@@ -118,9 +124,10 @@ else {
 
             <input class="form-button button-grey" name="submit" type="submit" value="Submit">
             <p>Don't have an account? <a href="sign_up.php">Sign up</a></p>
+            <p>Not a member? <a href="login_visitor_authenticate.php">Log in as a visitor</a></p>
         </form> 
     </div>
 <?php
 }
-require("includes/footer.php");
+require_once("includes/footer.php");
 ?>
