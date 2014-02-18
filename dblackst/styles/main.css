@@ -602,6 +602,21 @@ a:hover {
   display: block;
   margin: 10px auto;
 }
+.sign-up-log-in-form input:required {
+  box-shadow: 0 0 5px #ff7f7f;
+  border-color: #ff4c4c;
+  background: white url("../img/red_asterisk.png") no-repeat 98% center;
+}
+.sign-up-log-in-form input:required:valid {
+  box-shadow: 0 0 5px #5cd053;
+  border-color: #28921f;
+  background: white url("../img/valid.png") no-repeat 98% center;
+}
+.sign-up-log-in-form input:focus:invalid {
+  box-shadow: 0 0 5px #ff7f7f;
+  border-color: #ff4c4c;
+  background: white url("../img/invalid.png") no-repeat 98% center;
+}
 .sign-up-log-in-form .form-input, .sign-up-log-in-form .form-textarea {
   border: 1px solid #ddd;
   padding: 5px;

@@ -11,20 +11,20 @@
 
         <h1 class="center-text">Member sign up</h1>
 
-        <input class="form-input" type="email" name="email" placeholder="Email" class="required">
+        <input class="form-input" type="email" name="email" placeholder="Email" required>
 
-        <input class="form-input" type="password" name="password" placeholder="Password" class="required">
+        <input class="form-input" type="password" name="password" placeholder="Password" required>
 
-        <input class="form-input" type="text" name="name" placeholder="Full Name" class="required">
+        <input class="form-input" type="text" name="name" placeholder="Full Name" required>
 
         <!-- Profile picture upload-->
         <!-- <input class="form-file-input" type='file' name='profilePicture'> -->
 
-        <input class="form-input" type="text" name="location" placeholder="Current City" class="required">
+        <input class="form-input" type="text" name="location" placeholder="Current City" required>
 
-        <input class="form-input" type="text" name="highschool" placeholder="High School" class="required">
+        <input class="form-input" type="text" name="highschool" placeholder="High School" required>
 
-        <input class="form-input" type="number" name="graduationYear" placeholder="High School Grad Year" class="required" value="2000">
+        <input class="form-input" type="number" name="graduationYear"  min="1990" max="2100" placeholder="High School Grad Year" required value="2000">
 
         <input class="form-input" type="tel" name="phone" placeholder="Phone">
 

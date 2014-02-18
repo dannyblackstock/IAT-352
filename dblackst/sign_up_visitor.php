@@ -11,11 +11,11 @@
 
         <h1 class="center-text">Visitor sign up</h1>
 
-        <input class="form-input" type="email" name="email" placeholder="Email" class="required">
+        <input class="form-input" type="email" name="email" placeholder="Email" required>
 
-        <input class="form-input" type="password" name="password" placeholder="Password" class="required">
+        <input class="form-input" type="password" name="password" placeholder="Password" required>
 
-        <input class="form-input" type="text" name="name" placeholder="Full Name" class="required">
+        <input class="form-input" type="text" name="name" placeholder="Full Name" required>
 
         <!-- Profile picture upload-->
         <!-- <input class="form-file-input" type='file' name='profilePicture'> -->

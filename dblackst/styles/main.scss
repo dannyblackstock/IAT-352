@@ -179,6 +179,26 @@ a {
         margin: 10px auto;
     }
     
+    input {
+        &:required {
+            box-shadow: 0 0 5px rgb(255,127,127);
+            border-color: darken(rgb(255,127,127), 10);
+            background: #fff url('../img/red_asterisk.png') no-repeat 98% center;
+
+            &:valid {
+                box-shadow: 0 0 5px #5cd053;
+                border-color: #28921f;
+                background: #fff url('../img/valid.png') no-repeat 98% center;
+            }
+        }
+
+        &:focus:invalid {
+            box-shadow: 0 0 5px rgb(255,127,127);
+            border-color: darken(rgb(255,127,127), 10);
+            background: #fff url('../img/invalid.png') no-repeat 98% center;
+        }
+    }
+
     .form-input, .form-textarea {
         // box-shadow: none;
         border: 1px solid #ddd;

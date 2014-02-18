@@ -119,9 +119,9 @@ else {
 
             <h1 class="center-text">Visitor log in</h1>
 
-            <input class="form-input" type="email" name="email" id="emailInput" placeholder="Email">
+            <input class="form-input" type="email" name="email" id="emailInput" placeholder="Email" required>
 
-            <input class="form-input" type="password" name="password" id="passwordInput" placeholder="Password">
+            <input class="form-input" type="password" name="password" id="passwordInput" placeholder="Password" required>
 
             <input class="form-button button-grey" name="submit" type="submit" value="Submit">
             <p>Don't have an account? <a href="sign_up.php">Sign up</a></p>

@@ -18,13 +18,13 @@
 
                             <h1 class=\"center-text\">Edit my info</h1>
 
-                            <input class=\"form-input\" type=\"text\" name=\"name\" value=\"".$user['name']."\" class=\"required\">
+                            <input class=\"form-input\" type=\"text\" name=\"name\" value=\"".$user['name']."\" required>
 
-                            <input class=\"form-input\" type=\"text\" name=\"location\" value=\"".$user['location']."\" class=\"required\">
+                            <input class=\"form-input\" type=\"text\" name=\"location\" value=\"".$user['location']."\" required>
 
-                            <input class=\"form-input\" type=\"text\" name=\"highschool\" value=\"".$user['high_school']."\" class=\"required\">
+                            <input class=\"form-input\" type=\"text\" name=\"highschool\" value=\"".$user['high_school']."\" required>
 
-                            <input class=\"form-input\" type=\"number\" name=\"graduationYear\" value=\"".$user['grad_year']."\" class=\"required\" value=\"2000\">";
+                            <input class=\"form-input\" type=\"number\" name=\"graduationYear\" min=\"1990\" max=\"2100\" value=\"".$user['grad_year']."\" required value=\"2000\">";
 
                             if ($user['phone'] != "NULL" && $user['phone'] != NULL ) {
                                 echo "<input class=\"form-input\" type=\"tel\" name=\"phone\" value=\"".$user['phone']."\">";
@@ -78,7 +78,7 @@
 
                             <h1 class=\"center-text\">Edit my info</h1>
 
-                            <input class=\"form-input\" type=\"text\" name=\"name\" value=\"".$user['name']."\" class=\"required\">
+                            <input class=\"form-input\" type=\"text\" name=\"name\" value=\"".$user['name']."\" required>
                             <input class=\"form-button button-grey\" type=\"submit\" name=\"submit\" value=\"Submit\">
 
                             <!-- hidden post request -->
