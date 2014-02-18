@@ -75,7 +75,7 @@ if($_SERVER["HTTPS"] != "on") {
                     if ($result) {
                         if ($result->num_rows > 0) {
                             $user = $result->fetch_array(MYSQLI_ASSOC);
-                            echo "<a class=\"right-nav-button\" href='post_feed.php'>Post Feed</a>
+                            echo "<a class=\"right-nav-button\" href='post_feed.php'>News Feed</a>
                                     <ul id=\"user-dropdown\">
                                     <li>
                                         <a href=\"#\" class=\"button\" id=\"user-dropdown-button\">".$user['name']." ▾</a>
@@ -88,7 +88,7 @@ if($_SERVER["HTTPS"] != "on") {
                         }
                         else {
                             // if the name couldn't be retrieved, use the email
-                            echo "<a class=\"right-nav-button\" href='post_feed.php'>Post Feed</a>
+                            echo "<a class=\"right-nav-button\" href='post_feed.php'>News Feed</a>
                                     <ul id=\"user-dropdown\">
                                     <li>
                                         <a href=\"#\" class=\"button\" id=\"user-dropdown-button\">".$_SESSION['valid_visitor']." ▾</a>

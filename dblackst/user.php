@@ -45,7 +45,7 @@ require_once("includes/database_info.php");
 
                 // user must login to a visitor account if they want to follow
                 if (!isset($_SESSION['valid_member']) && !isset($_SESSION['valid_visitor'])) {
-                    echo "<a href='login_visitor_authenticate.php'>Follow</a>";
+                    echo "<p><a href='login_visitor_authenticate.php' class='button'>Follow</a></p>";
                 }
 
                 // if they are a visitor
@@ -61,11 +61,11 @@ require_once("includes/database_info.php");
                     // if already following
                     if ($following_result->num_rows > 0) {
                         // visitor can unfollow
-                        echo "<a href='follow.php?unfollow=".$userID."'>Stop following</a>";
+                        echo "<p><a href='follow.php?unfollow=".$userID."' class='button'>Unfollow</a></p>";
                     }
                     else {
                         // if they're not following, they can follow
-                        echo "<a href='follow.php?follow=".$userID."'>Follow</a>";
+                        echo "<p><a href='follow.php?follow=".$userID."' class='button'>Follow</a></p>";
                     }
                 }
 
