@@ -24,7 +24,7 @@
 
                             <input class=\"form-input\" type=\"text\" name=\"highschool\" value=\"".$user['high_school']."\" required>
 
-                            <input class=\"form-input\" type=\"number\" name=\"graduationYear\" min=\"1990\" max=\"2100\" value=\"".$user['grad_year']."\" required value=\"2000\">";
+                            <input class=\"form-input\" type=\"number\" name=\"graduationYear\" min=\"1900\" max=\"2100\" value=\"".$user['grad_year']."\" required value=\"2000\">";
 
                             if ($user['phone'] != "NULL" && $user['phone'] != NULL ) {
                                 echo "<input class=\"form-input\" type=\"tel\" name=\"phone\" value=\"".$user['phone']."\">";

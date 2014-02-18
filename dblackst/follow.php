@@ -38,7 +38,7 @@ if (isset($_SESSION['valid_visitor'])) {
             $query = "INSERT INTO followers_table(follower_id, following_id) VALUES((SELECT `id` FROM `visitors` WHERE email=\"".$follower_id."\"), \"".$followed_id."\");";
             $result = $db->query($query);
 
-            // echo $query;
+            echo $query;
 
             if ($result) {
                 echo "<h1>Now following ".$followed_id."</h1>";

@@ -82,7 +82,7 @@ require_once("includes/database_info.php");
             }
 
             else {
-                echo "<p>This user has no posts!</p>";
+                echo "<p>No posts to show!</p>";
             }
         }
         ?>
