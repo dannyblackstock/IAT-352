@@ -66,6 +66,9 @@
     float: right;
   }
 }
+#main-menu-bar-right #user-dropdown {
+  width: auto;
+}
 
 #sign-up-button {
   margin: 5px 0 0 0;
