@@ -1,8 +1,8 @@
 <?php
 // 1. Create a database connection
-require("includes/database_info.php");
-require("includes/header.php");
-require("includes/main_menu_bar_https.php");
+require_once("includes/database_info.php");
+require_once("includes/header.php");
+require_once("includes/main_menu_bar_https.php");
 
 // // force HTTPS for the form submission if not set already
 // if($_SERVER["HTTPS"] != "on") {
@@ -130,5 +130,5 @@ else {
     </div>
 <?php
 }
-require("includes/footer.php");
+require_once("includes/footer.php");
 ?>

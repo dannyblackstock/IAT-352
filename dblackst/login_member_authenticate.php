@@ -1,8 +1,8 @@
 <?php
 // 1. Create a database connection
-require("includes/database_info.php");
-require("includes/header.php");
-require("includes/main_menu_bar_https.php");
+require_once("includes/database_info.php");
+require_once("includes/header.php");
+require_once("includes/main_menu_bar_https.php");
 
 // // force HTTPS for the form submission if not set already
 // if($_SERVER["HTTPS"] != "on") {
@@ -21,6 +21,7 @@ if (session_status() == PHP_SESSION_NONE) {
 // echo "<p>callback_URL is: "; 
 // if (isset($_SESSION['callback_URL'])) echo $_SESSION['callback_URL'];
 // echo "</p>";
+
 // if logged in as a member
 if (isset($_SESSION['valid_visitor'])) {
         echo "<h1 class=\"center-text\">Already logged in!</h1>
