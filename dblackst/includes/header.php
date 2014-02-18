@@ -17,12 +17,6 @@
     <!-- CSS -->
     <link rel="stylesheet" href="styles/main.css" type="text/css" />
     <link rel="stylesheet" href="styles/dropit.css" type="text/css" />
-
-    <!-- JS -->
-    <script src="js/vendor/modernizr-2.6.2.min.js"></script>
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.0/jquery.min.js"></script>
-    <script src="js/plugins.js"></script>
-    <script src="js/main.js"></script>
 </head>
 <body>
     <!--[if lt IE 7]>

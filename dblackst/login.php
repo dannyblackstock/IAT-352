@@ -18,12 +18,12 @@
 
             <h1 class="center-text">Log in</h1>
             <!-- sign up prompt -->
-            Log in as a 
-            <div>
+            <div class="center-text">
+                <p>Log in as a </p>
                 <a class="button" href="login_member_authenticate.php">
                     Member
                 </a>
-
+                or 
                 <!-- log in / sign out button -->
                 <a class="button" href="login_visitor_authenticate.php">
                     Visitor

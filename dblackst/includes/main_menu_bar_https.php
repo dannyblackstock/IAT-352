@@ -19,7 +19,7 @@ if($_SERVER["HTTPS"] != "on") {
 
         <!-- right side of menu bar -->
         <div id="main-menu-bar-right">
-            <a href="index.php">Browse members</a>
+            <a  class="right-nav-button" href="index.php">Browse</a>
             <?php
             require_once("database_info.php");
 
@@ -38,7 +38,7 @@ if($_SERVER["HTTPS"] != "on") {
                     if ($result) {
                         if ($result->num_rows > 0) {
                             $user = $result->fetch_array(MYSQLI_ASSOC);
-                            echo "<a href=\"new_post.php\"> New Post</a>
+                            echo "<a class=\"right-nav-button\" href=\"new_post.php\"> Post</a>
                                     <ul id=\"user-dropdown\">
                                     <li>
                                         <a href=\"#\" class=\"button\" id=\"user-dropdown-button\">".$user['name']." ▾</a>
@@ -52,7 +52,7 @@ if($_SERVER["HTTPS"] != "on") {
                         }
                         else {
                             // if the name couldn't be retrieved, use the email
-                            echo "<a href=\"new_post.php\"> New Post</a>
+                            echo "<a class=\"right-nav-button\" href=\"new_post.php\"> Post</a>
                                     <ul id=\"user-dropdown\">
                                     <li>
                                         <a href=\"#\" class=\"button\" id=\"user-dropdown-button\">".$_SESSION['valid_member']." ▾</a>
@@ -75,7 +75,7 @@ if($_SERVER["HTTPS"] != "on") {
                     if ($result) {
                         if ($result->num_rows > 0) {
                             $user = $result->fetch_array(MYSQLI_ASSOC);
-                            echo "<a href='post_feed.php'>Post Feed</a>
+                            echo "<a class=\"right-nav-button\" href='post_feed.php'>Post Feed</a>
                                     <ul id=\"user-dropdown\">
                                     <li>
                                         <a href=\"#\" class=\"button\" id=\"user-dropdown-button\">".$user['name']." ▾</a>
@@ -88,7 +88,7 @@ if($_SERVER["HTTPS"] != "on") {
                         }
                         else {
                             // if the name couldn't be retrieved, use the email
-                            echo "<a href='post_feed.php'>Post Feed</a>
+                            echo "<a class=\"right-nav-button\" href='post_feed.php'>Post Feed</a>
                                     <ul id=\"user-dropdown\">
                                     <li>
                                         <a href=\"#\" class=\"button\" id=\"user-dropdown-button\">".$_SESSION['valid_visitor']." ▾</a>

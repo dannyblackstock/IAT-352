@@ -8,12 +8,12 @@
     <div class="container">
         <h1 class="center-text">Sign up</h1>
         <!-- sign up prompt -->
-        Sign up as a 
-        <div>
+        <div class="center-text">
+            <p>Sign up as a </p>
             <a class="button" href="sign_up_member.php">
                 Member
             </a>
-
+             or 
             <!-- log in / sign out button -->
             <a class="button" href="sign_up_visitor.php">
                 Visitor

@@ -219,6 +219,39 @@ a {
     }
 }
 
+
+// sign up and log in forms
+.new-post-form {
+    @include span-columns(12);
+
+    input, textarea {
+        display: block;
+        margin-top: 10px;
+        @include span-columns(12);
+    }
+    
+    
+    .form-input, .form-textarea {
+        // box-shadow: none;
+        border: 1px solid #ddd;
+        padding: 5px;
+        font-size: 1em;
+    }
+
+    .form-button {
+        width: 200px;
+        float: right;
+    }
+
+    @include media($bigger-than-tiny) {
+        @include span-columns(4);
+    }
+
+    @include media($bigger-than-medium) {
+    }
+}
+
+
 #sign-up-results {
     width: 400px;
     margin: 0 auto;

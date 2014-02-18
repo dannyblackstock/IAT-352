@@ -19,7 +19,7 @@ if( isset($_SERVER['HTTPS'] )  && $_SERVER['HTTPS'] != 'off' )  {
 
         <!-- right side of menu bar -->
         <div id="main-menu-bar-right">
-            <a href="index.php">Browse members</a>
+            <a  class="right-nav-button" href="index.php">Browse</a>
             <?php
             require_once("database_info.php");
 
@@ -38,10 +38,10 @@ if( isset($_SERVER['HTTPS'] )  && $_SERVER['HTTPS'] != 'off' )  {
                     if ($result) {
                         if ($result->num_rows > 0) {
                             $user = $result->fetch_array(MYSQLI_ASSOC);
-                            echo "<a href=\"new_post.php\"> New Post</a>
+                            echo "<a class=\"right-nav-button\" href=\"new_post.php\"> Post</a>
                                     <ul id=\"user-dropdown\">
                                     <li>
-                                        <a href=\"#\" class=\"button\" id=\"user-dropdown-button\">".$user['name']." ▾</a>
+                                        <a href=\"#\" class=\"button\" id=\"user-dropdown-button\">".$user['name']." </a>
                                         <ul>
                                             <li><a href=\"user.php?id=".$user['id']."\">View my page</a></li>
                                             <li><a href='edit_user_info.php'>Edit my account</a></li>
@@ -52,10 +52,10 @@ if( isset($_SERVER['HTTPS'] )  && $_SERVER['HTTPS'] != 'off' )  {
                         }
                         else {
                             // if the name couldn't be retrieved, use the email
-                            echo "<a href=\"new_post.php\"> New Post</a>
+                            echo "<a class=\"right-nav-button\" href=\"new_post.php\"> Post</a>
                                     <ul id=\"user-dropdown\">
                                     <li>
-                                        <a href=\"#\" class=\"button\" id=\"user-dropdown-button\">".$_SESSION['valid_member']." ▾</a>
+                                        <a href=\"#\" class=\"button\" id=\"user-dropdown-button\">".$_SESSION['valid_member']." </a>
                                         <ul>
                                             <li><a href=\"user.php?id=".$user['id']."\">View my page</a></li>
                                             <li><a href='edit_user_info.php'>Edit my account</a></li>
@@ -75,10 +75,10 @@ if( isset($_SERVER['HTTPS'] )  && $_SERVER['HTTPS'] != 'off' )  {
                     if ($result) {
                         if ($result->num_rows > 0) {
                             $user = $result->fetch_array(MYSQLI_ASSOC);
-                            echo "<a href='post_feed.php'>Post Feed</a>
+                            echo "<a class=\"right-nav-button\" href='post_feed.php'>Post Feed</a>
                                     <ul id=\"user-dropdown\">
                                     <li>
-                                        <a href=\"#\" class=\"button\" id=\"user-dropdown-button\">".$user['name']." ▾</a>
+                                        <a href=\"#\" class=\"button\" id=\"user-dropdown-button\">".$user['name']." </a>
                                         <ul>
                                             <li><a href='edit_user_info.php'>Edit my account</a></li>
                                             <li><a href=\"logout.php\">Log out</a></li>
@@ -88,10 +88,10 @@ if( isset($_SERVER['HTTPS'] )  && $_SERVER['HTTPS'] != 'off' )  {
                         }
                         else {
                             // if the name couldn't be retrieved, use the email
-                            echo "<a href='post_feed.php'>Post Feed</a>
+                            echo "<a class=\"right-nav-button\" href='post_feed.php'>Post Feed</a>
                                     <ul id=\"user-dropdown\">
                                     <li>
-                                        <a href=\"#\" class=\"button\" id=\"user-dropdown-button\">".$_SESSION['valid_visitor']." ▾</a>
+                                        <a href=\"#\" class=\"button\" id=\"user-dropdown-button\">".$_SESSION['valid_visitor']." </a>
                                         <ul>
                                             <li><a href='edit_user_info.php'>Edit my account</a></li>
                                             <li><a href=\"logout.php\">Log out</a></li>

@@ -20,10 +20,10 @@ require_once("includes/database_info.php");
         ?>
 
             <div id="content-container">
+                    <h1 class="main-header">New post</h1>
 
-                <form name="input" action="submit_new_post.php" method="post" class="sign-up-log-in-form container">
+                <form name="input" action="submit_new_post.php" method="post" class="new-post-form container">
 
-                    <h1 class="center-text">New post</h1>
 
                     <input class="form-input" type="title" name="title" placeholder="Title" class="required">
 
