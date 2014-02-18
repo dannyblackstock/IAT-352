@@ -78,9 +78,8 @@
 
                             <h1 class=\"center-text\">Edit my info</h1>
 
-                            <input class=\"form-input\" type=\"email\" name=\"email\" value=\"".$user['email']."\" class=\"required\">
-
                             <input class=\"form-input\" type=\"text\" name=\"name\" value=\"".$user['name']."\" class=\"required\">
+                            <input class=\"form-button button-grey\" type=\"submit\" name=\"submit\" value=\"Submit\">
 
                             <!-- hidden post request -->
                             <input type=\"hidden\" name=\"user_type\" value=\"visitor\">";

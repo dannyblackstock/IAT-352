@@ -6,18 +6,18 @@
         session_start();
     }
 
-    // Prepared statement
-    if (!($memberStatement = $db->prepare("UPDATE `members` SET `name`=?, `bio`=?, `location`=?, `high_school`=?, `grad_year`=?, `phone`=?, `is_phone_preferred`=? WHERE email=\"".mysql_real_escape_string($_SESSION['valid_member'])."\""))) {
-        echo "Prepare failed: (" . $db->errno . ") " . $db->error;
-    }
-    
-    //bind parameters
-    $memberStatement->bind_param("ssssisi", $name, $bio, $location, $highschool, $graduationYear, $phone, $isPhonePreferred);
-
     // if the form was submitted
     if(isset($_POST['submit'])) {
         // check if each form input was filled,  read values from $_POST if not, make the variable and empty string
         if(isset($_POST['user_type']) && ($_POST['user_type']) == "member") {
+
+            // Prepared statements
+            if (!($memberStatement = $db->prepare("UPDATE `members` SET `name`=?, `bio`=?, `location`=?, `high_school`=?, `grad_year`=?, `phone`=?, `is_phone_preferred`=? WHERE email=\"".mysql_real_escape_string($_SESSION['valid_member'])."\""))) {
+                echo "Prepare failed: (" . $db->errno . ") " . $db->error;
+            }
+
+            //bind parameters
+            $memberStatement->bind_param("ssssisi", $name, $bio, $location, $highschool, $graduationYear, $phone, $isPhonePreferred);
 
             if(isset($_POST['name'])) {
                 $name = $_POST['name'];
@@ -75,15 +75,13 @@
                 $bio = 'NULL';
             }
 
-            // print_r($memberStatement);
-
-            // execute database query
+            // update member's info
             if ($memberStatement->execute()) {
                 echo "Success!\n";
                 printf("%d Row modified.\n", $memberStatement->affected_rows);
                 $memberStatement->close();
 
-                // to send the member back totheir own page
+                // to send the member back to their own page
                 $current_user_query = "SELECT `id` FROM `members` WHERE email=\"".mysql_real_escape_string($_SESSION['valid_member'])."\"";
                 $current_user_result = $db->query($current_user_query);
 
@@ -99,6 +97,36 @@
 
                 echo "<BR>POST SUBMITTED";
                 }
+            }
+
+            if ($db->connect_error)  {
+                die('Connect Error: ' . $db->connect_error);
+            }
+        }
+
+        if(isset($_POST['user_type']) && ($_POST['user_type']) == "visitor") {
+
+
+            if (!($visitorStatement = $db->prepare("UPDATE `visitors` SET `name`=? WHERE email=\"".mysql_real_escape_string($_SESSION['valid_visitor'])."\""))) {
+                echo "Prepare failed: (" . $db->errno . ") " . $db->error;
+            }
+
+            //bind parameters
+            $visitorStatement->bind_param("s", $name);
+
+            if(isset($_POST['name'])) {
+                $name = $_POST['name'];
+            }
+            else {
+                $name = '';
+            }
+
+            // update visitor's name
+            if ($visitorStatement->execute()) {
+                echo "Success!\n";
+                printf("%d Row modified.\n", $visitorStatement->affected_rows);
+                $visitorStatement->close();
+                header("Location:".$_SESSION['callback_URL']);
             }
 
             if ($db->connect_error)  {
