@@ -1,5 +1,5 @@
 <?php
-    require("includes/database_info.php");
+    require_once("includes/database_info.php");
 
     // Prepared statement
     if (!($stmt = $db->prepare("INSERT INTO  `members`(`password`, `name`, `email`, `bio`, `location`, `high_school`, `grad_year`, `phone`, `is_phone_preferred`) 
