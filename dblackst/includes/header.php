@@ -15,8 +15,8 @@
     <link rel="shortcut icon" href="img/favicon.ico" />
 
     <!-- CSS -->
-    <link rel="stylesheet" href="styles/main.css" />
-    <script src="js/vendor/modernizr-2.6.2.min.js"></script>
+    <link rel="stylesheet" href="styles/main.css" type="text/css" />
+    <link rel="stylesheet" href="styles/dropit.css" type="text/css" />
 </head>
 <body>
     <!--[if lt IE 7]>

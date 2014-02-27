@@ -1,63 +1,55 @@
 <!-- HTML header, title, body tags, etc -->
-<?php require("includes/header.php"); ?>
+<?php require_once("includes/header.php");
 
-<!-- Main menu bar for all pages -->
-<?php require("includes/main_menu_bar.php"); ?>
+//Main menu bar for all pages
+require_once("includes/main_menu_bar.php");
+
+// connect to database
+require_once("includes/database_info.php");
+?>
 
 <div id="content-container">
     <h1 class="main-header">Members</h1>
     
     <div class="toggle-switch" id="hs-members-toggle">
-        <!-- <div class="sort-label">SORT BY </div> -->
+        <div class="sort-label">SORT BY </div>
         <a class="toggle-switch-left active" href="index.php">
             Name</a><a class="toggle-switch-right" href="high_schools_list.php">
             High School</a>
     </div>
 
     <div id="members-table" class="container">
-<!--         <tr>
-            <th>Photo</th>
-            <th>Name</th>
-            <th>High School</th>
-        </tr> -->
+
         <?php
-            // compare two names using the "human order" algrorithm
-            function compare_name($a, $b) {
-                return strnatcasecmp($a[1], $b[1]);
+        // Perform database query
+
+        $query = "SELECT `id`, `name` , `high_school` FROM `members` ORDER BY `members`.`name` ASC";
+
+        $result = $db->query($query);
+
+        if ($result = $db->query($query)) {
+
+            /* fetch associative array */
+            while ($user = $result->fetch_assoc()) {
+                // printf ("%s (%s)\n", $user["name"], $user["high_school"]);
+                echo "<a href=\"user.php?id=".$user['id']."\" class=\"user-container\">
+                        <div style=\"background-image:url('img/user_icon.png');\" alt=\"Placeholder user photo\" class=\"user-profile-picture\"></div>
+                        <div class=\"user-info-container\">
+                            <div class=\"user-name\">".$user['name']."</div>
+                            <div class=\"user-high-school\">".$user['high_school']."</div>
+                        </div>
+                    </a>";
             }
 
-            if (filesize("user_info.txt") > 0) {
-                // array to hold users when all fields are separated and sorted
-                $usersSortedArray = array();
+            /* free result set */
+            $result->free();
+        }
 
-                // load info file for all users
-                $userFile = file_get_contents("user_info.txt");
 
-                // create an array of each user by splitting it every new line
-                $usersArray = explode("\n", $userFile);
-
-                foreach ($usersArray as $user) {
-                    // split each user into an array of fields and add it to an array
-                    $user = explode(" | ", $user);
-                    array_push($usersSortedArray, $user);
-                }
-
-                // sort the array of arrays alphabetically by name
-                usort($usersSortedArray, 'compare_name');
-
-                // print the sorted array
-                foreach($usersSortedArray as $user){
-                    echo "<a href=\"user.php?id=".$user[0]."\" class=\"user-container\">
-                            <img src=\"img/user_icon.png\" alt=\"Placeholder user photo\" class=\"user-profile-picture\">
-                            <div class=\"user-info-container\">
-                                <div class=\"user-name\">".$user[1]."</div>
-                                <div class=\"user-high-school\">".$user[5]."</div>
-                            </div>
-                        </a>";
-                }
-            }
+        /* close connection */
+        $db->close();
         ?>
     </div>
 </div>
 
-<?php require("includes/footer.php"); ?>
+<?php require_once("includes/footer.php"); ?>

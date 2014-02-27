@@ -51,6 +51,8 @@ $TEXT['status-cgi']="Common Gateway Interface (CGI)";
 $TEXT['status-ssi']="Server Side Includes (SSI)";
 $TEXT['status-mmcache']="PHP-Erweiterung &#187;eAccelerator&#171;";
 $TEXT['status-mmcache-url']="http://www.apachefriends.org/faq-lampp.html#mmcache";
+$TEXT['status-opcache']="PHP-Erweiterung &#187;OPcache&#171;";
+$TEXT['status-opcache-url']="http://www.apachefriends.org/en/faq-xampp-linux.html#opcache";
 $TEXT['status-oci8']="PHP-Erweiterung &#187;OCI8/Oracle&#171;";
 $TEXT['status-oci8-url']="http://www.apachefriends.org/faq-lampp.html#oci8";
 
@@ -130,7 +132,7 @@ $TEXT['manuals-list1']="
 <li><a href=http://httpd.apache.org/docs/2.4/>Apache 2 Dokumentation (in Englisch)</a>
 <li><a href=http://www.php.net/manual/de/>PHP <b>Referenz-</b>Dokumentation (in Deutsch)</a>
 <li><a href=http://perldoc.perl.org/index.html>Perl Dokumentation (in Englisch)</a>
-<li><a href=http://dev.mysql.com/doc/refman/5.5/en/index.html>MySQL Dokumentation (in Deutsch)</a>
+<li><a href=http://dev.mysql.com/doc/refman/5.6/en/index.html>MySQL Dokumentation (in Deutsch)</a>
 <li><a href=http://www.proftpd.org/docs/>ProFTPD (in Englisch)</a>
 <li><a href=http://pdf-php.sourceforge.net/index.php/documentation.html>pdf class Dokumentation</a>
 </ul>";

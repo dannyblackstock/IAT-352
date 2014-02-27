@@ -2,33 +2,26 @@
 <?php require("includes/header.php"); ?>
 
 <!-- Main menu bar for all pages -->
-<?php require("includes/main_menu_bar.php"); ?>
+<?php require("includes/main_menu_bar_https.php"); ?>
 
 <div id="content-container">
-    
-    <!-- Sign up form -->
-    <form name="input" action="sign_up_submit.php" method="post" class="sign-up-log-in-form container">
-
+    <div class="container">
         <h1 class="center-text">Sign up</h1>
-
-        <input class="form-input" type="text" name="name" placeholder="Name">
-
-        <input class="form-input" type="email" name="email" placeholder="Email">
-
-        <input class="form-input" type="password" name="password" placeholder="Password">
-
-        <!-- Profile picture upload-->
-        <input class="form-file-input" type='file' name='profilePicture'>
-
-        <input class="form-input" type="text" name="highschool" placeholder="High School">
-
-        <input class="form-input" type="text" name="graduationYear" placeholder="High School Grad Year">
-
-        <textarea class="form-textarea" name="bio" placeholder="Bio"></textarea>
-
-        <input class="form-button button-grey" type="submit"  name="submit" value="Submit">
-        <p>Already have an account? <a href="log_in.php">Log in</a></p>
-    </form> 
+        <!-- sign up prompt -->
+        <div class="center-text">
+            <p>Sign up as a </p>
+            <a class="button" href="sign_up_member.php">
+                Member
+            </a>
+             or 
+            <!-- log in / sign out button -->
+            <a class="button" href="sign_up_visitor.php">
+                Visitor
+            </a>
+            <p>Already have an account? <a href="login.php">Log in</a></p>
+        </div>
+    </div>
 </div>
 
+<!-- Main menu bar for all pages -->
 <?php require("includes/footer.php"); ?>

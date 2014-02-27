@@ -83,6 +83,11 @@
 		$oci8="NOK";
 	
 
+        if(extension_loaded("Zend OPcache"))
+                $opcache="OK";
+        else
+                $opcache="NOK";
+
 	echo '<table border=0 cellpadding=0 cellspacing=0>';
 	echo "<tr valign=top>";
 	echo "<td bgcolor=#fb7922 valign=top><img src=img/blank.gif width=10 height=0></td>";
@@ -96,7 +101,8 @@
 	line($TEXT['status-perl'],$perl);
 	line($TEXT['status-cgi'],$cgi);
 	line($TEXT['status-ssi'],$ssi);
-	line($TEXT['status-mmcache'],$eaccelerator,$TEXT['status-mmcache-url']);
+        line($TEXT['status-opcache'],$opcache,$TEXT['status-opcache-url']);
+	#line($TEXT['status-mmcache'],$eaccelerator,$TEXT['status-mmcache-url']);
 	line($TEXT['status-oci8'],$oci8,$TEXT['status-oci8-url']);
 
 	echo "<tr valign=bottom>";

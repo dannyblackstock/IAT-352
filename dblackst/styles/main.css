@@ -1,4 +1,4 @@
-@import url(http://fonts.googleapis.com/css?family=Gudea:400,700,400italic);
+@import url(https://fonts.googleapis.com/css?family=Gudea:400,700,400italic);
 * {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -66,6 +66,40 @@
     float: right;
   }
 }
+#main-menu-bar-right .right-nav-button {
+  color: #fff;
+  text-decoration: none;
+  margin-right: 10px;
+}
+#main-menu-bar-right .right-nav-button:hover {
+  color: #ddd;
+}
+#main-menu-bar-right #user-dropdown {
+  display: inline-block;
+}
+#main-menu-bar-right #user-dropdown #user-dropdown-button {
+  width: auto;
+  color: #333333;
+  background: white url("../img/dropdown_arrow.gif") no-repeat 96% center;
+  padding-right: 20px;
+}
+#main-menu-bar-right #user-dropdown .dropit-submenu {
+  background-color: #fff;
+  border-color: #ddd;
+  box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.2);
+}
+#main-menu-bar-right #user-dropdown .dropit-submenu li {
+  cursor: pointer;
+}
+#main-menu-bar-right #user-dropdown .dropit-submenu li:hover {
+  background-color: #eee;
+}
+#main-menu-bar-right #user-dropdown .dropit-submenu li a {
+  display: inline-block;
+  color: #333333;
+  padding: 10px;
+  text-decoration: none;
+}
 
 #sign-up-button {
   margin: 5px 0 0 0;
@@ -93,9 +127,10 @@
   color: #333333;
   line-height: 1.5em;
   font-size: 0.9em;
-  -webkit-transition: background-color 0.1s;
-  -moz-transition: background-color 0.1s;
-  transition: background-color 0.1s;
+  text-align: center;
+  -webkit-transition: background-color 0.2s;
+  -moz-transition: background-color 0.2s;
+  transition: background-color 0.2s;
 }
 .button:hover {
   background-color: #fbfbfb;
@@ -105,6 +140,9 @@
 .button:active {
   background-color: #e1e1e1;
   color: #333333;
+  -webkit-transition: background-color 0s;
+  -moz-transition: background-color 0s;
+  transition: background-color 0s;
 }
 .button:visited {
   color: #333333;
@@ -121,9 +159,10 @@
   color: white;
   line-height: 1.5em;
   font-size: 0.9em;
-  -webkit-transition: background-color 0.1s;
-  -moz-transition: background-color 0.1s;
-  transition: background-color 0.1s;
+  text-align: center;
+  -webkit-transition: background-color 0.2s;
+  -moz-transition: background-color 0.2s;
+  transition: background-color 0.2s;
 }
 .button-red:hover {
   background-color: #cc131d;
@@ -133,6 +172,9 @@
 .button-red:active {
   background-color: #9e0f17;
   color: white;
+  -webkit-transition: background-color 0s;
+  -moz-transition: background-color 0s;
+  transition: background-color 0s;
 }
 .button-red:visited {
   color: white;
@@ -149,9 +191,10 @@
   color: white;
   line-height: 1.5em;
   font-size: 0.9em;
-  -webkit-transition: background-color 0.1s;
-  -moz-transition: background-color 0.1s;
-  transition: background-color 0.1s;
+  text-align: center;
+  -webkit-transition: background-color 0.2s;
+  -moz-transition: background-color 0.2s;
+  transition: background-color 0.2s;
 }
 .button-grey:hover {
   background-color: #7b7a70;
@@ -161,6 +204,9 @@
 .button-grey:active {
   background-color: #616058;
   color: white;
+  -webkit-transition: background-color 0s;
+  -moz-transition: background-color 0s;
+  transition: background-color 0s;
 }
 .button-grey:visited {
   color: white;
@@ -177,9 +223,10 @@
   color: #333333;
   line-height: 1.5em;
   font-size: 0.9em;
-  -webkit-transition: background-color 0.1s;
-  -moz-transition: background-color 0.1s;
-  transition: background-color 0.1s;
+  text-align: center;
+  -webkit-transition: background-color 0.2s;
+  -moz-transition: background-color 0.2s;
+  transition: background-color 0.2s;
 }
 .button-white:hover {
   background-color: white;
@@ -189,6 +236,9 @@
 .button-white:active {
   background-color: #f2f2f2;
   color: #333333;
+  -webkit-transition: background-color 0s;
+  -moz-transition: background-color 0s;
+  transition: background-color 0s;
 }
 .button-white:visited {
   color: #333333;
@@ -234,9 +284,10 @@
   color: #333333;
   line-height: 1.5em;
   font-size: 0.9em;
-  -webkit-transition: background-color 0.1s;
-  -moz-transition: background-color 0.1s;
-  transition: background-color 0.1s;
+  text-align: center;
+  -webkit-transition: background-color 0.2s;
+  -moz-transition: background-color 0.2s;
+  transition: background-color 0.2s;
   width: 100%;
   text-align: center;
 }
@@ -248,6 +299,9 @@
 .toggle-switch .toggle-switch-left:active, .toggle-switch .toggle-switch-right:active {
   background-color: #eaeaea;
   color: #333333;
+  -webkit-transition: background-color 0s;
+  -moz-transition: background-color 0s;
+  transition: background-color 0s;
 }
 .toggle-switch .toggle-switch-left:visited, .toggle-switch .toggle-switch-right:visited {
   color: #333333;
@@ -301,22 +355,16 @@
   width: 100%;
   background-color: #FFF;
   position: relative;
+  height: 300px;
+  background-size: cover;
+  background-position: center;
 }
 #user-main-profile-picture:last-child {
   margin-right: 0;
 }
-#user-main-profile-picture img {
-  display: block;
-  margin: 0 auto;
-  max-width: 100%;
-  max-height: 100%;
-}
 @media screen and (min-width: 350px) {
   #user-main-profile-picture {
     text-align: center;
-  }
-  #user-main-profile-picture img {
-    max-width: 295px;
   }
 }
 @media screen and (min-width: 545px) {
@@ -332,17 +380,6 @@
   #user-main-profile-picture img {
     max-width: 100%;
     max-height: 100%;
-  }
-}
-@media screen and (min-width: 780px) {
-  #user-main-profile-picture {
-    float: left;
-    display: block;
-    margin-right: 2.35765%;
-    width: 23.23176%;
-  }
-  #user-main-profile-picture:last-child {
-    margin-right: 0;
   }
 }
 
@@ -367,18 +404,6 @@
     margin-right: 0;
   }
 }
-@media screen and (min-width: 780px) {
-  #user-info-content {
-    float: left;
-    display: block;
-    margin-right: 2.35765%;
-    width: 74.41059%;
-    margin-right: 0;
-  }
-  #user-info-content:last-child {
-    margin-right: 0;
-  }
-}
 #user-info-content .user-name {
   margin: 10px 0 5px 0;
 }
@@ -389,7 +414,7 @@
   margin-right: 2.35765%;
   width: 100%;
   margin-top: 10px;
-  padding: 10px;
+  padding: 10px 20px;
 }
 #user-posts:last-child {
   margin-right: 0;
@@ -466,23 +491,29 @@ a:hover {
 }
 
 .container {
+  *zoom: 1;
+  float: left;
+  display: block;
+  margin-right: 2.35765%;
+  width: 100%;
   background-color: #FFF;
   border: 1px solid #ddd;
   padding: 10px;
   box-shadow: 0 2px 2px rgba(0, 0, 0, 0.1);
 }
-
-#high-school-list {
-  float: left;
-  display: block;
-  margin-right: 2.35765%;
-  width: 100%;
+.container:before, .container:after {
+  content: " ";
+  display: table;
 }
-#high-school-list:last-child {
+.container:after {
+  clear: both;
+}
+.container:last-child {
   margin-right: 0;
 }
+
 @media screen and (min-width: 545px) {
-  #high-school-list {
+  #high-schools-table {
     padding: 25px;
   }
 }
@@ -491,13 +522,6 @@ a:hover {
   width: 100%;
   border-collapse: collapse;
   background-color: #FFF;
-  float: left;
-  display: block;
-  margin-right: 2.35765%;
-  width: 100%;
-}
-#members-table:last-child {
-  margin-right: 0;
 }
 #members-table .profile-picture-cell {
   width: 50px;
@@ -528,31 +552,58 @@ a:hover {
     float: left;
     display: block;
     margin-right: 2.35765%;
-    width: 31.76157%;
-    min-height: 245px;
+    width: 48.82117%;
     text-align: center;
   }
   #members-table .user-container:last-child {
     margin-right: 0;
   }
+  #members-table .user-container:nth-child(2n) {
+    margin-right: 0;
+  }
+  #members-table .user-container:nth-child(2n+1) {
+    clear: left;
+  }
   #members-table .user-container * {
     margin: 0 auto;
   }
-  #members-table .user-container:nth-child(3n+3) {
+}
+@media screen and (min-width: 780px) {
+  #members-table .user-container {
+    float: left;
+    display: block;
+    margin-right: 2.35765%;
+    width: 31.76157%;
+  }
+  #members-table .user-container:last-child {
     margin-right: 0;
+  }
+  #members-table .user-container:nth-child(2n) {
+    margin-right: 2.35765%;
+  }
+  #members-table .user-container:nth-child(2n+1) {
+    clear: none;
+  }
+  #members-table .user-container:nth-child(3n) {
+    margin-right: 0;
+  }
+  #members-table .user-container:nth-child(3n+1) {
+    clear: left;
   }
 }
 #members-table .user-container:hover {
   background-color: #eee;
 }
-#members-table .user-container img {
-  max-width: 49%;
-  max-height: 100%;
+#members-table .user-container .user-profile-picture {
+  min-width: 49%;
+  height: 200px;
   display: inline-block;
   vertical-align: top;
+  background-size: cover;
+  background-position: center;
 }
 @media screen and (min-width: 545px) {
-  #members-table .user-container img {
+  #members-table .user-container .user-profile-picture {
     display: block;
   }
 }
@@ -564,6 +615,7 @@ a:hover {
 @media screen and (min-width: 545px) {
   #members-table .user-container .user-info-container {
     display: block;
+    max-width: 100%;
   }
 }
 #members-table .user-container .user-info-container .user-name {
@@ -584,6 +636,21 @@ a:hover {
   display: block;
   margin: 10px auto;
 }
+.sign-up-log-in-form input:required {
+  box-shadow: 0 0 5px #ff7f7f;
+  border-color: #ff4c4c;
+  background: white url("../img/red_asterisk.png") no-repeat 98% center;
+}
+.sign-up-log-in-form input:required:valid {
+  box-shadow: 0 0 5px #5cd053;
+  border-color: #28921f;
+  background: white url("../img/valid.png") no-repeat 98% center;
+}
+.sign-up-log-in-form input:focus:invalid {
+  box-shadow: 0 0 5px #ff7f7f;
+  border-color: #ff4c4c;
+  background: white url("../img/invalid.png") no-repeat 98% center;
+}
 .sign-up-log-in-form .form-input, .sign-up-log-in-form .form-textarea {
   border: 1px solid #ddd;
   padding: 5px;
@@ -601,6 +668,47 @@ a:hover {
     width: 100%;
   }
   .sign-up-log-in-form:last-child {
+    margin-right: 0;
+  }
+}
+
+.new-post-form {
+  float: left;
+  display: block;
+  margin-right: 2.35765%;
+  width: 100%;
+}
+.new-post-form:last-child {
+  margin-right: 0;
+}
+.new-post-form input, .new-post-form textarea {
+  display: block;
+  margin-top: 10px;
+  float: left;
+  display: block;
+  margin-right: 2.35765%;
+  width: 100%;
+}
+.new-post-form input:last-child, .new-post-form textarea:last-child {
+  margin-right: 0;
+}
+.new-post-form .form-input, .new-post-form .form-textarea {
+  border: 1px solid #ddd;
+  padding: 5px;
+  font-size: 1em;
+}
+.new-post-form .form-button {
+  width: 200px;
+  float: right;
+}
+@media screen and (min-width: 286px) {
+  .new-post-form {
+    float: left;
+    display: block;
+    margin-right: 7.42297%;
+    width: 100%;
+  }
+  .new-post-form:last-child {
     margin-right: 0;
   }
 }

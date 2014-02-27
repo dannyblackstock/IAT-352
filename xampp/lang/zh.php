@@ -64,6 +64,8 @@ $TEXT['status-ssi']="Server Side Includes (SSI)";
 $TEXT['status-python']="Python with mod_python";
 $TEXT['status-mmcache']="PHP扩展库eAccelerator";
 $TEXT['status-mmcache-url']="http://www.apachefriends.org/en/faq-xampp-linux.html#mmcache";
+$TEXT['status-opcache']="PHP扩展库 &#187;OPcache&#171;";
+$TEXT['status-opcache-url']="http://www.apachefriends.org/en/faq-xampp-linux.html#opcache";
 $TEXT['status-smtp']="SMTP 服务";
 $TEXT['status-ftp']="FTP 服务";
 $TEXT['status-tomcat']="Tomcat 服务";
@@ -195,7 +197,7 @@ $TEXT['manuals-list1']="
 <li><a href=http://httpd.apache.org/docs/2.4/>Apache 2 documentation</a>
 <li><a href=http://www.php.net/manual/en/>PHP <b>referenz </b>documentation</a>
 <li><a href=http://perldoc.perl.org/index.html>Perl documentation</a>
-<li><a href=http://dev.mysql.com/doc/refman/5.5/en/>MySQL documentation</a>
+<li><a href=http://dev.mysql.com/doc/refman/5.6/en/>MySQL documentation</a>
 <li><a href=http://pdf-php.sourceforge.net/index.php/documentation.html>pdf class documentation</a>
 </ul>";
 

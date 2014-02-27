@@ -14,8 +14,9 @@
     // border-radius: 4px;
     line-height: 1.5em;
     font-size: 0.9em;
+    text-align: center;
 
-    @include transition(background-color 0.1s);
+    @include transition(background-color 0.2s);
 
     &:hover {
         background-color: lighten($bg-color, 5);
@@ -26,6 +27,7 @@
     &:active {
         background-color: darken($bg-color, 5);
         color: $text-color;
+        @include transition(background-color 0s);
     }
 
     &:visited {

@@ -22,7 +22,7 @@
 <a href="http://www.gnu.org/software/gettext/">gettext</a>,
 <a href="ftp://ftp.cac.washington.edu/imap/">IMAP C-Client</a>,
 <a href="http://www.openldap.org/">OpenLDAP (client lib)</a>,
-<a href="http://eaccelerator.net">eAccelerator</a>,
+
 <a href="http://mcrypt.sourceforge.net/">mcrypt</a>,
 <a href="http://mhash.sourceforge.net/">mhash</a>,
 <a href="http://www.hwaci.com/sw/sqlite/">SQLite</a>,

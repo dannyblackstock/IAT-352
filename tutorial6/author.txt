@@ -1,0 +1,271 @@
+{
+   "page_count" : 1575,
+   "current_page" : 1,
+   "index_searched" : "author_name",
+   "result_count" : 15746,
+   "data" : [
+      {
+         "book_ids" : [
+            "richard_of_st_victors_treatise_of_the_study_of_wisdom_that_m"
+         ],
+         "category_ids" : [],
+         "dates" : "",
+         "subject_ids" : [],
+         "name_latin" : "Richard",
+         "first_name" : "",
+         "book_count" : "1",
+         "name" : "Richard",
+         "author_id" : "richard",
+         "last_name" : ""
+      },
+      {
+         "dates" : "",
+         "category_ids" : [
+            "alphabetically.authors.r.i.c"
+         ],
+         "book_ids" : [
+            "cases_and_materials_on_employment_discrimination_a01",
+            "cases_and_materials_on_employment_discrimination_a02",
+            "the_wit_of_noel_coward",
+            "federal_statutory_law_of_employment_discrimination",
+            "the_topic_of_cancer_a01",
+            "employment_discrimination_a07",
+            "employment_discrimination_a08",
+            "ophthalmologic_disorders",
+            "employment_discrimination_a09",
+            "employment_discrimination_a10",
+            "persia_and_beyond",
+            "the_species_problem_a_philosophical_analysis",
+            "early_history_of_banking_in_england"
+         ],
+         "subject_ids" : [],
+         "book_count" : "13",
+         "first_name" : "Richard",
+         "name_latin" : "Richards, Richard F.",
+         "last_name" : "Richards",
+         "author_id" : "richards_richard_f",
+         "name" : "Richards, Richard F."
+      },
+      {
+         "subject_ids" : [],
+         "dates" : "",
+         "category_ids" : [
+            "alphabetically.authors.h.o.u"
+         ],
+         "book_ids" : [
+            "the_battle_of_britain_a51"
+         ],
+         "author_id" : "denis_richards_richard_hough",
+         "last_name" : "HOUGH",
+         "name" : "DENIS RICHARDS' 'RICHARD HOUGH",
+         "book_count" : "1",
+         "name_latin" : "DENIS RICHARDS' 'RICHARD HOUGH",
+         "first_name" : "DENIS"
+      },
+      {
+         "category_ids" : [
+            "alphabetically.authors.s.c.h"
+         ],
+         "book_ids" : [
+            "die_religionskritik_sucht_ihren_partner",
+            "einfuhrung_in_die_geschichtsphilosophie_richard_schaeffler",
+            "reason_and_the_question_of_god",
+            "kleine_sprachlehre_des_gebets",
+            "unsterblichkeit",
+            "ankunft_gottes_und_handeln_des_menschen",
+            "fahigkeit_zur_erfahrung",
+            "glaubensreflexion_und_wissenschaftslehre",
+            "frommigkeit_des_denkens"
+         ],
+         "dates" : "",
+         "subject_ids" : [],
+         "name_latin" : "Schaeffler, Richard",
+         "first_name" : "Richard",
+         "book_count" : "9",
+         "name" : "Schaeffler, Richard",
+         "author_id" : "schaeffler_richard",
+         "last_name" : "Schaeffler"
+      },
+      {
+         "category_ids" : [],
+         "book_ids" : [
+            "das_koreanische_volk_kampft_und_wird_siegen"
+         ],
+         "dates" : "",
+         "subject_ids" : [],
+         "name_latin" : "Werning, Richard",
+         "first_name" : "Richard",
+         "book_count" : "1",
+         "name" : "Werning, Richard",
+         "author_id" : "werning_richard",
+         "last_name" : "Werning"
+      },
+      {
+         "author_id" : "aldridge_richard",
+         "last_name" : "Aldridge",
+         "name" : "Aldridge, Richard",
+         "book_count" : "11",
+         "name_latin" : "Aldridge, Richard",
+         "first_name" : "Richard",
+         "subject_ids" : [],
+         "dates" : "1930-",
+         "category_ids" : [
+            "alphabetically.authors.a.l.d"
+         ],
+         "book_ids" : [
+            "speaking_of_new_england",
+            "driving_north",
+            "palaeobiology_of_conodonts",
+            "palaeobiology_of_conodonts_a01",
+            "red_pine_black_ash",
+            "reasons_and_raisins",
+            "the_cambrian_fossils_of_chengjiang_china",
+            "the_cambrian_fossils_of_chengjiang_china_a01",
+            "special_papers_in_palaeontology_83",
+            "palaeobiology_of_conodonts_a02",
+            "british_silurian_stratigraphy"
+         ]
+      },
+      {
+         "dates" : "1914-",
+         "book_ids" : [
+            "very_convenient_everywhere",
+            "moshch_filosofii"
+         ],
+         "category_ids" : [
+            "alphabetically.authors.s.e.l"
+         ],
+         "subject_ids" : [],
+         "book_count" : "2",
+         "first_name" : "Richard",
+         "name_latin" : "Seligman, Richard",
+         "last_name" : "Seligman",
+         "author_id" : "seligman_richard",
+         "name" : "Seligman, Richard"
+      },
+      {
+         "last_name" : "Richards",
+         "author_id" : "richards_lyn",
+         "name" : "Richards, Lyn",
+         "book_count" : "27",
+         "first_name" : "Lyn",
+         "name_latin" : "Richards, Lyn",
+         "subject_ids" : [],
+         "dates" : "",
+         "category_ids" : [
+            "alphabetically.authors.r.i.c"
+         ],
+         "book_ids" : [
+            "readme_first_for_a_users_guide_to_qualitative_methods",
+            "nobodys_home_a02",
+            "the_nvivo_qualitative_project_book",
+            "the_nvivo_qualitative_project_book_a01",
+            "soft_data_for_girls",
+            "readme_first_for_a_users_guide_to_qualitative_methods_a01",
+            "intermission_a03",
+            "using_nvivo_in_qualitative_research",
+            "displaced_politics",
+            "having_families",
+            "mothers_and_working_mothers",
+            "handling_qualitative_data",
+            "handling_qualitative_data_a01",
+            "good_mothers_and_other_mothers",
+            "nudist",
+            "readme_first_for_a_users_guide_to_qualitative_methods_a02",
+            "using_nvivo_in_qualitative_research_a01",
+            "having_families_a01",
+            "mothers_and_working_mothers_a01",
+            "babies_and_jobs",
+            "applying_qualitative_methods_to_marketing_management_researc",
+            "organising_knowledge_a02",
+            "families_in_a_suburb",
+            "too_close_for_comfort_a28",
+            "a_mans_not_a_neighbour",
+            "it_means_a_family_life_family_home_ownership_in_an_australia",
+            "and_they_all_have_pretty_children"
+         ]
+      },
+      {
+         "first_name" : "Richard",
+         "name_latin" : "Balducci, Richard",
+         "book_count" : "1",
+         "name" : "Balducci, Richard",
+         "last_name" : "Balducci",
+         "author_id" : "balducci_richard",
+         "book_ids" : [
+            "le_cafe_des_veuves"
+         ],
+         "category_ids" : [
+            "alphabetically.authors.b.a.l"
+         ],
+         "dates" : "",
+         "subject_ids" : []
+      },
+      {
+         "book_ids" : [
+            "business_administration_reading_lists_and_course_outlines",
+            "business_policy_and_strategy_a01",
+            "business_policy_and_strategy_a02",
+            "entrepreneurship_small_business_and_venture_capital",
+            "international_business_a34",
+            "marketing_a49",
+            "organizational_behavior_a60",
+            "international_banking_and_finance_a02",
+            "business_government_and_society_a05",
+            "bargaining_dispute_resolution_curricula",
+            "quantitative_methods_and_computer_applications_in_business",
+            "organizational_behavior_a96",
+            "marketing_b02",
+            "accounting_a45",
+            "industrial_relations_a20",
+            "international_business_a61",
+            "international_banking_finance_a01",
+            "finance_a21",
+            "finance_a22",
+            "business_administration_reading_lists_and_course_outline_a01",
+            "business_administration_reading_lists_and_course_outline_a02",
+            "organizational_behavior_ii",
+            "market_solutions_for_native_poverty",
+            "industrial_relations_and_human_resources_management",
+            "quantitative_methods_research_design_and_computer_applicatio",
+            "risk_decision_making_and_bargaining",
+            "report_of_the_commission_of_inquiry_into_compensation_for_th",
+            "business_policy_strategy",
+            "international_business_b42",
+            "chopping_up_the_money_tree",
+            "business_administration_reading_lists_and_course_outline_a03",
+            "finance_i",
+            "finance_a60",
+            "accounting_b98",
+            "accounting_b99",
+            "health_administration",
+            "accounting_ii_managerial_accounting_international_accounting",
+            "international_business_ii",
+            "business_administration_reading_lists_and_course_outline_a04",
+            "business_administration_reading_lists_and_course_outline_a05",
+            "business_administration_reading_lists_and_course_outline_a06",
+            "business_administration_reading_lists_and_course_outline_a07",
+            "accounting_c90",
+            "business_ethics_regulation_and_law",
+            "business_economics_a34",
+            "marketing_i_marketing_strategy_management_and_research",
+            "marketing_ii_buyer_behavior_industrial_marketing_internation",
+            "finance_i_corporate_finance",
+            "international_business_i_multinational_management_and_the_in",
+            "finance_ii_investments_and_financial_markets",
+            "international_banking_and_finance_a09"
+         ],
+         "category_ids" : [
+            "alphabetically.authors.s.c.h"
+         ],
+         "dates" : "",
+         "subject_ids" : [],
+         "name_latin" : "Schwindt, Richard",
+         "first_name" : "Richard",
+         "book_count" : "51",
+         "name" : "Schwindt, Richard",
+         "author_id" : "schwindt_richard",
+         "last_name" : "Schwindt"
+      }
+   ]
+}

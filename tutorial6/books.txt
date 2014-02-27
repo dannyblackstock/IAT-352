@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<isbndb>
+  <data>
+    <author_data>
+      <id>richards_rowland</id>
+      <name>Richards, Rowland</name>
+    </author_data>
+    <awards_text></awards_text>
+    <book_id>principles_of_solid_mechanics</book_id>
+    <dewey_decimal>620/.1/05</dewey_decimal>
+    <dewey_normal>620.105</dewey_normal>
+    <edition_info>(alk. paper)</edition_info>
+    <isbn10>084930315X</isbn10>
+    <isbn13>9780849303159</isbn13>
+    <language>eng</language>
+    <lcc_number>TA350</lcc_number>
+    <marc_enc_level></marc_enc_level>
+    <notes>Includes bibliographical references and index.
+
+1. Introduction -- 2. Strain and stress -- 3. Stress-strain relationships (rheology) -- 4. Strategies for elastic analysis and design -- 5. Linear free fields -- 6. Two-dimensional solutions for straight and circular beams -- 7. Ring, holes, and inverse problems -- 8. Wedges and half-space -- 9. Torsion -- 10. Concepts of plasticity -- 11. One-dimensional plasticity for design -- 12. Slip-line analysis.</notes>
+    <physical_description_text>446 p. : ill. ; 24 cm.</physical_description_text>
+    <publisher_id>crc_press</publisher_id>
+    <publisher_name>CRC Press</publisher_name>
+    <publisher_text>Boca Raton, FL : CRC Press, 2000.</publisher_text>
+    <subject_ids>mechanics_applied</subject_ids>
+    <summary>Evolving from more than 30 years of research and teaching experience, "Principles of Solid Mechanics" offers an in-depth treatment of the application of the full-range theory of deformable solids for analysis and design. Unlike other texts, it is not either a civil or mechanical engineering text, but both. It treats not only analysis but incorporates design along with experimental observation. Principles of Solid Mechanics serves as a core course textbook for advanced seniors and first-year graduate students. The author focuses on basic concepts and applications, simple yet unsolved problems, inverse strategies for optimum design, unanswered questions, and unresolved paradoxes to intrigue students and encourage further study. He includes plastic as well as elastic behavior in terms of a unified field theory and discusses the properties of field equations and requirements on boundary conditions crucial for understanding the limits of numerical modeling. Designed to help guide students with little experimental experience and no exposure to drawing and graphic analysis, the text presents carefully selected worked examples. The author makes liberal use of footnotes and includes over 150 figures and 200 problems. This, along with his approach, allows students to see the full range, non-linear response of structures.</summary>
+    <title>Principles of solid mechanics</title>
+    <title_latin>Principles of solid mechanics</title_latin>
+    <title_long></title_long>
+    <urls_text></urls_text>
+  </data>
+  <index_searched>isbn</index_searched>
+</isbndb>
