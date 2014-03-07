@@ -623,52 +623,57 @@ a:hover {
   font-weight: bold;
 }
 
-.sign-up-log-in-form {
+.user-info-form {
   float: left;
   display: block;
   margin-right: 2.35765%;
   width: 100%;
   text-align: center;
 }
-.sign-up-log-in-form:last-child {
+.user-info-form:last-child {
   margin-right: 0;
 }
-.sign-up-log-in-form input, .sign-up-log-in-form textarea {
+.user-info-form input, .user-info-form textarea {
   display: block;
   margin: 10px auto;
 }
-.sign-up-log-in-form input:required {
+.user-info-form input[type="checkbox"] {
+  display: inline-block;
+  width: auto;
+  margin: 0 5px 0 0;
+}
+.user-info-form input:required {
   box-shadow: 0 0 5px #ff7f7f;
   border-color: #ff4c4c;
   background: white url("../img/red_asterisk.png") no-repeat 98% center;
 }
-.sign-up-log-in-form input:required:valid {
+.user-info-form input:required:valid {
   box-shadow: 0 0 5px #5cd053;
   border-color: #28921f;
   background: white url("../img/valid.png") no-repeat 98% center;
 }
-.sign-up-log-in-form input:focus:invalid {
+.user-info-form input:focus:invalid {
   box-shadow: 0 0 5px #ff7f7f;
   border-color: #ff4c4c;
   background: white url("../img/invalid.png") no-repeat 98% center;
 }
-.sign-up-log-in-form .form-input, .sign-up-log-in-form .form-textarea {
+.user-info-form .form-input, .user-info-form .form-textarea {
   border: 1px solid #ddd;
   padding: 5px 25px 5px 5px;
   font-size: 1em;
   width: 200px;
 }
-.sign-up-log-in-form .form-button {
+.user-info-form .form-button {
   width: 200px;
 }
 @media screen and (min-width: 286px) {
-  .sign-up-log-in-form {
+  .user-info-form {
     float: left;
     display: block;
     margin-right: 7.42297%;
     width: 100%;
   }
-  .sign-up-log-in-form:last-child {
+  .user-info-form:last-child {
     margin-right: 0;
   }
 }

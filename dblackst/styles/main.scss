@@ -170,7 +170,7 @@ a {
 }
 
 // sign up and log in forms
-.sign-up-log-in-form {
+.user-info-form {
     @include span-columns(12);
     text-align: center;
 
@@ -180,6 +180,13 @@ a {
     }
 
     input {
+
+        &[type="checkbox"] {
+            display:inline-block;
+            width: auto;
+            margin: 0 5px 0 0;
+        }
+
         &:required {
             box-shadow: 0 0 5px rgb(255,127,127);
             border-color: darken(rgb(255,127,127), 10);
