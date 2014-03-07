@@ -5,9 +5,9 @@
 <?php require("includes/main_menu_bar_https.php"); ?>
 
 <div id="content-container">
-    
+
     <!-- Sign up form -->
-    <form name="input" action="sign_up_member_process.php" method="post" class="sign-up-log-in-form container">
+    <form name="input" action="sign_up_member_process.php" method="post" class="user-info-form container">
 
         <h1 class="center-text">Member sign up</h1>
 
@@ -37,7 +37,7 @@
         <input class="form-button button-grey" type="submit" name="submit" value="Submit">
 
         <p>Already have an account? <a href="login.php">Log in</a></p>
-    </form> 
+    </form>
 </div>
 
 <?php require("includes/footer.php"); ?>

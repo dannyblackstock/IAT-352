@@ -41,7 +41,7 @@ if($_SERVER["HTTPS"] != "on") {
                             echo "<a class=\"right-nav-button\" href=\"new_post.php\"> Post</a>
                                     <ul id=\"user-dropdown\">
                                     <li>
-                                        <a href=\"#\" class=\"button\" id=\"user-dropdown-button\">".$user['name']." ▾</a>
+                                        <a href=\"#\" class=\"button\" id=\"user-dropdown-button\">".$user['name']."</a>
                                         <ul>
                                             <li><a href=\"user.php?id=".$user['id']."\">View my page</a></li>
                                             <li><a href='edit_user_info.php'>Edit my account</a></li>
@@ -55,7 +55,7 @@ if($_SERVER["HTTPS"] != "on") {
                             echo "<a class=\"right-nav-button\" href=\"new_post.php\"> Post</a>
                                     <ul id=\"user-dropdown\">
                                     <li>
-                                        <a href=\"#\" class=\"button\" id=\"user-dropdown-button\">".$_SESSION['valid_member']." ▾</a>
+                                        <a href=\"#\" class=\"button\" id=\"user-dropdown-button\">".$_SESSION['valid_member']."</a>
                                         <ul>
                                             <li><a href=\"user.php?id=".$user['id']."\">View my page</a></li>
                                             <li><a href='edit_user_info.php'>Edit my account</a></li>
@@ -78,7 +78,7 @@ if($_SERVER["HTTPS"] != "on") {
                             echo "<a class=\"right-nav-button\" href='post_feed.php'>News Feed</a>
                                     <ul id=\"user-dropdown\">
                                     <li>
-                                        <a href=\"#\" class=\"button\" id=\"user-dropdown-button\">".$user['name']." ▾</a>
+                                        <a href=\"#\" class=\"button\" id=\"user-dropdown-button\">".$user['name']."</a>
                                         <ul>
                                             <li><a href='edit_user_info.php'>Edit my account</a></li>
                                             <li><a href=\"logout.php\">Log out</a></li>
@@ -91,7 +91,7 @@ if($_SERVER["HTTPS"] != "on") {
                             echo "<a class=\"right-nav-button\" href='post_feed.php'>News Feed</a>
                                     <ul id=\"user-dropdown\">
                                     <li>
-                                        <a href=\"#\" class=\"button\" id=\"user-dropdown-button\">".$_SESSION['valid_visitor']." ▾</a>
+                                        <a href=\"#\" class=\"button\" id=\"user-dropdown-button\">".$_SESSION['valid_visitor']."</a>
                                         <ul>
                                             <li><a href='edit_user_info.php'>Edit my account</a></li>
                                             <li><a href=\"logout.php\">Log out</a></li>

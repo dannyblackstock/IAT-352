@@ -92,16 +92,18 @@ require_once("includes/database_info.php");
                 echo "<div><a href='mailto:".$user['email']."?Subject=SIAT' target='_top'>".$user['email']."</a>";
 
                 if (!empty($user['phone']) && $user['phone'] !== "NULL") {
-                    echo " | ".$user['phone']."</div>";
+                    echo " | ".$user['phone'];
 
                     if ($user['is_phone_preferred'] == "1") {
                         echo "<div>".$user['name']." prefers to be contacted by phone.</div>";
                     }
                 }
 
-                else {
-                    echo "</div>";
+                if (!empty($user['twitter_handle']) && $user['twitter_handle'] !== "NULL") {
+                    echo " | <a href=\"http://www.twitter.com/".$user['twitter_handle']."\">@".$user['twitter_handle']."</a>";
                 }
+
+                echo "</div>";
 
                 // High school info
                 echo "<p>Graduated from ".$user['high_school']." in ".$user['grad_year'].".</p>";

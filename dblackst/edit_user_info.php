@@ -14,7 +14,7 @@
             if ($result) {
                 if ($result->num_rows > 0) {
                     $user = $result->fetch_array(MYSQLI_ASSOC);
-                    echo "<form name=\"input\" action=\"update_user_info.php\" method=\"post\" class=\"sign-up-log-in-form container\">
+                    echo "<form name=\"input\" action=\"update_user_info.php\" method=\"post\" class=\"user-info-form container\">
 
                             <h1 class=\"center-text\">Edit my info</h1>
 
@@ -26,6 +26,7 @@
 
                             <input class=\"form-input\" type=\"number\" name=\"graduationYear\" min=\"1900\" max=\"2100\" value=\"".$user['grad_year']."\" required value=\"2000\">";
 
+                            // if the value of this field isn't empty
                             if ($user['phone'] != "NULL" && $user['phone'] != NULL ) {
                                 echo "<input class=\"form-input\" type=\"tel\" name=\"phone\" value=\"".$user['phone']."\">";
                             }
@@ -50,6 +51,14 @@
                                 echo "<textarea class=\"form-textarea\" name=\"bio\" placeholder=\"Bio\"></textarea>";
                             }
 
+                            if ($user['twitter_handle'] != "NULL" && $user['twitter_handle'] != NULL && $user['twitter_handle'] != "") {
+                                echo "<input class=\"form-input\" type=\"text\" placeholder=\"Twitter account\" value=\"".$user['twitter_handle']."\" name=\"twitter_handle\" id=\"twitter_handle\">";
+                            }
+
+                            else {
+                                echo "<input class=\"form-input\" type=\"text\" placeholder=\"Twitter account\" name=\"twitter_handle\" id=\"twitter_handle\">";
+                            }
+
                             echo "<!-- hidden post request -->
                             <input type=\"hidden\" name=\"user_type\" value=\"member\">
 
@@ -68,13 +77,14 @@
                 echo "<h1 class=\"main-header\">Query failed!</h1>";
             }
         }
+        // for visitors
         if (isset($_SESSION['valid_visitor'])) {
             $query = "SELECT * FROM `visitors` WHERE email=\"".mysql_real_escape_string($_SESSION['valid_visitor'])."\";";
             $result = $db->query($query);
             if ($result) {
                 if ($result->num_rows > 0) {
                     $user = $result->fetch_array(MYSQLI_ASSOC);
-                    echo "<form name=\"input\" action=\"update_user_info.php\" method=\"post\" class=\"sign-up-log-in-form container\">
+                    echo "<form name=\"input\" action=\"update_user_info.php\" method=\"post\" class=\"user-info-form container\">
 
                             <h1 class=\"center-text\">Edit my info</h1>
 

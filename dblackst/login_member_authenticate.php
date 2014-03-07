@@ -18,7 +18,7 @@ if (session_status() == PHP_SESSION_NONE) {
 }
 
 //let's see how we got here
-// echo "<p>callback_URL is: "; 
+// echo "<p>callback_URL is: ";
 // if (isset($_SESSION['callback_URL'])) echo $_SESSION['callback_URL'];
 // echo "</p>";
 
@@ -81,7 +81,7 @@ if (!isset($_SESSION['valid_member'])) {
             die('Connect Error: ' . $db->connect_error);
         }
 
-        // Close database connection 
+        // Close database connection
         $db->close();
 
     }
@@ -93,7 +93,7 @@ if (!isset($_SESSION['valid_member'])) {
 }
 
 if (isset($_SESSION['valid_member'])) {
-    //autheticated correctly 
+    //autheticated correctly
     if (isset($_SESSION['callback_URL'])) {
         // go back where you came from
         $callback_URL=$_SESSION['callback_URL'];
@@ -115,7 +115,7 @@ else {
     <div id="content-container">
 
         <!-- Sign up form -->
-        <form name="input" action="login_member_authenticate.php" method="post" class="sign-up-log-in-form container">
+        <form name="input" action="login_member_authenticate.php" method="post" class="user-info-form container">
 
             <h1 class="center-text">Member log in</h1>
 
@@ -126,7 +126,7 @@ else {
             <input class="form-button button-grey" name="submit" type="submit" value="Submit">
             <p>Don't have an account? <a href="sign_up.php">Sign up</a></p>
             <p>Not a member? <a href="login_visitor_authenticate.php">Log in as a visitor</a></p>
-        </form> 
+        </form>
     </div>
 <?php
 }
