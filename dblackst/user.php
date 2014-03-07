@@ -39,8 +39,6 @@ require_once("includes/database_info.php");
                 echo "<h1 class='user-name'>".$user['name']."</h1>";
 
 
-
-
                 // Code for follow/unfollow button
 
                 // user must login to a visitor account if they want to follow
@@ -49,7 +47,7 @@ require_once("includes/database_info.php");
                 }
 
                 // if they are a visitor
-                else if (isset($_SESSION['valid_visitor'])) {
+                else if (isset($_SESSION['valid_visitor']) && !isset($_SESSION['valid_member'])) {
 
                     // check if the visitor is following this member already by querying the database
                     $follower_id = mysql_escape_string($_SESSION['valid_visitor']);
@@ -66,6 +64,27 @@ require_once("includes/database_info.php");
                     else {
                         // if they're not following, they can follow
                         echo "<p><a href='follow.php?follow=".$userID."' class='button'>Follow</a></p>";
+                    }
+                }
+
+                // Code for "Edit my account" button
+
+                // if they are a visitor
+                else if (isset($_SESSION['valid_member']) && !isset($_SESSION['valid_visitor'])) {
+
+                    // check if this is the member's page
+                    $member_email = mysql_escape_string($_SESSION['valid_member']);
+
+                    $member_query = "SELECT `email` FROM `members` WHERE id=\"".$userID."\";";
+                    $member_result = $db->query($member_query);
+                    // print_r($member_result);
+
+                    $query_email = mysqli_fetch_array($member_result)[0];
+
+                    // if already following
+                    if (($member_result->num_rows > 0) && ($query_email == $member_email)){
+                        // visitor can unfollow
+                        echo "<p><a href='edit_user_info.php' class='button'>Edit</a></p>";
                     }
                 }
 

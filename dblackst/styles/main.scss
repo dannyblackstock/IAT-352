@@ -19,7 +19,7 @@ $default-text-color: #333;
 @import "user_page.scss";
 
 // the font
-@import url(https://fonts.googleapis.com/css?family=Gudea:400,700,400italic);
+@import url(http://fonts.googleapis.com/css?family=Lato:400,700,400italic);
 
 body {
     background-color: rgb(237, 238, 239);
@@ -28,7 +28,7 @@ body {
 // important!
 body, input, textarea, button {
     margin: 0;
-    font-family: 'Gudea', sans-serif;
+    font-family: 'Lato', sans-serif;
     color: $default-text-color;
 }
 
@@ -87,7 +87,7 @@ a {
 }
 
 #high-schools-table{
-    
+
     @include media($bigger-than-medium) {
         padding: 25px;
     }
@@ -178,7 +178,7 @@ a {
         display: block;
         margin: 10px auto;
     }
-    
+
     input {
         &:required {
             box-shadow: 0 0 5px rgb(255,127,127);
@@ -202,7 +202,7 @@ a {
     .form-input, .form-textarea {
         // box-shadow: none;
         border: 1px solid #ddd;
-        padding: 5px;
+        padding: 5px 25px 5px 5px;
         font-size: 1em;
         width: 200px;
     }
@@ -229,8 +229,8 @@ a {
         margin-top: 10px;
         @include span-columns(12);
     }
-    
-    
+
+
     .form-input, .form-textarea {
         // box-shadow: none;
         border: 1px solid #ddd;

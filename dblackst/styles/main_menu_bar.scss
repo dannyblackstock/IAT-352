@@ -49,6 +49,7 @@
 #main-menu-bar-right {
     @include media($bigger-than-tiny) {
         float: right;
+        padding-top: 3px;
     }
 
     .right-nav-button {

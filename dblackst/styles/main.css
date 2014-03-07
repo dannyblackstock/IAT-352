@@ -1,4 +1,4 @@
-@import url(https://fonts.googleapis.com/css?family=Gudea:400,700,400italic);
+@import url(http://fonts.googleapis.com/css?family=Lato:400,700,400italic);
 * {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -64,6 +64,7 @@
 @media screen and (min-width: 286px) {
   #main-menu-bar-right {
     float: right;
+    padding-top: 3px;
   }
 }
 #main-menu-bar-right .right-nav-button {
@@ -432,7 +433,7 @@ body {
 
 body, input, textarea, button {
   margin: 0;
-  font-family: 'Gudea', sans-serif;
+  font-family: 'Lato', sans-serif;
   color: #333333;
 }
 
@@ -653,7 +654,7 @@ a:hover {
 }
 .sign-up-log-in-form .form-input, .sign-up-log-in-form .form-textarea {
   border: 1px solid #ddd;
-  padding: 5px;
+  padding: 5px 25px 5px 5px;
   font-size: 1em;
   width: 200px;
 }
