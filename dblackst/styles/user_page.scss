@@ -12,10 +12,6 @@
     background-size: cover;
     background-position: center;
 
-    @include media($bigger-than-small) {
-        text-align: center;
-    }
-
     @include media ($bigger-than-medium) {
         @include span-columns(5);
         img {

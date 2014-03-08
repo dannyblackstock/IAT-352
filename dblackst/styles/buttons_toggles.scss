@@ -53,6 +53,7 @@
 
 .toggle-switch {
     @include span-columns(12);
+    // @include omega();
     $bg-color: #eee;
     padding: 0;
     color: $default-text-color;
@@ -76,8 +77,12 @@
 
     .toggle-switch-left, .toggle-switch-right {
         @include custom-button(#f7f7f7, #333333);
-        width: 100%;
+        width: 100px;
         text-align: center;
+    }
+
+    .toggle-switch-left {
+        border-right: 0;
     }
 
     & .active {
@@ -92,19 +97,9 @@
         }
     }
 
-    @include media($bigger-than-tiny){
-        .toggle-switch-left {
-            border-right: 0;
-        }
-
-        .toggle-switch-left, .toggle-switch-right {
-            width: 100px;
-        }
-    }
-
     @include media($bigger-than-medium){
         text-align: right;
-        @include span-columns(6);
+        @include span-columns(7);
         @include omega();
     }
 }

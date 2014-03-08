@@ -26,11 +26,11 @@
     text-decoration: none;
     font-size: 0.6em;
     display: block;
-    margin: 0 auto;
+    margin: 0 auto 10px auto;
     text-align: right;
     width: $logo-width;
 
-    @include media($bigger-than-tiny) {
+    @include media($bigger-than-small) {
         float: left;
         margin-bottom: 0;
     }
@@ -40,14 +40,14 @@
         display: block;
         margin: 0 auto -5px auto;
 
-        @include media($bigger-than-tiny) {
+        @include media($bigger-than-small) {
             margin-bottom: -5px;
         }
     }
 }
 
 #main-menu-bar-right {
-    @include media($bigger-than-tiny) {
+    @include media($bigger-than-small) {
         float: right;
         padding-top: 3px;
     }
@@ -63,12 +63,14 @@
 
     #user-dropdown {
         display: inline-block;
+
         #user-dropdown-button {
             width: auto;
             color: $default-text-color;
             background: #fff url('../img/dropdown_arrow.gif') no-repeat 96% center;
             padding-right:20px;
         }
+
         .dropit-submenu {
             background-color: #fff;
             border-color: #ddd;

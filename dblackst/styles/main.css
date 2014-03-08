@@ -40,11 +40,11 @@
   text-decoration: none;
   font-size: 0.6em;
   display: block;
-  margin: 0 auto;
+  margin: 0 auto 10px auto;
   text-align: right;
   width: 80px;
 }
-@media screen and (min-width: 286px) {
+@media screen and (min-width: 420px) {
   #main-menu-bar-left {
     float: left;
     margin-bottom: 0;
@@ -55,13 +55,13 @@
   display: block;
   margin: 0 auto -5px auto;
 }
-@media screen and (min-width: 286px) {
+@media screen and (min-width: 420px) {
   #main-menu-bar-left #main-menu-bar-logo {
     margin-bottom: -5px;
   }
 }
 
-@media screen and (min-width: 286px) {
+@media screen and (min-width: 420px) {
   #main-menu-bar-right {
     float: right;
     padding-top: 3px;
@@ -289,7 +289,7 @@
   -webkit-transition: background-color 0.2s;
   -moz-transition: background-color 0.2s;
   transition: background-color 0.2s;
-  width: 100%;
+  width: 100px;
   text-align: center;
 }
 .toggle-switch .toggle-switch-left:hover, .toggle-switch .toggle-switch-right:hover {
@@ -307,6 +307,9 @@
 .toggle-switch .toggle-switch-left:visited, .toggle-switch .toggle-switch-right:visited {
   color: #333333;
 }
+.toggle-switch .toggle-switch-left {
+  border-right: 0;
+}
 .toggle-switch .active {
   background-color: #bbbbbb;
   color: white;
@@ -317,21 +320,13 @@
   color: #999999;
   cursor: default;
 }
-@media screen and (min-width: 286px) {
-  .toggle-switch .toggle-switch-left {
-    border-right: 0;
-  }
-  .toggle-switch .toggle-switch-left, .toggle-switch .toggle-switch-right {
-    width: 100px;
-  }
-}
 @media screen and (min-width: 545px) {
   .toggle-switch {
     text-align: right;
     float: left;
     display: block;
     margin-right: 2.35765%;
-    width: 48.82117%;
+    width: 57.35098%;
     margin-right: 0;
   }
   .toggle-switch:last-child {
@@ -362,11 +357,6 @@
 }
 #user-main-profile-picture:last-child {
   margin-right: 0;
-}
-@media screen and (min-width: 350px) {
-  #user-main-profile-picture {
-    text-align: center;
-  }
 }
 @media screen and (min-width: 545px) {
   #user-main-profile-picture {
@@ -453,7 +443,7 @@ body, input, textarea, button {
     float: left;
     display: block;
     margin-right: 2.35765%;
-    width: 48.82117%;
+    width: 40.29137%;
   }
   .main-header:last-child {
     margin-right: 0;
@@ -747,7 +737,7 @@ a:hover {
 .post-container .post-info:after {
   clear: both;
 }
-@media screen and (min-width: 350px) {
+@media screen and (min-width: 420px) {
   .post-container .post-info .post-info-left {
     float: left;
   }
@@ -767,7 +757,7 @@ a:hover {
   color: #bbb;
   padding-top: 14px;
 }
-@media screen and (min-width: 350px) {
+@media screen and (min-width: 420px) {
   .post-container .post-info .post-info-right {
     float: right;
   }
