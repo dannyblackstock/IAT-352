@@ -80,6 +80,7 @@ a {
 .container {
     @include clearfix;
     @include span-columns(12);
+    margin-top: 10px;
     background-color: #FFF;
     border: 1px solid #ddd;
     padding: 10px;
@@ -94,18 +95,6 @@ a {
 }
 
 #members-table {
-    width: 100%;
-    border-collapse: collapse;
-    background-color: #FFF;
-
-    .profile-picture-cell {
-        width: 50px;
-    }
-
-    th, td {
-        border: 1px solid #ccc;
-        padding: 5px 10px;
-    }
 
     .user-container {
         @include span-columns(12);
