@@ -15,4 +15,19 @@
 
   // App authentication
   \Codebird\Codebird::setBearerToken($bearer_token);
+
+
+  function get_tweets($username, $cb){
+    $params = array(
+      'screen_name' => $username,
+      'count' => 5 // get 5 recent tweets
+    );
+
+    // Make the REST call to get the user's tweets
+    $res = (array)$cb->statuses_userTimeline($params);
+
+    // Convert results to an associative array
+    $tweets = json_decode(json_encode($res) , true);
+    return $tweets;
+  }
 ?>

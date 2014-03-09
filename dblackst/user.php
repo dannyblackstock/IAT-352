@@ -15,6 +15,9 @@ require_once ('includes/codebird-php/src/codebird.php');
 
 require_once ('includes/twitter_config.php');
 
+// include flickr api key and functions
+require_once ('includes/flickr_config.php');
+
 ?>
 
 <div id="content-container">
@@ -102,7 +105,7 @@ if (isset($_GET['id']) && is_numeric($_GET['id'])) {
           echo "<div>" . $user['name'] . " prefers to be contacted by phone.</div>";
         }
       }
-      echo "</div>"; // twitter
+      echo "</div>";
 
 
       // Twitter if they have entered their Twitter handle
@@ -111,25 +114,18 @@ if (isset($_GET['id']) && is_numeric($_GET['id'])) {
       // use vancouver time
       date_default_timezone_set('America/Vancouver');
 
+      echo "<div>";
 
       if (!empty($user['twitter_handle']) && $user['twitter_handle'] !== "NULL") {
-        echo "<div>
-        Twitter: <a href=\"http://www.twitter.com/" . $user['twitter_handle'] . "\">@" . $user['twitter_handle'] . "</a>";
+        echo "Twitter: <a href=\"http://www.twitter.com/"
+        . $user['twitter_handle']
+        . "\">@"
+        . $user['twitter_handle']
+        . "</a>";
 
         // CODEBIRD GET TWEETS FOR USER
-        // Create query
-        $params = array(
-          'screen_name' => $user['twitter_handle'],
-          'count' => 5 // get 5 recent tweets
-        );
-
-        // Make the REST call to get the user's tweets
-        $res = (array)$cb->statuses_userTimeline($params);
-
-        // Convert results to an associative array
-        $tweets = json_decode(json_encode($res) , true);
-
-        // check tweets['httpstatus']
+        // Create query get tweets
+        $tweets = get_tweets($user['twitter_handle'], $cb);
 
         // add the tweets to the news feed array
         foreach($tweets as $tweet) {
@@ -145,7 +141,14 @@ if (isset($_GET['id']) && is_numeric($_GET['id'])) {
       }
 
       if (!empty($user['flickr_handle']) && $user['flickr_handle'] !== "NULL") {
-        echo " | Flickr: <a href=\"http://www.flickr.com/photos/" . $user['flickr_handle'] . "\">" . $user['flickr_handle'] . "</a>";
+        $flickrUsername = $user['flickr_handle'];
+        // get user id from screen name
+        $flickr_user_id = get_flickr_user_id($flickrUsername, $flickr_api_key);
+
+        // if the user id was retrieved
+        if (!empty($flickr_user_id)){
+          echo " | Flickr: <a href=\"http://www.flickr.com/photos/" . $flickr_user_id . "\">" . $flickrUsername . "</a>";
+        }
       }
 
       echo "</div>"; // twitter | flickr
@@ -163,7 +166,28 @@ if (isset($_GET['id']) && is_numeric($_GET['id'])) {
 
       echo "</div></div>";
 
-      // user's posts
+      $flickr_public_photos_url ="http://flickr.com/services/rest/?method=flickr.people.getPublicPhotos"."&user_id=".$flickr_user_id."&api_key=".$flickr_api_key;
+      $flickr_public_photos_xml = simplexml_load_file($flickr_public_photos_url) or die("Unable to contact Flickr");
+
+      // 5 of user's flickr photos
+      // if ($flickr_public_photos_xml->photos->photo->Count() > 0) {
+      //   echo "<div>";
+      //   foreach($xml->photos->photo as $photo){
+      //     print "\n"."<div class=float>";
+      //     if($link_option == 1){
+      //       print "\n". '<a href="'.photo_url($photo,'s').'" target="_blank">'."\n";
+      //     }
+      //     else{
+      //       print "\n". '<a href="'.flickr_page_url($photo, $user_id).'" target="_blank">'."\n";
+      //     }
+      //     print '<img src="'.photo_url($photo,'s'). '"'.' alt="'.$photo->title.'"/>'."</a>"."\n";
+
+      //     print "</div>"."\n";
+      //   }
+      //   echo "</div>";
+      // }
+
+      // user's posts + tweets
       $user_posts_query = "SELECT * FROM posts WHERE user_id=" . $userID . " ORDER BY date DESC;";
       $user_posts_result = $db->query($user_posts_query);
       echo "<div id='user-posts' class='container'>
