@@ -149,6 +149,11 @@ if (isset($_GET['id']) && is_numeric($_GET['id'])) {
         if (!empty($flickr_user_id)){
           echo " | Flickr: <a href=\"http://www.flickr.com/photos/" . $flickr_user_id . "\">" . $flickrUsername . "</a>";
         }
+
+      $photosPerPage = 10;
+
+      $flickr_public_photos_url ="http://flickr.com/services/rest/?method=flickr.people.getPublicPhotos"."&user_id=".$flickr_user_id."&api_key=".$flickr_api_key."&per_page=".$photosPerPage;
+      $flickr_public_photos_xml = simplexml_load_file($flickr_public_photos_url) or die("Unable to contact Flickr");
       }
 
       echo "</div>"; // twitter | flickr
@@ -166,26 +171,25 @@ if (isset($_GET['id']) && is_numeric($_GET['id'])) {
 
       echo "</div></div>";
 
-      $flickr_public_photos_url ="http://flickr.com/services/rest/?method=flickr.people.getPublicPhotos"."&user_id=".$flickr_user_id."&api_key=".$flickr_api_key;
-      $flickr_public_photos_xml = simplexml_load_file($flickr_public_photos_url) or die("Unable to contact Flickr");
-
       // 5 of user's flickr photos
-      // if ($flickr_public_photos_xml->photos->photo->Count() > 0) {
-      //   echo "<div>";
-      //   foreach($xml->photos->photo as $photo){
-      //     print "\n"."<div class=float>";
-      //     if($link_option == 1){
-      //       print "\n". '<a href="'.photo_url($photo,'s').'" target="_blank">'."\n";
-      //     }
-      //     else{
-      //       print "\n". '<a href="'.flickr_page_url($photo, $user_id).'" target="_blank">'."\n";
-      //     }
-      //     print '<img src="'.photo_url($photo,'s'). '"'.' alt="'.$photo->title.'"/>'."</a>"."\n";
+      if ($flickr_public_photos_xml->photos->photo->Count() > 0) {
+        echo "<div class='container' id='flickr-photos'>";
 
-      //     print "</div>"."\n";
-      //   }
-      //   echo "</div>";
-      // }
+        foreach($flickr_public_photos_xml->photos->photo as $photo){
+          echo "<div class='flickr_thumb'>";
+          if($link_option == 1){
+            print "\n". '<a href="'.photo_url($photo,'s').'" target="_blank">'."\n";
+          }
+          else{
+            print "\n". '<a href="'.flickr_page_url($photo, $flickr_user_id).'" target="_blank">'."\n";
+          }
+          print '<img src="'.photo_url($photo,'s'). '"'.' alt="'.$photo->title.'"/>'."</a>"."\n";
+
+          print "</div>"."\n";
+        }
+
+        echo "</div>";
+      }
 
       // user's posts + tweets
       $user_posts_query = "SELECT * FROM posts WHERE user_id=" . $userID . " ORDER BY date DESC;";

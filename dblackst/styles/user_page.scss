@@ -39,9 +39,15 @@
     }
 }
 
+#flickr-photos {
+    .flickr_thumb {
+        float: left;
+        margin: 0 10px 5px 0;
+    }
+}
+
 #user-posts {
     @include span-columns(12);
-    margin-top: 10px;
     padding: 10px 20px;
 
     #user-posts-header {
