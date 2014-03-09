@@ -52,11 +52,19 @@
                             }
 
                             if ($user['twitter_handle'] != "NULL" && $user['twitter_handle'] != NULL && $user['twitter_handle'] != "") {
-                                echo "<input class=\"form-input\" type=\"text\" placeholder=\"Twitter account\" value=\"".$user['twitter_handle']."\" name=\"twitter_handle\" id=\"twitter_handle\">";
+                                echo "<input class=\"form-input\" type=\"text\" placeholder=\"Twitter Username\" value=\"".$user['twitter_handle']."\" name=\"twitter_handle\" id=\"twitter_handle\">";
                             }
 
                             else {
-                                echo "<input class=\"form-input\" type=\"text\" placeholder=\"Twitter account\" name=\"twitter_handle\" id=\"twitter_handle\">";
+                                echo "<input class=\"form-input\" type=\"text\" placeholder=\"Twitter Username\" name=\"twitter_handle\" id=\"twitter_handle\">";
+                            }
+
+                            if ($user['flickr_handle'] != "NULL" && $user['flickr_handle'] != NULL && $user['flickr_handle'] != "") {
+                                echo "<input class=\"form-input\" type=\"text\" placeholder=\"Flickr Username\" value=\"".$user['flickr_handle']."\" name=\"flickr_handle\" id=\"flickr_handle\">";
+                            }
+
+                            else {
+                                echo "<input class=\"form-input\" type=\"text\" placeholder=\"Flickr Username\" name=\"flickr_handle\" id=\"flickr_handle\">";
                             }
 
                             echo "<!-- hidden post request -->

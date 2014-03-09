@@ -13,12 +13,12 @@
         if(isset($_POST['user_type']) && ($_POST['user_type']) == "member") {
 
             // Prepared statements
-            if (!($memberStatement = $db->prepare("UPDATE `members` SET `name`=?, `bio`=?, `location`=?, `high_school`=?, `grad_year`=?, `phone`=?, `is_phone_preferred`=?, `twitter_handle`=? WHERE email=\"".mysql_real_escape_string($_SESSION['valid_member'])."\""))) {
+            if (!($memberStatement = $db->prepare("UPDATE `members` SET `name`=?, `bio`=?, `location`=?, `high_school`=?, `grad_year`=?, `phone`=?, `is_phone_preferred`=?, `twitter_handle`=?, `flickr_handle`=? WHERE email=\"".mysql_real_escape_string($_SESSION['valid_member'])."\""))) {
                 echo "Prepare failed: (" . $db->errno . ") " . $db->error;
             }
 
             //bind parameters
-            $memberStatement->bind_param("ssssisis", $name, $bio, $location, $highschool, $graduationYear, $phone, $isPhonePreferred, $twitter_handle);
+            $memberStatement->bind_param("ssssisiss", $name, $bio, $location, $highschool, $graduationYear, $phone, $isPhonePreferred, $twitter_handle, $flickr_handle);
 
             if(isset($_POST['name'])) {
                 $name = $_POST['name'];
@@ -81,6 +81,13 @@
             }
             else {
                 $twitter_handle = 'NULL';
+            }
+
+            if(isset($_POST['flickr_handle']) && ($_POST['flickr_handle'] !== "")) {
+                $flickr_handle = $_POST['flickr_handle'];
+            }
+            else {
+                $flickr_handle = 'NULL';
             }
 
             // update member's info

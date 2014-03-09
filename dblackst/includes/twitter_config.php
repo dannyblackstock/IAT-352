@@ -1,3 +1,4 @@
+<!-- set up codebird connection with twitter -->
 <?php
 	$consumer_key = "IsWFCmLS8E2fPQ8EXMWmTw";
 	$consumer_secret = "9PzcgDOZFaYDt4yNLEdLQNoZOzoSicfMFGDbnpidvQ";

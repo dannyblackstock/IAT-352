@@ -102,13 +102,19 @@ if (isset($_GET['id']) && is_numeric($_GET['id'])) {
           echo "<div>" . $user['name'] . " prefers to be contacted by phone.</div>";
         }
       }
+      echo "</div>"; // twitter
+
 
       // Twitter if they have entered their Twitter handle
       // create an common array of tweets and posts
       $feedContent = [];
+      // use vancouver time
+      date_default_timezone_set('America/Vancouver');
+
 
       if (!empty($user['twitter_handle']) && $user['twitter_handle'] !== "NULL") {
-        echo " | <a href=\"http://www.twitter.com/" . $user['twitter_handle'] . "\">@" . $user['twitter_handle'] . "</a>";
+        echo "<div>
+        Twitter: <a href=\"http://www.twitter.com/" . $user['twitter_handle'] . "\">@" . $user['twitter_handle'] . "</a>";
 
         // CODEBIRD GET TWEETS FOR USER
         // Create query
@@ -131,14 +137,18 @@ if (isset($_GET['id']) && is_numeric($_GET['id'])) {
           if (empty($tweet['id'])) {
             continue;
           }
-
           $tweetArray = ["username" => "@" . $tweet['user']['screen_name'],
             "date" => strtotime($tweet['created_at']) ,
             "title" => "", "content" => $tweet['text'], "type" => "tweet"];
           array_push($feedContent, $tweetArray);
         }
       }
-      echo "</div>"; // end of email | phone | twitter div
+
+      if (!empty($user['flickr_handle']) && $user['flickr_handle'] !== "NULL") {
+        echo " | Flickr: <a href=\"http://www.flickr.com/photos/" . $user['flickr_handle'] . "\">" . $user['flickr_handle'] . "</a>";
+      }
+
+      echo "</div>"; // twitter | flickr
 
       // High school info
       echo "<p>Graduated from " . $user['high_school'] . " in " . $user['grad_year'] . ".</p>";
@@ -194,7 +204,14 @@ if (isset($_GET['id']) && is_numeric($_GET['id'])) {
             <div class='post-info'>
               <div class='post-info-left'>
                 <img class='user-profile-pic' src='img/user_icon.png' alt='User Profile Picture'>
-                <div class='user-name'>" . $post['username'] . "</div>
+                <div class='user-name'>";
+        if ($post['type'] == "tweet") {
+          echo "<a href='http://www.twitter.com/".$post['username']."'>".$post['username']."</a>";
+        }
+        else {
+          echo $post['username'];
+        }
+        echo "</div>
               </div>
 
               <div class='post-info-right'>
