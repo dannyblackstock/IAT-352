@@ -49,7 +49,6 @@
 #main-menu-bar-right {
     @include media($bigger-than-small) {
         float: right;
-        padding-top: 3px;
     }
 
     .right-nav-button {
@@ -69,6 +68,7 @@
             color: $default-text-color;
             background: #fff url('../img/dropdown_arrow.gif') no-repeat 96% center;
             padding-right:20px;
+            margin-top:4px;
         }
 
         .dropit-submenu {
@@ -95,7 +95,7 @@
 }
 
 #sign-up-button {
-    margin: 5px 0 0 0;
+    margin: 4px 0 0 0;
     display: inline-block;
 
     @include media($bigger-than-tiny) {
@@ -104,7 +104,7 @@
 }
 
 #log-in-button {
-    margin-top: 5px;
+    margin: 4px 0 0 0;
     display: inline-block;
 }
 // ----- END Menu bar ----- //

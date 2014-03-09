@@ -64,7 +64,6 @@
 @media screen and (min-width: 420px) {
   #main-menu-bar-right {
     float: right;
-    padding-top: 3px;
   }
 }
 #main-menu-bar-right .right-nav-button {
@@ -83,6 +82,7 @@
   color: #333333;
   background: white url("../img/dropdown_arrow.gif") no-repeat 96% center;
   padding-right: 20px;
+  margin-top: 4px;
 }
 #main-menu-bar-right #user-dropdown .dropit-submenu {
   background-color: #fff;
@@ -103,7 +103,7 @@
 }
 
 #sign-up-button {
-  margin: 5px 0 0 0;
+  margin: 4px 0 0 0;
   display: inline-block;
 }
 @media screen and (min-width: 286px) {
@@ -113,7 +113,7 @@
 }
 
 #log-in-button {
-  margin-top: 5px;
+  margin: 4px 0 0 0;
   display: inline-block;
 }
 

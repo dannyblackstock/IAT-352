@@ -125,7 +125,7 @@ if (isset($_GET['id']) && is_numeric($_GET['id'])) {
 
         // CODEBIRD GET TWEETS FOR USER
         // Create query get tweets
-        $tweets = get_tweets($user['twitter_handle'], $cb);
+        $tweets = get_user_tweets($user['twitter_handle'], $cb);
 
         // add the tweets to the news feed array
         foreach($tweets as $tweet) {
