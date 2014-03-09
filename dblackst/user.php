@@ -172,23 +172,25 @@ if (isset($_GET['id']) && is_numeric($_GET['id'])) {
       echo "</div></div>";
 
       // 5 of user's flickr photos
-      if ($flickr_public_photos_xml->photos->photo->Count() > 0) {
-        echo "<div class='container' id='flickr-photos'>";
+      if (isset($flickr_public_photos_xml)) {
+        if ($flickr_public_photos_xml->photos->photo->Count() > 0) {
+          echo "<div class='container' id='flickr-photos'>";
 
-        foreach($flickr_public_photos_xml->photos->photo as $photo){
-          echo "<div class='flickr_thumb'>";
-          if($link_option == 1){
-            print "\n". '<a href="'.photo_url($photo,'s').'" target="_blank">'."\n";
-          }
-          else{
-            print "\n". '<a href="'.flickr_page_url($photo, $flickr_user_id).'" target="_blank">'."\n";
-          }
-          print '<img src="'.photo_url($photo,'s'). '"'.' alt="'.$photo->title.'"/>'."</a>"."\n";
+          foreach($flickr_public_photos_xml->photos->photo as $photo){
+            echo "<div class='flickr_thumb'>";
+            if($link_option == 1){
+              print "\n". '<a href="'.photo_url($photo,'s').'" target="_blank">'."\n";
+            }
+            else{
+              print "\n". '<a href="'.flickr_page_url($photo, $flickr_user_id).'" target="_blank">'."\n";
+            }
+            print '<img src="'.photo_url($photo,'s'). '"'.' alt="'.$photo->title.'"/>'."</a>"."\n";
 
-          print "</div>"."\n";
+            print "</div>"."\n";
+          }
+
+          echo "</div>";
         }
-
-        echo "</div>";
       }
 
       // user's posts + tweets
