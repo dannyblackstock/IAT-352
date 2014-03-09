@@ -12,7 +12,7 @@ function flickr_page_url($p, $uid){
   return "http://www.flickr.com/photos/".$uid."/".$p['id']."/";
 }
 
-function get_user_id($screenName, $flickr_api_key) {
+function get_flickr_user_id($screenName, $flickr_api_key) {
     // get user id from screen name
   $user_id_url ="http://flickr.com/services/rest/?method=flickr.people.findByUsername"."&username=".$screenName."&api_key=".$flickr_api_key;
   $user_id_xml = simplexml_load_file($user_id_url) or die("Unable to contact Flickr");
