@@ -3,6 +3,10 @@
     @include span-columns(12);
 }
 
+#edit-my-account-button {
+    width: auto;
+}
+
 #user-main-profile-picture {
     @include span-columns(12);
     background-color: #FFF;

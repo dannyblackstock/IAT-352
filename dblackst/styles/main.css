@@ -344,6 +344,10 @@
   margin-right: 0;
 }
 
+#edit-my-account-button {
+  width: auto;
+}
+
 #user-main-profile-picture {
   float: left;
   display: block;
