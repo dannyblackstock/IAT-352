@@ -24,7 +24,7 @@
 
         <input class="form-input" type="text" name="highschool" placeholder="High School" required>
 
-        <input class="form-input" type="number" name="graduationYear"  min="1900" max="2100" placeholder="High School Grad Year" required value="2000">
+        <input class="form-input" type="number" name="graduationYear"  min="1900" max="2100" placeholder="High School Grad Year" required>
 
         <input class="form-input" type="tel" name="phone" placeholder="Phone">
 
@@ -33,6 +33,8 @@
 
         <textarea class="form-textarea" name="bio" placeholder="Bio"></textarea>
 
+        <input class="form-input" type="text" name="twitter_handle" placeholder="Twitter Screen Name">
+        <input class="form-input" type="text" name="flickr_handle" placeholder="Flickr Screen Name">
 
         <input class="form-button button-grey" type="submit" name="submit" value="Submit">
 

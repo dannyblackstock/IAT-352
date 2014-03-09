@@ -2,13 +2,15 @@
     require_once("includes/database_info.php");
 
     // Prepared statement
-    if (!($stmt = $db->prepare("INSERT INTO  `members`(`password`, `name`, `email`, `bio`, `location`, `high_school`, `grad_year`, `phone`, `is_phone_preferred`) 
-        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)"))) {
+    if (!($stmt = $db->prepare("INSERT INTO
+        `members`(`password`, `name`, `email`, `bio`, `location`, `high_school`, `grad_year`,
+            `phone`, `is_phone_preferred`, `twitter_handle`, `flickr_handle`)
+        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)"))) {
         echo "Prepare failed: (" . $db->errno . ") " . $db->error;
     }
-    
+
     //bind parameters
-    $stmt->bind_param('ssssssisi', $password, $name, $email, $bio, $location, $highschool, $graduationYear, $phone, $isPhonePreferred);
+    $stmt->bind_param('ssssssisiss', $password, $name, $email, $bio, $location, $highschool, $graduationYear, $phone, $isPhonePreferred, $twitter_handle, $flickr_handle);
 
     // if the form was submitted
     if(isset($_POST['submit'])) {
@@ -84,6 +86,20 @@
         else {
             $bio = 'NULL';
         }
+
+        if(isset($_POST['twitter_handle']) && ($_POST['twitter_handle'] !== "")) {
+            $twitter_handle = $_POST['twitter_handle'];
+        }
+        else {
+            $twitter_handle = 'NULL';
+        }
+
+        if(isset($_POST['flickr_handle']) && ($_POST['flickr_handle'] !== "")) {
+            $flickr_handle = $_POST['flickr_handle'];
+        }
+        else {
+            $flickr_handle = 'NULL';
+        }
     }
 
 	// execute database query
@@ -98,6 +114,6 @@
         die('Connect Error: ' . $db->connect_error);
     }
 
-    //Close database connection 
+    //Close database connection
     $db->close();
     ?>
