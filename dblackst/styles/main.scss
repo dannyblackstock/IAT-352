@@ -257,11 +257,11 @@ a {
 
 .post-container {
     @include span-columns(12);
-    margin-bottom: 20px;
+    margin-bottom: 25px;
+    border-bottom: 1px solid #ddd;
 
     .post-info {
         @include clearfix;
-        border-bottom: 1px solid #eee;
         padding: 0 0 10px;
         margin: 0 0 10px 0;
 
@@ -285,10 +285,13 @@ a {
         }
 
         .post-info-right {
-            @include media($bigger-than-small){
+            @include media($bigger-than-large){
                 float: right;
+                clear: none;
             }
 
+            clear: both;
+            float: left;
             color: #bbb;
             padding-top: 14px;
         }

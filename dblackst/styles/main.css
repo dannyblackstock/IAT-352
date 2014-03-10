@@ -715,14 +715,14 @@ a:hover {
   display: block;
   margin-right: 2.35765%;
   width: 100%;
-  margin-bottom: 20px;
+  margin-bottom: 25px;
+  border-bottom: 1px solid #ddd;
 }
 .post-container:last-child {
   margin-right: 0;
 }
 .post-container .post-info {
   *zoom: 1;
-  border-bottom: 1px solid #eee;
   padding: 0 0 10px;
   margin: 0 0 10px 0;
 }
@@ -750,12 +750,15 @@ a:hover {
   display: inline-block;
 }
 .post-container .post-info .post-info-right {
+  clear: both;
+  float: left;
   color: #bbb;
   padding-top: 14px;
 }
-@media screen and (min-width: 420px) {
+@media screen and (min-width: 780px) {
   .post-container .post-info .post-info-right {
     float: right;
+    clear: none;
   }
 }
 .post-container .post-contents {
