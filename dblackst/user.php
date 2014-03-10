@@ -57,7 +57,7 @@ if (isset($_GET['id']) && is_numeric($_GET['id'])) {
       // Code for follow/unfollow button
       // user must login to a visitor account if they want to follow
       if (!isset($_SESSION['valid_member']) && !isset($_SESSION['valid_visitor'])) {
-        echo "<p><a href='login_visitor_authenticate.php' class='button'>Follow</a></p>";
+        echo "<p><a href='login_visitor_authenticate.php' class='button' id='follow-button'>Follow</a></p>";
       }
 
       // if they are a visitor
@@ -71,7 +71,7 @@ if (isset($_GET['id']) && is_numeric($_GET['id'])) {
         // if already following
         if ($following_result->num_rows > 0) {
           // visitor can unfollow
-          echo "<p><a href='follow.php?unfollow=" . $userID . "' class='button'>Unfollow</a></p>";
+          echo "<p><a href='follow.php?unfollow=" . $userID . "' class='button' id='unfollow-button'>Unfollow</a></p>";
         }
         else {
           // if they're not following, they can follow

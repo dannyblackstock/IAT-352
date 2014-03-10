@@ -74,6 +74,10 @@
 #main-menu-bar-right .right-nav-button:hover {
   color: #ddd;
 }
+#main-menu-bar-right .button,
+#main-menu-bar-right .button-grey {
+  width: 75px;
+}
 #main-menu-bar-right #user-dropdown {
   display: inline-block;
 }
@@ -119,7 +123,6 @@
 
 .button {
   display: inline-block;
-  width: 75px;
   padding: 5px 10px;
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.15);
   text-decoration: none;
@@ -151,7 +154,6 @@
 
 .button-red {
   display: inline-block;
-  width: 75px;
   padding: 5px 10px;
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.15);
   text-decoration: none;
@@ -183,7 +185,6 @@
 
 .button-grey {
   display: inline-block;
-  width: 75px;
   padding: 5px 10px;
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.15);
   text-decoration: none;
@@ -215,7 +216,6 @@
 
 .button-white {
   display: inline-block;
-  width: 75px;
   padding: 5px 10px;
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.15);
   text-decoration: none;
@@ -276,7 +276,6 @@
 }
 .toggle-switch .toggle-switch-left, .toggle-switch .toggle-switch-right {
   display: inline-block;
-  width: 75px;
   padding: 5px 10px;
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.15);
   text-decoration: none;

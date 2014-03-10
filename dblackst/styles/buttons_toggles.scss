@@ -3,7 +3,7 @@
 @mixin custom-button($bg-color: #eee, $text-color: $default-text-color) {
     // for adding directly to links
     display: inline-block;
-    width: 75px;
+    // width: 75px;
     padding: 5px 10px;
     box-shadow: inset 0 1px 0 rgba(255,255,255, 0.15);
 
