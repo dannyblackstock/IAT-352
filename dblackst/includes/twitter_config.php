@@ -17,10 +17,10 @@
   \Codebird\Codebird::setBearerToken($bearer_token);
 
 
-  function get_user_tweets($username, $cb){
+  function get_user_tweets($username, $numTweets, $cb){
     $params = array(
       'screen_name' => $username,
-      'count' => 5 // get 5 recent tweets
+      'count' => $numTweets // get 5 recent tweets
     );
 
     // Make the REST call to get the user's tweets

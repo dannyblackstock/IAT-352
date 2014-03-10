@@ -125,7 +125,8 @@ if (isset($_GET['id']) && is_numeric($_GET['id'])) {
 
         // CODEBIRD GET TWEETS FOR USER
         // Create query get tweets
-        $tweets = get_user_tweets($user['twitter_handle'], $cb);
+        $numTweets = 5;
+        $tweets = get_user_tweets($user['twitter_handle'], $numTweets, $cb);
 
         // add the tweets to the news feed array
         foreach($tweets as $tweet) {
@@ -171,7 +172,7 @@ if (isset($_GET['id']) && is_numeric($_GET['id'])) {
 
       echo "</div></div>";
 
-      // 5 of user's flickr photos
+      // show some of user's flickr photos
       if (isset($flickr_public_photos_xml)) {
         if ($flickr_public_photos_xml->photos->photo->Count() > 0) {
           echo "<div class='container' id='flickr-photos'>";
@@ -193,7 +194,7 @@ if (isset($_GET['id']) && is_numeric($_GET['id'])) {
         }
       }
 
-      // user's posts + tweets
+      // user's posts
       $user_posts_query = "SELECT * FROM posts WHERE user_id=" . $userID . " ORDER BY date DESC;";
       $user_posts_result = $db->query($user_posts_query);
       echo "<div id='user-posts' class='container'>
@@ -207,12 +208,12 @@ if (isset($_GET['id']) && is_numeric($_GET['id'])) {
         // if this user has any posts
         if ($user_posts_result->num_rows > 0) {
 
-          // show them all
+          // loop through them all
           while ($post = $user_posts_result->fetch_assoc()) {
 
             // add posts to the array in standard format
             $postArray = ["username" => $user['name'],
-              "date" => strtotime($post['date']) ,
+              "date" => strtotime($post['date']),
               "title" => $post['title'],
               "content" => $post['content'], "type" => "post"];
             array_push($feedContent, $postArray);
@@ -220,14 +221,14 @@ if (isset($_GET['id']) && is_numeric($_GET['id'])) {
         }
       }
 
-      // sort tweets by timestamp
+      // sort tweets+posts by timestamp
       usort($feedContent,
       function ($a, $b)
       {
         return $b['date'] - $a['date'];
       });
 
-      // print all posts
+      // print all posts + tweets
       foreach($feedContent as $post) {
         echo "
           <div class='post-container " . $post['type'] . "'>
