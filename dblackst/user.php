@@ -199,8 +199,8 @@ if (isset($_GET['id']) && is_numeric($_GET['id'])) {
       $user_posts_result = $db->query($user_posts_query);
       echo "<div id='user-posts' class='container'>
             <div id='user-posts-header'>
-            <a href='#_' id='toggle-posts'>Posts</a>
-            <a href='#_' id='toggle-tweets'>Tweets</a>
+            <div id='toggle-posts' class='active'>Posts</div>
+            <div id='toggle-tweets' class='active'>Tweets</div>
             </div>";
 
       if ($user_posts_result) {

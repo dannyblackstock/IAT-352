@@ -15,6 +15,10 @@ require_once ('includes/twitter_config.php');
 <div id="content-container">
     <h1 class="main-header">Updates from people I follow</h1>
     <div class="container">
+      <div id='user-posts-header'>
+        <div id='toggle-posts' class='active'>Posts</div>
+        <div id='toggle-tweets' class='active'>Tweets</div>
+      </div>
 <?php
 
 // user must login to a visitor account if they want to view this page

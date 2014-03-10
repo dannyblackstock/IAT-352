@@ -24,7 +24,6 @@ require_once("includes/database_info.php");
 
                 <form name="input" action="submit_new_post.php" method="post" class="new-post-form container">
 
-
                     <input class="form-input" type="title" name="title" placeholder="Title" class="required">
 
                     <textarea class="form-textarea" name="content" placeholder="Write your post here!"></textarea>

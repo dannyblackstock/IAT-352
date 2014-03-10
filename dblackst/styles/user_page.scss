@@ -36,6 +36,10 @@
 
     .user-name {
         margin: 10px 0 5px 0;
+        text-align: center;
+        @include media ($bigger-than-medium) {
+            text-align: left;
+        }
     }
 }
 
@@ -49,12 +53,6 @@
 #user-posts {
     @include span-columns(12);
     padding: 10px 20px;
-
-    #user-posts-header {
-        text-align: center;
-        border-bottom: 1px solid #eee;
-        padding: 0 0 10px;
-        margin: 0 0 30px 0;
-    }
 }
+
 // ----- END user page ----- //

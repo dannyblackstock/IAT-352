@@ -400,6 +400,12 @@
 }
 #user-info-content .user-name {
   margin: 10px 0 5px 0;
+  text-align: center;
+}
+@media screen and (min-width: 545px) {
+  #user-info-content .user-name {
+    text-align: left;
+  }
 }
 
 #flickr-photos .flickr_thumb {
@@ -416,12 +422,6 @@
 }
 #user-posts:last-child {
   margin-right: 0;
-}
-#user-posts #user-posts-header {
-  text-align: center;
-  border-bottom: 1px solid #eee;
-  padding: 0 0 10px;
-  margin: 0 0 30px 0;
 }
 
 body {
@@ -708,6 +708,58 @@ a:hover {
 #sign-up-results {
   width: 400px;
   margin: 0 auto;
+}
+
+#user-posts-header {
+  text-align: center;
+  border-bottom: 1px solid #eee;
+  padding: 0 0 10px;
+  margin: 0 0 30px 0;
+}
+#user-posts-header div {
+  color: #333333;
+  line-height: 1.5em;
+  font-size: 0.9em;
+  text-decoration: none;
+  font-weight: normal;
+  padding: 5px 10px;
+  border: 1px solid transparent;
+  width: 49.4%;
+  display: inline-block;
+  cursor: pointer;
+}
+#user-posts-header div:hover {
+  border: 1px solid #eee;
+}
+#user-posts-header div.active {
+  display: inline-block;
+  padding: 5px 10px;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.15);
+  text-decoration: none;
+  border: 1px solid #d4d4d4;
+  background-color: #eeeeee;
+  color: #333333;
+  line-height: 1.5em;
+  font-size: 0.9em;
+  text-align: center;
+  -webkit-transition: background-color 0.2s;
+  -moz-transition: background-color 0.2s;
+  transition: background-color 0.2s;
+}
+#user-posts-header div.active:hover {
+  background-color: #fbfbfb;
+  cursor: pointer;
+  color: #333333;
+}
+#user-posts-header div.active:active {
+  background-color: #e1e1e1;
+  color: #333333;
+  -webkit-transition: background-color 0s;
+  -moz-transition: background-color 0s;
+  transition: background-color 0s;
+}
+#user-posts-header div.active:visited {
+  color: #333333;
 }
 
 .post-container {
