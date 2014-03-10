@@ -173,7 +173,7 @@ if (isset($_GET['id']) && is_numeric($_GET['id'])) {
       echo "</div></div>";
 
       // show some of user's flickr photos
-      if (isset($flickr_public_photos_xml)) {
+      if ($flickr_public_photos_xml->photos->photo) {
         if ($flickr_public_photos_xml->photos->photo->Count() > 0) {
           echo "<div class='container' id='flickr-photos'>";
 
