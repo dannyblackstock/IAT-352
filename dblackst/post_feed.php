@@ -8,11 +8,8 @@ require_once ("includes/main_menu_bar.php");
 require_once ("includes/database_info.php");
 
 // Require codebird and Twitter authentication parameters to dsplay tweets
-
 require_once ('includes/codebird-php/src/codebird.php');
-
 require_once ('includes/twitter_config.php');
-
 ?>
 
 <div id="content-container">
@@ -33,11 +30,29 @@ else if (isset($_SESSION['valid_visitor'])) {
   $feedContent = [];
   // list of users who have twitter handles in the database
   $twitterUsers = [];
+  // use vancouver time
+  date_default_timezone_set('America/Vancouver');
 
   // get all posts from users the visitor is following
-  $following_query =
+  // $following_posts_query =
+  //   "SELECT *
+  //     FROM posts p
+  //     WHERE EXISTS (
+  //       SELECT *
+  //       FROM followers_table f
+  //       WHERE f.follower_id = (
+  //           SELECT `id`
+  //           FROM `visitors`
+  //           WHERE email=\""
+  //           . mysql_escape_string($_SESSION['valid_visitor'])
+  //           . "\")
+  //       AND f.following_id = p.user_id)
+  //   ORDER BY p.date DESC";
+
+  // get all users the visitor is following
+  $following_users_query =
     "SELECT *
-      FROM posts p
+      FROM members m
       WHERE EXISTS (
         SELECT *
         FROM followers_table f
@@ -47,87 +62,75 @@ else if (isset($_SESSION['valid_visitor'])) {
             WHERE email=\""
             . mysql_escape_string($_SESSION['valid_visitor'])
             . "\")
-        AND f.following_id = p.user_id)
-    ORDER BY p.date DESC";
+        AND f.following_id = m.id)";
 
-  // echo $following_query;
-  $following_result = $db->query($following_query);
+  // echo $following_users_query;
+  $following_users_result = $db->query($following_users_query);
 
-  // if this user has any posts
-  if ($following_result->num_rows > 0) {
+  // if there are any users that this visitor is following
+  if ($following_users_result->num_rows > 0) {
 
-    while ($post = $following_result->fetch_assoc()) {
-      // get the user's info
-      $user_info_query = "SELECT * FROM members WHERE id=" . $post['user_id'] . ";";
-      $user_info_result = $db->query($user_info_query);
+    while ($user = $following_users_result->fetch_assoc()) {
 
-      // if the user's name exists
-      if ($user_info_result) {
-        if ($user_info_result->num_rows > 0) {
+      // get all this user's posts
+      $user_posts_query = "SELECT * FROM posts WHERE user_id=" . $user['id'] . " ORDER BY date DESC;";
+      $user_posts_result = $db->query($user_posts_query);
 
-          // fetch associative array
-          $user = $user_info_result->fetch_array(MYSQLI_ASSOC);
-          // echo "<a href='user.php?id=" . $post['user_id'] . "'>" . $user['name'] . "</a>";
+      if ($user_posts_result) {
 
-          // add posts to the array in standard format
-          $postArray =[
-            "username" => $user['name'],
-            "date" => strtotime($post['date']),
-            "title" => $post['title'],
-            "content" => $post['content'],
-            "type" => "post"
-          ];
-          array_push($feedContent, $postArray);
+        // if this user has any posts
+        if ($user_posts_result->num_rows > 0) {
 
-          // if they have a twitter handle
-          if (!empty($user['twitter_handle']) && $user['twitter_handle'] !== "NULL") {
-            //if their name isn't already in the list
-            if (!in_array($user['twitter_handle'], $twitterUsers)) {
-              // add their twitter handle to this list of users to get tweets for
-              array_push($twitterUsers, $user['twitter_handle']);
-            }
+          // loop through them all
+          while ($post = $user_posts_result->fetch_assoc()) {
+
+            // add posts to the array in standard format
+            $postArray = [
+              "userID" => $user['id'],
+              "name" => $user['name'],
+              "twitter_handle" => "",
+              "date" => strtotime($post['date']),
+              "title" => $post['title'],
+              "content" => $post['content'],
+              "type" => "post"
+            ];
+            // add the posts to the content array
+            array_push($feedContent, $postArray);
           }
-
-        }
-        else {
-          // echo "<a href='user.php?id=" . $post['user_id'] . "'>" . $user['user_id'] . "</a>";
         }
       }
-      else {
-        // echo "<a href='user.php?id=" . $post['user_id'] . "'>" . $user['user_id'] . "</a>";
+
+      // if they have a twitter handle
+      if (!empty($user['twitter_handle']) && $user['twitter_handle'] !== "NULL") {
+
+        // get their tweets and add them to the feed content in standard format
+        $numTweets = 3;
+        $tweets = get_user_tweets($user['twitter_handle'], $numTweets, $cb);
+
+        // add the tweets to the news feed array
+        foreach($tweets as $tweet) {
+          // skip entry if it has no id (may be status item "httpstatus")
+          if (empty($tweet['id'])) {
+            continue;
+          }
+
+          $tweetArray = [
+            "userID" => $user['id'],
+            "name" => $user['name'],
+            "twitter_handle" => "@" . $tweet['user']['screen_name'],
+            "date" => strtotime($tweet['created_at']),
+            "title" => "",
+            "content" => $tweet['text'],
+            "type" => "tweet"
+          ];
+
+          array_push($feedContent, $tweetArray);
+        }
       }
     }
   }
   else {
-
-  }
-
-  // for each twitter handle of the following users
-  foreach ($twitterUsers as $twitterHandle) {
-    // get 3 tweets
-    //add them to the feed content array in the standard format
-
-    // Create query get tweets
-    $numTweets = 3;
-    $tweets = get_user_tweets($twitterHandle, $numTweets, $cb);
-
-    // add the tweets to the news feed array
-    foreach($tweets as $tweet) {
-      // skip entry if it has no id (may be status item "httpstatus")
-      if (empty($tweet['id'])) {
-        continue;
-      }
-
-      $tweetArray = [
-        "username" => "@" . $tweet['user']['screen_name'],
-        "date" => strtotime($tweet['created_at']),
-        "title" => "",
-        "content" => $tweet['text'],
-        "type" => "tweet"
-      ];
-
-      array_push($feedContent, $tweetArray);
-    }
+    echo "You aren't following any users.";
   }
 
   // sort tweets+posts by timestamp
@@ -144,20 +147,18 @@ else if (isset($_SESSION['valid_visitor'])) {
         <div class='post-info'>
           <div class='post-info-left'>
             <img class='user-profile-pic' src='img/user_icon.png' alt='User Profile Picture'>
-            <div class='user-name'>";
-    if ($post['type'] == "tweet") {
-      echo "<a href='http://www.twitter.com/".$post['username']."'>".$post['username']."</a>";
-    }
-    else {
-      // echo "<a href='user.php?id=".$post['username']."'>".$post['username']."</a>";
-      echo $post['username'];
+            <div class='user-name'>
+              <a href='user.php?id=".$post['userID']."'>".$post['name']."</a>";
+    if ($post['type'] == 'tweet') {
+      echo " - via <a href='http://www.twitter.com/".$post['twitter_handle']."'>".$post['twitter_handle']."</a> on Twitter";
     }
     echo "</div>
           </div>
 
           <div class='post-info-right'>
             <div class='time-posted'>
-                Posted " . date('M j, Y', $post['date']) . " at " . date('g:ia', $post['date']) . "
+                Posted " . date('M j, Y', $post['date'])
+                . " at " . date('g:ia', $post['date']) . "
             </div>
           </div>
         </div>
