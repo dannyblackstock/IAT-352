@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="script.js"></script>
+</head>
+<body>
+
+<div id="myDiv"><h2>Let AJAX change this text</h2></div>
+
+<br/>
+<div id="content"><p>load course name...</p></div>
+
+<button type="button" onclick="load()">Change Content</button>
+
+<form>
+	First name: <input type="text" name="firstname" ontextchange="updateLabel(this)"><br>
+	Last name: <input type="text" name="lastname">
+</form>
+
+<label ID="lblMessage" Text="" />
+
+</body>
+</html>
