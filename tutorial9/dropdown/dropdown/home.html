@@ -1,0 +1,56 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<title>JavaScript Dropdown</title>
+<link rel="stylesheet" href="design.css" type="text/css" />
+<script type="text/javascript" src="drop.js"></script>
+</head>
+<body>
+<h3>JavaScript Dropdown sample</h3>
+<br /><br />
+
+<dl class="dropdown">
+  <dt id="one-ddheader" onmouseover="ddMenu('one',1)" onmouseout="ddMenu('one',-1)">Programming Languages</dt>
+  <dd id="one-ddcontent" onmouseover="cancelHide('one')" onmouseout="ddMenu('one',-1)">
+    <ul>
+      <li><a href="#" class="separator">Visual Basic</a></li>
+      <li><a href="#" class="separator">Visual Basic.Net</a></li>
+      <li><a href="#" class="separator">ASP/ASP.Net</a></li>
+      <li><a href="#" class="separator">C#</a></li>
+      <li><a href="#" class="separator">C/C++</a></li>
+	  <li><a href="#" class="separator">Delphi</a></li>
+	  <li><a href="#" class="separator">Java</a></li>
+	  <li><a href="#">JavaSript</a></li>
+    </ul>
+  </dd>
+</dl>
+
+<dl class="dropdown">
+  <dt id="two-ddheader" onmouseover="ddMenu('two',1)" onmouseout="ddMenu('two',-1)">Mobile</dt>
+  <dd id="two-ddcontent" onmouseover="cancelHide('two')" onmouseout="ddMenu('two',-1)">
+    <ul>
+      <li><a href="#" class="separator">Android</a></li>
+      <li><a href="#" class="separator">iOS</a></li>
+      <li><a href="#" class="separator">windows phone</a></li>
+         </ul>
+  </dd>
+</dl>
+<dl class="dropdown">
+  <dt id="three-ddheader" onmouseover="ddMenu('three',1)" onmouseout="ddMenu('three',-1)">Databases</dt>
+  <dd id="three-ddcontent" onmouseover="cancelHide('three')" onmouseout="ddMenu('three',-1)">
+    <ul>
+      <li><a href="#" class="separator">Microsoft Access</a></li>
+      <li><a href="#" class="separator">MySQL</a></li>
+      <li><a href="#" class="separator">MSSQL</a></li>
+      <li><a href="#" class="separator">MySQLi</a></li>
+      <li><a href="#" class="separator">Oracle</a></li>
+	  <li><a href="#">SQL Server</a></li>
+    
+         </ul>
+  </dd>
+</dl>
+
+<div style="clear:both" />
+</body>
+</html>

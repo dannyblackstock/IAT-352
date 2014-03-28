@@ -1,0 +1,49 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+
+<style>
+div.rect
+{
+	width:200px;
+	height:100px;
+	border:1px solid #000;
+}
+
+button.btn
+{
+	width:80px;
+}
+</style>
+
+
+<title>JavaScript example</title>
+</head>
+<body>
+<div>
+<button class="btn" type="button" id="btnBlue">Blue</button>
+<button class="btn" type="button" id="btnRed">Red</button>
+</div>
+<br/>
+<div class="rect" id="rect">Color me!</div>
+</body>
+<script>
+
+  var btnBlue = document.getElementById("btnBlue");
+  btnBlue.addEventListener("click", function (){
+    changeColor('blue');
+  });
+
+  var btnRed = document.getElementById("btnRed");
+  btnRed.addEventListener("click", function (){
+    changeColor('red');
+  });
+
+  function changeColor(color) {
+    var rect = document.getElementById("rect");
+    rect.style.backgroundColor = color;
+  }
+
+</script>
+</html>
