@@ -28,7 +28,7 @@ body {
 // important!
 body, input, textarea, button {
     margin: 0;
-    font-family: 'Lato', sans-serif;
+    font-family: 'Lato', Arial, sans-serif;
     color: $default-text-color;
 }
 
@@ -55,6 +55,7 @@ body, input, textarea, button {
 //links
 a {
     color: #69ABED;
+    text-decoration:none;
 
     &:hover {
         color: darken(#69ABED, 20);

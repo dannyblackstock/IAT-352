@@ -18,6 +18,9 @@ require_once ('includes/twitter_config.php');
 // include flickr api key and functions
 require_once ('includes/flickr_config.php');
 
+// library for generating twitter links
+require_once ('includes/twitter-text-php/Autolink.php');
+
 ?>
 
 <div id="content-container">
@@ -109,7 +112,7 @@ if (isset($_GET['id']) && is_numeric($_GET['id'])) {
 
 
       // Twitter if they have entered their Twitter handle
-      // create an common array of tweets and posts
+      // create an unified array of tweets and posts
       $feedContent = [];
       // use vancouver time
       date_default_timezone_set('America/Vancouver');
@@ -117,9 +120,9 @@ if (isset($_GET['id']) && is_numeric($_GET['id'])) {
       echo "<div>";
 
       if (!empty($user['twitter_handle']) && $user['twitter_handle'] !== "NULL") {
-        echo "Twitter: <a href=\"http://www.twitter.com/"
+        echo "Twitter: @<a href=\"http://www.twitter.com/"
         . $user['twitter_handle']
-        . "\">@"
+        . "\">"
         . $user['twitter_handle']
         . "</a>";
 
@@ -134,9 +137,17 @@ if (isset($_GET['id']) && is_numeric($_GET['id'])) {
           if (empty($tweet['id'])) {
             continue;
           }
-          $tweetArray = ["username" => "@" . $tweet['user']['screen_name'],
+
+          // generate links for the tweets
+          $tweetWithLinks = Twitter_Autolink::create($tweet['text'])
+            ->setNoFollow(false)
+            ->addLinks();
+
+          $tweetArray = ["username" => $tweet['user']['screen_name'],
             "date" => strtotime($tweet['created_at']) ,
-            "title" => "", "content" => $tweet['text'], "type" => "tweet"];
+            "title" => "",
+            "content" => $tweetWithLinks,
+            "type" => "tweet"];
           array_push($feedContent, $tweetArray);
         }
       }
@@ -153,7 +164,11 @@ if (isset($_GET['id']) && is_numeric($_GET['id'])) {
 
       $photosPerPage = 10;
 
-      $flickr_public_photos_url ="http://flickr.com/services/rest/?method=flickr.people.getPublicPhotos"."&user_id=".$flickr_user_id."&api_key=".$flickr_api_key."&per_page=".$photosPerPage;
+      $flickr_public_photos_url ="http://flickr.com/services/rest/?method=flickr.people.getPublicPhotos"
+        ."&user_id=".$flickr_user_id
+        ."&api_key=".$flickr_api_key
+        ."&per_page=".$photosPerPage;
+
       $flickr_public_photos_xml = simplexml_load_file($flickr_public_photos_url) or die("Unable to contact Flickr");
       }
 
@@ -221,7 +236,7 @@ if (isset($_GET['id']) && is_numeric($_GET['id'])) {
         }
       }
 
-      // sort tweets+posts by timestamp
+      // sort tweets + posts by timestamp
       usort($feedContent,
       function ($a, $b)
       {
@@ -237,7 +252,7 @@ if (isset($_GET['id']) && is_numeric($_GET['id'])) {
                 <img class='user-profile-pic' src='img/user_icon.png' alt='User Profile Picture'>
                 <div class='user-name'>";
         if ($post['type'] == "tweet") {
-          echo "<a href='http://www.twitter.com/".$post['username']."'>".$post['username']."</a>";
+          echo "@<a href='http://www.twitter.com/".$post['username']."'>".$post['username']."</a>";
         }
         else {
           echo $post['username'];
