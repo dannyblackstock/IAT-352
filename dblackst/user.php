@@ -9,9 +9,7 @@ require_once ("includes/main_menu_bar.php");
 
 require_once ("includes/database_info.php");
 
-// Require codebird and Twitter authentication parameters to dsplay tweets
-
-require_once ('includes/codebird-php/src/codebird.php');
+// Require twitter authentication parameters to dsplay tweets
 
 require_once ('includes/twitter_config.php');
 
@@ -24,6 +22,9 @@ require_once ('includes/twitter-text-php/Autolink.php');
 ?>
 
 <div id="content-container">
+
+<div id="mybox">
+</div>
 
 <?php
 
@@ -111,7 +112,6 @@ if (isset($_GET['id']) && is_numeric($_GET['id'])) {
       echo "</div>";
 
 
-      // Twitter if they have entered their Twitter handle
       // create an unified array of tweets and posts
       $feedContent = [];
       // use vancouver time
@@ -119,6 +119,7 @@ if (isset($_GET['id']) && is_numeric($_GET['id'])) {
 
       echo "<div>";
 
+      // Twitter if they have entered their Twitter handle
       if (!empty($user['twitter_handle']) && $user['twitter_handle'] !== "NULL") {
         echo "Twitter: @<a href=\"http://www.twitter.com/"
         . $user['twitter_handle']
@@ -126,12 +127,14 @@ if (isset($_GET['id']) && is_numeric($_GET['id'])) {
         . $user['twitter_handle']
         . "</a>";
 
+        // add js AJAX refresh tweets every 30 seconds
+        $hasTwitter=True;
+
         // CODEBIRD GET TWEETS FOR USER
         // Create query get tweets
         $numTweets = 5;
         $tweets = get_user_tweets($user['twitter_handle'], $numTweets, $cb);
 
-        // add the tweets to the news feed array
         foreach($tweets as $tweet) {
           // skip entry if it has no id (may be status item "httpstatus")
           if (empty($tweet['id'])) {
@@ -143,6 +146,7 @@ if (isset($_GET['id']) && is_numeric($_GET['id'])) {
             ->setNoFollow(false)
             ->addLinks();
 
+          // add the tweets to the news feed array
           $tweetArray = ["username" => $tweet['user']['screen_name'],
             "date" => strtotime($tweet['created_at']) ,
             "title" => "",
@@ -152,6 +156,7 @@ if (isset($_GET['id']) && is_numeric($_GET['id'])) {
         }
       }
 
+      // flickr if the user has flickr
       if (!empty($user['flickr_handle']) && $user['flickr_handle'] !== "NULL") {
         $flickrUsername = $user['flickr_handle'];
         // get user id from screen name
@@ -162,14 +167,14 @@ if (isset($_GET['id']) && is_numeric($_GET['id'])) {
           echo " | Flickr: <a href=\"http://www.flickr.com/photos/" . $flickr_user_id . "\">" . $flickrUsername . "</a>";
         }
 
-      $photosPerPage = 10;
+        $photosPerPage = 10;
 
-      $flickr_public_photos_url ="http://flickr.com/services/rest/?method=flickr.people.getPublicPhotos"
-        ."&user_id=".$flickr_user_id
-        ."&api_key=".$flickr_api_key
-        ."&per_page=".$photosPerPage;
+        $flickr_public_photos_url ="http://flickr.com/services/rest/?method=flickr.people.getPublicPhotos"
+          ."&user_id=".$flickr_user_id
+          ."&api_key=".$flickr_api_key
+          ."&per_page=".$photosPerPage;
 
-      $flickr_public_photos_xml = simplexml_load_file($flickr_public_photos_url) or die("Unable to contact Flickr");
+        $flickr_public_photos_xml = simplexml_load_file($flickr_public_photos_url) or die("Unable to contact Flickr");
       }
 
       echo "</div>"; // twitter | flickr
@@ -285,7 +290,7 @@ if (isset($_GET['id']) && is_numeric($_GET['id'])) {
     echo "<h1 class='main-header'>Query failed!</h1>";
   }
 
-  // close connection
+  // close database connection
   $db->close();
 }
 else {
@@ -296,5 +301,10 @@ else {
 </div>
 
 <?php
+// add twitter auto referesh script if the user has twitter
+if ($hasTwitter) {
+  echo "<script src=\"js/refresh_tweets.js\"></script>";
+}
+
 require_once ("includes/footer.php");
- ?>
+?>

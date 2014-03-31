@@ -3,7 +3,10 @@
 	require_once('includes/codebird-php/src/codebird.php');
 
 	// Require authentication parameters
-	require_once('includes/twitter_config.php');
+	$consumer_key = "IsWFCmLS8E2fPQ8EXMWmTw";
+	$consumer_secret = "9PzcgDOZFaYDt4yNLEdLQNoZOzoSicfMFGDbnpidvQ";
+	$access_token = "15258069-RCZ5iUXcT2LPqVQv9mp8Gr9Nu8hTtuzIQ5ww2jwZz";
+	$access_token_secret = "bcRb6Nu7grKNqGn68A1uvXB6kTxBcdxJhj04qwidYYVdo";
 
 	// Set connection parameters and instantiate Codebird
 	\Codebird\Codebird::setConsumerKey($consumer_key, $consumer_secret);
