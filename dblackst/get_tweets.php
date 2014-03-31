@@ -34,7 +34,7 @@ if (isset($_GET['id']) && is_numeric($_GET['id'])) {
       if (!empty($user['twitter_handle']) && $user['twitter_handle'] !== "NULL") {
         // CODEBIRD GET TWEETS FOR USER
         // Create query get tweets
-        $numTweets = 1;
+        $numTweets = 3;
         $tweets = get_user_tweets($user['twitter_handle'], $numTweets, $cb);
 
         foreach($tweets as $tweet) {

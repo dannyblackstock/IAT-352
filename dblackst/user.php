@@ -303,6 +303,8 @@ else {
 <?php
 // add twitter auto referesh script if the user has twitter
 if ($hasTwitter) {
+  // moment.js for parsing timestamps easier
+  echo "<script src=\"js/vendor/moment.min.js\"></script>";
   echo "<script src=\"js/refresh_tweets.js\"></script>";
 }
 
