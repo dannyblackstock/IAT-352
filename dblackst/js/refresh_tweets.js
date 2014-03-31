@@ -23,18 +23,18 @@ setInterval(function() {
               <div class=\"post-info-left\">\
                 <img class=\"user-profile-pic\" src=\"img/user_icon.png\" alt=\"User Profile Picture\">\
                 <div class=\"user-name\">\
-                  @<a href=\"http://www.twitter.com/"+$(this).find("username").text()+"\">"+$(this).find("username").text()+"</a>\
+                  @<a href=\"http://www.twitter.com/"+$(this).find("username").html()+"\">"+$(this).find("username").html()+"</a>\
                 </div>\
               </div>\
               <div class=\"post-info-right\">\
                 <div class=\"time-posted\">\
-                    Posted " + $(this).find("date").text() + "\
+                    Posted " + $(this).find("date").html() + "\
                 </div>\
               </div>\
             </div>\
             <div class=\"post-contents\">\
-              <b>" + $(this).find("title").text() + "</b>\
-              <p>" + $(this).find("content").text() + "</p>\
+              <b></b>\
+              <p>" + $(this).find("content").html() + "</p>\
             </div>\
           </div>"
           );
