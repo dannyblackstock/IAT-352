@@ -35,23 +35,8 @@ require_once("includes/database_info.php");
                 echo "<a href=\"user.php?id=".$user['id']."\" class=\"user-container\">
                         <div style=\"background-image:url('img/profile_pictures/";
 
-                // if the user has a profile picture, use it
-                if (file_exists("img/profile_pictures/".$user['id'].".jpg")) {
-                    echo $user['id'].".jpg";
-                }
-                elseif (file_exists("img/profile_pictures/".$user['id'].".jpeg")) {
-                    echo $user['id'].".jpeg";
-                }
-                elseif (file_exists("img/profile_pictures/".$user['id'].".png")) {
-                    echo $user['id'].".png";
-                }
-                elseif (file_exists("img/profile_pictures/".$user['id'].".gif")) {
-                    echo $user['id'].".png";
-                }
-                // otherwise show the default
-                else {
-                    echo "user_icon.jpg";
-                }
+                // defined in header.php
+                echo get_user_picture($user['id']);
 
                 echo "');\" alt=\"Placeholder user photo\" class=\"user-profile-picture\"></div>
                         <div class=\"user-info-container\">

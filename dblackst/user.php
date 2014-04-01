@@ -50,7 +50,12 @@ if (isset($_GET['id']) && is_numeric($_GET['id'])) {
       // profile picture
 
       echo "<div id='user-info-box' class='container'>
-            <div id='user-main-profile-picture'  style='background-image:url(\"img/profile_pic.jpg\");' >
+            <div id='user-main-profile-picture'  style='background-image:url(\"img/profile_pictures/";
+
+      // defined in header.php
+      echo get_user_picture($user['id']);
+
+      echo "\");' >
             </div>
             <div id='user-info-content'>";
 
@@ -254,7 +259,10 @@ if (isset($_GET['id']) && is_numeric($_GET['id'])) {
           <div class='post-container " . $post['type'] . "'>
             <div class='post-info'>
               <div class='post-info-left'>
-                <img class='user-profile-pic' src='img/user_icon.png' alt='User Profile Picture'>
+                <img class='user-profile-pic' src='img/profile_pictures/";
+                // defined in header.php
+                echo get_user_picture($user['id']);
+                echo "' alt='User Profile Picture'>
                 <div class='user-name'>";
         if ($post['type'] == "tweet") {
           echo "@<a href='http://www.twitter.com/".$post['username']."'>".$post['username']."</a>";

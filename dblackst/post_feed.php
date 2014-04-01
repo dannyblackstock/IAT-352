@@ -150,7 +150,10 @@ else if (isset($_SESSION['valid_visitor'])) {
       <div class='post-container " . $post['type'] . "'>
         <div class='post-info'>
           <div class='post-info-left'>
-            <img class='user-profile-pic' src='img/user_icon.png' alt='User Profile Picture'>
+            <img class='user-profile-pic' src='img/profile_pictures/";
+            // defined in header.php
+            echo get_user_picture($post['userID']);
+            echo"' alt='User Profile Picture'>
             <div class='user-name'>
               <a href='user.php?id=".$post['userID']."'>".$post['name']."</a>";
     if ($post['type'] == 'tweet') {

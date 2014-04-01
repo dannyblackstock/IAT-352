@@ -22,3 +22,26 @@
     <!--[if lt IE 7]>
         <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
+
+<?php
+// function to return the user's profile picture if it exists
+function get_user_picture($userID) {
+    // if the user has a profile picture, use it
+    if (file_exists("img/profile_pictures/".$userID.".jpg")) {
+        return $userID.".jpg";
+    }
+    elseif (file_exists("img/profile_pictures/".$userID.".jpeg")) {
+        return $userID.".jpeg";
+    }
+    elseif (file_exists("img/profile_pictures/".$userID.".png")) {
+        return $userID.".png";
+    }
+    elseif (file_exists("img/profile_pictures/".$userID.".gif")) {
+        return $userID.".gif";
+    }
+    // otherwise show the default
+    else {
+        return "user_icon.jpg";
+    }
+}
+?>
