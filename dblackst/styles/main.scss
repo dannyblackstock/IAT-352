@@ -7,7 +7,8 @@
 // responsive breakpoints
 $bigger-than-tiny: new-breakpoint(min-width 286px 4);
 $bigger-than-small: new-breakpoint(min-width 420px 12);
-$bigger-than-medium: new-breakpoint(min-width 545px 12);
+$bigger-than-medium: new-breakpoint(min-width 548px 12);
+$bigger-than-650: new-breakpoint(min-width 650px 12);
 $bigger-than-large: new-breakpoint(min-width 780px 12);
 
 // colours
