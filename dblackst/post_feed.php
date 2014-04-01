@@ -37,22 +37,6 @@ else if (isset($_SESSION['valid_visitor'])) {
   // use vancouver time
   date_default_timezone_set('America/Vancouver');
 
-  // get all posts from users the visitor is following
-  // $following_posts_query =
-  //   "SELECT *
-  //     FROM posts p
-  //     WHERE EXISTS (
-  //       SELECT *
-  //       FROM followers_table f
-  //       WHERE f.follower_id = (
-  //           SELECT `id`
-  //           FROM `visitors`
-  //           WHERE email=\""
-  //           . mysql_escape_string($_SESSION['valid_visitor'])
-  //           . "\")
-  //       AND f.following_id = p.user_id)
-  //   ORDER BY p.date DESC";
-
   // get all users the visitor is following
   $following_users_query =
     "SELECT *
@@ -172,7 +156,7 @@ else if (isset($_SESSION['valid_visitor'])) {
 
         <div class='post-contents'>
           <b>" . $post['title'] . "</b>
-          <p>" . $post['content'] . "</p>
+          <p>" . nl2br($post['content']) . "</p>
         </div>
       </div>
     ";

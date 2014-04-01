@@ -192,7 +192,7 @@ if (isset($_GET['id']) && is_numeric($_GET['id'])) {
 
       // Bio
       if (!empty($user['bio']) && $user['bio'] !== "NULL") {
-        echo "<p>" . $user['bio'] . "</p>";
+        echo "<p>" . nl2br($user['bio']) . "</p>";
       }
 
       echo "</div></div>";
@@ -282,7 +282,7 @@ if (isset($_GET['id']) && is_numeric($_GET['id'])) {
 
             <div class='post-contents'>
               <b>" . $post['title'] . "</b>
-              <p>" . $post['content'] . "</p>
+              <p>" . nl2br($post['content']) . "</p>
             </div>
           </div>
         ";
