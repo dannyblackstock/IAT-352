@@ -16,27 +16,27 @@ setInterval(function() {
 
   request.done(function(xml) {
     // to compare dates with pulled tweets, get the most recent tweet's time posted
-    var lastTweetDate = $(".post-container.tweet .time-posted").first().html().replace("Posted ", "").replace("at", "").trim();
+    var lastDisplayedTweetDate = $(".post-container.tweet .time-posted").first().html().replace("Posted ", "").replace("at", "").trim();
 
     // normalize to unix timestamp of most recent displayed tweet
-    var lastTweetTimestamp = Math.round((moment(lastTweetDate, "MMM D, YYYY  h:ma").unix())/1000); // divide by 100 to ignore seconds in unix timestamp
+    var lastDisplayedTweetTimestamp = Math.round((moment(lastDisplayedTweetDate, "MMM D, YYYY  h:mma").unix())/1000); // divide by 100 to ignore seconds in unix timestamp
 
       $(xml).find('tweet').each(function() {
 
-        var tweetTimestamp = Math.round(($(this).find("date").html())/1000); // divide by 100 to ignore seconds in unix timestamp
+        var pulledTweetTimestamp = Math.round(($(this).find("date").html())/1000); // divide by 100 to ignore seconds in unix timestamp
 
-        console.log("newest tweet: \n" + tweetTimestamp);
-        console.log("last tweet: \n" + lastTweetTimestamp);
+        console.log("pulled tweet: \n" + pulledTweetTimestamp);
+        console.log("last displayed tweet: \n" + lastDisplayedTweetTimestamp);
 
         // compare the pulled tweet to the most recent tweet dispalyed on the page
-        if (tweetTimestamp > lastTweetTimestamp) {
-          console.log("$(this).find(\"date\").html(): " + $(this).find("date").html());
+        if (pulledTweetTimestamp > lastDisplayedTweetTimestamp) {
+          // console.log("$(this).find(\"date\").html(): " + $(this).find("date").html());
 
           // created nicely formatted date
           var tweetDate = moment.unix($(this).find("date").html())
             .format("MMM D, YYYY");
           var tweetTime = moment.unix($(this).find("date").html())
-            .format("h:ma");
+            .format("h:mma");
           var tweetPostedDateFormatted = tweetDate + " at " + tweetTime;
 
           // add back slashes because JS needs them for multiline strings
