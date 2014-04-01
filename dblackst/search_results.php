@@ -39,8 +39,9 @@ if(isset($_GET['search_query'])) {
       // if there are any results
       if ($search_query_result->num_rows > 0) {
 
-        echo "<div class=\"container\">
-                <h1>Search results containing \"".$_GET['search_query']."\"</h1><ul>";
+        echo "<h1>Search results containing \"".$_GET['search_query']."\"</h1>
+                <div class=\"container\">
+                  <ul>";
 
         while ($result = $search_query_result->fetch_assoc()) {
           echo "

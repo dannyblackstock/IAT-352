@@ -50,7 +50,7 @@ if (isset($_GET['id']) && is_numeric($_GET['id'])) {
       // profile picture
 
       echo "<div id='user-info-box' class='container'>
-            <div id='user-main-profile-picture'  style='background-image:url(\"img/profile_pictures/";
+            <div id='user-main-profile-picture' style='background-image:url(\"img/profile_pictures/";
 
       // defined in header.php
       echo get_user_picture($user['id']);

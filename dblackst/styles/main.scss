@@ -37,6 +37,10 @@ body, input, textarea, button {
 
 // ----- START General styles ----- //
 
+label {
+    cursor: pointer;
+}
+
 // for IE placeholder text
 .placeholder {
     color: #aaa;
@@ -339,9 +343,11 @@ a {
 #footer-container {
     @include outer-container;
     text-align: center;
-    padding: 10px 0;
-
-    .footer-p {
-        @include span-columns(12);
+    padding: 30px 0 15px 0;
+    div {
+        margin: 5px;
+    }
+    a {
+        color: $default-text-color;
     }
 }

@@ -1,5 +1,10 @@
     <div id="footer-container">
-        <p class="footer-p">IAT 352 Project by Danny Blackstock.</p>
+        <div>IAT 352 Project by Danny Blackstock.</div>
+        <div>
+            <a href="about.php">About this site</a> |
+            <a href="author.php"> About the creator</a> |
+            <a href="technical.php"> Technical Details</a>
+        </div>
     </div>
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
     <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.10.2.min.js"><\/script>')</script>
