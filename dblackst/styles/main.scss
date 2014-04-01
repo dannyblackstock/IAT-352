@@ -2,6 +2,7 @@
 @import "neat/neat";
 @import "grid-settings";
 @import "mixins";
+@import "animations";
 
 // responsive breakpoints
 $bigger-than-tiny: new-breakpoint(min-width 286px 4);

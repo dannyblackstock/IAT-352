@@ -52,6 +52,7 @@ if (isset($_GET['id']) && is_numeric($_GET['id'])) {
           $tempTweetArray = ["username" => $tweet['user']['screen_name'],
             "date" => strtotime($tweet['created_at']) ,
             "content" => $tweetWithLinks];
+
           array_push($tweetArray, $tempTweetArray);
         }
       }

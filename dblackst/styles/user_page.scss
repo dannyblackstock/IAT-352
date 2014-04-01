@@ -55,4 +55,9 @@
     padding: 10px 20px;
 }
 
+.ajax-added {
+    // transition ajax pulled tweets
+    @include animation(slideIn 0.5s ease-in);
+}
+
 // ----- END user page ----- //

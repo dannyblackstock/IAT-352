@@ -41,7 +41,7 @@ setInterval(function() {
 
           // add back slashes because JS needs them for multiline strings
           $("#user-posts-header").after(
-            "<div class=\"post-container tweet\">\
+            "<div class=\"post-container tweet ajax-added\">\
               <div class=\"post-info\">\
                 <div class=\"post-info-left\">\
                   <img class=\"user-profile-pic\" src=\"img/user_icon.png\" alt=\"User Profile Picture\">\
@@ -69,4 +69,4 @@ setInterval(function() {
       alert( "Request failed: " + textStatus );
   });
 
-}, 30000);// get new tweets every 30 seconds
+}, 5000);// get new tweets every 30 seconds
