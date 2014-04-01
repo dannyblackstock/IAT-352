@@ -7,6 +7,7 @@
 <div id="content-container">
     <?php
     if (isset($_SESSION['valid_member']) || isset($_SESSION['valid_visitor'])) {
+        // for members
         if (isset($_SESSION['valid_member'])) {
             $query = "SELECT * FROM `members` WHERE email=\"".$db->real_escape_string($_SESSION['valid_member'])."\";";
             $result = $db->query($query);
@@ -14,9 +15,12 @@
             if ($result) {
                 if ($result->num_rows > 0) {
                     $user = $result->fetch_array(MYSQLI_ASSOC);
-                    echo "<form name=\"input\" action=\"update_user_info.php\" method=\"post\" class=\"user-info-form container\">
+                    echo "<form name=\"input\" action=\"update_user_info.php\" method=\"post\" class=\"user-info-form container\" enctype=\"multipart/form-data\">
 
                             <h1 class=\"center-text\">Edit my info</h1>
+
+                            <label for=\"file\">Upload profile picture:</label>
+                            <input type=\"file\" name=\"file\" id=\"file\">
 
                             <input class=\"form-input\" type=\"text\" name=\"name\" value=\"".$user['name']."\" required>
 
