@@ -24,10 +24,10 @@ if (session_status() == PHP_SESSION_NONE) {
 
 // if logged in as a member
 if (isset($_SESSION['valid_visitor'])) {
-        echo "<h1 class=\"center-text\">Already logged in!</h1>
-            <p>You are already logged in as a visitor! Please <a href=\"logout.php\">log out</a> before logging into a member account.</p>";
-        require_once("includes/footer.php");
-        exit;
+    echo "<h1 class=\"center-text\">Already logged in!</h1>
+        <p>You are already logged in as a visitor! Please <a href=\"logout.php\">log out</a> before logging into a member account.</p>";
+    require_once("includes/footer.php");
+    exit;
 }
 
 if (!isset($_SESSION['valid_member'])) {
