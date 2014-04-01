@@ -56,7 +56,7 @@ if (isset($_GET['id']) && is_numeric($_GET['id'])) {
         }
       }
 
-
+      // return XML
       header ("Content-Type:text/xml");
       echo "<?xml version='1.0' encoding='UTF-8'?>
         <tweets>";
@@ -69,27 +69,6 @@ if (isset($_GET['id']) && is_numeric($_GET['id'])) {
             <date>".$tweet['date']."</date>
             <content>".$tweet['content']."</content>
           </tweet>";
-
-          // <div class='post-container " . $tweet['type'] . "'>
-          //   <div class='post-info'>
-          //     <div class='post-info-left'>
-          //       <img class='user-profile-pic' src='img/user_icon.png' alt='User Profile Picture'>
-          //       <div class='user-name'>
-          //         @<a href='http://www.twitter.com/".$tweet['username']."'>".$tweet['username']."</a>
-          //       </div>
-          //     </div>
-          //     <div class='post-info-right'>
-          //       <div class='time-posted'>
-          //           Posted " . date('M j, Y', $tweet['date']) . " at " . date('g:ia', $tweet['date']) . "
-          //       </div>
-          //     </div>
-          //   </div>
-          //   <div class='post-contents'>
-          //     <b>" . $tweet['title'] . "</b>
-          //     <p>" . $tweet['content'] . "</p>
-          //   </div>
-          // </div>
-        // ";
       }
       echo "</tweets>";
     }
