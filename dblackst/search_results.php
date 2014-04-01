@@ -30,7 +30,9 @@ if(isset($_GET['search_query'])) {
       SELECT title, user_id AS id, 'post' AS type
       FROM posts
       WHERE title LIKE '%".$_GET['search_query']."%' OR
-      content LIKE '%".$_GET['search_query']."%'";
+      content LIKE '%".$_GET['search_query']."%'
+
+      ORDER BY title";
 
       $search_query_result = $db->query($search_query);
 
@@ -42,8 +44,8 @@ if(isset($_GET['search_query'])) {
 
         while ($result = $search_query_result->fetch_assoc()) {
           echo "
-                  <li><b>". ucfirst($result["type"]). "</b> – <a href=\"user.php?id=".$result["id"]."\">"
-                  . $result["title"]. "</a></li>";
+                  <li><a href=\"user.php?id=".$result["id"]."\">"
+                  . $result["title"]. "</a> – ". ucfirst($result["type"]). "</li>";
         }
 
         echo "</ul>";

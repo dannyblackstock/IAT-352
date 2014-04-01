@@ -57,7 +57,7 @@
 
 .ajax-added {
     // transition ajax pulled tweets
-    @include animation(slideIn 0.5s ease-in);
+    @include animation(slideIn 0.75s ease-in-out);
 }
 
 // ----- END user page ----- //

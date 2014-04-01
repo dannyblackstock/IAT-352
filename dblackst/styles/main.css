@@ -488,9 +488,9 @@
 }
 
 .ajax-added {
-  -webkit-animation: slideIn 0.5s ease-in;
-  -moz-animation: slideIn 0.5s ease-in;
-  animation: slideIn 0.5s ease-in;
+  -webkit-animation: slideIn 0.75s ease-in-out;
+  -moz-animation: slideIn 0.75s ease-in-out;
+  animation: slideIn 0.75s ease-in-out;
 }
 
 .search-container .search-bar {
