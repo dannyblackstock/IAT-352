@@ -51,6 +51,16 @@
         float: right;
     }
 
+    a .button,
+    a .button-grey {
+        width: 75px;
+    }
+
+    .search-container {
+      display: inline-block;
+      margin-left: 5px;
+    }
+
     .right-nav-button {
         color: #fff;
         text-decoration: none;
@@ -58,11 +68,6 @@
         &:hover {
             color: #ddd;
         }
-    }
-
-    .button,
-    .button-grey {
-        width: 75px;
     }
 
     #user-dropdown {

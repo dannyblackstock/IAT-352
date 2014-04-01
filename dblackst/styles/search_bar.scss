@@ -1,0 +1,19 @@
+.search-container {
+  .search-bar {
+    padding: 5px;
+    margin: 0 -3px 0 0;
+    line-height: 1.5em;
+    font-size: 0.9em;
+    border: 1px solid #ccc;
+    border-right: 0;
+  }
+
+  .search-button {
+    margin: 0;
+    width: 35px;
+    background-image: url("../img/magnifying_glass.png");
+    background-size: 18px;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+}

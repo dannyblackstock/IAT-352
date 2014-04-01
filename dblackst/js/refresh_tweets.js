@@ -69,4 +69,4 @@ setInterval(function() {
       alert( "Request failed: " + textStatus );
   });
 
-}, 5000);// get new tweets every 30 seconds
+}, 30000);// get new tweets every 30 seconds

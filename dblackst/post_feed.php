@@ -181,5 +181,5 @@ else if (isset($_SESSION['valid_visitor'])) {
 </div>
 
 <?php
-  require_once ("includes/footer.php");
+require_once ("includes/footer.php");
 ?>

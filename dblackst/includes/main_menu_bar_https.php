@@ -19,7 +19,9 @@ if($_SERVER["HTTPS"] != "on") {
 
         <!-- right side of menu bar -->
         <div id="main-menu-bar-right">
+
             <a  class="right-nav-button" href="index.php">Browse</a>
+
             <?php
             require_once("database_info.php");
 
@@ -121,6 +123,10 @@ if($_SERVER["HTTPS"] != "on") {
             <?php
             }
             ?>
+            <form class="search-container" action="search_results.php" >
+                <input class="search-bar" type="text" placeholder="Search..." name="search_query">
+                <input class="search-button button" type="submit" value=" ">
+            </form>
         </div>
     </div>
 </div>

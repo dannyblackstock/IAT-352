@@ -1,4 +1,4 @@
-<?php 
+<?php
 // force HTTPS for the form submission if not set already
 if( isset($_SERVER['HTTPS'] )  && $_SERVER['HTTPS'] != 'off' )  {
     //header("Location: https://". $_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI']);
@@ -19,7 +19,9 @@ if( isset($_SERVER['HTTPS'] )  && $_SERVER['HTTPS'] != 'off' )  {
 
         <!-- right side of menu bar -->
         <div id="main-menu-bar-right">
+
             <a  class="right-nav-button" href="index.php">Browse</a>
+
             <?php
             require_once("database_info.php");
 
@@ -28,7 +30,7 @@ if( isset($_SERVER['HTTPS'] )  && $_SERVER['HTTPS'] != 'off' )  {
             }
 
             // set the callback URL
-            $_SESSION['callback_URL'] = (isset($_SERVER['HTTPS']) ? "https://" : "http://") . 
+            $_SESSION['callback_URL'] = (isset($_SERVER['HTTPS']) ? "https://" : "http://") .
                 $_SERVER['HTTP_HOST'] .  $_SERVER['REQUEST_URI'];
 
             if (isset($_SESSION['valid_member']) || isset($_SESSION['valid_visitor'])) {
@@ -121,6 +123,10 @@ if( isset($_SERVER['HTTPS'] )  && $_SERVER['HTTPS'] != 'off' )  {
             <?php
             }
             ?>
+            <form class="search-container" action="search_results.php" >
+                <input class="search-bar" type="text" placeholder="Search..." name="search_query">
+                <input class="search-button button" type="submit" value=" ">
+            </form>
         </div>
     </div>
 </div>
