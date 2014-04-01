@@ -34,15 +34,25 @@ if(isset($_GET['search_query'])) {
 
       $search_query_result = $db->query($search_query);
 
-      // if there are any users that this visitor is following
+      // if there are any results
       if ($search_query_result->num_rows > 0) {
 
         echo "<div class=\"container\">
-                <h1>Results containing \"".$_GET['search_query']."\"</h1>";
+                <h1>Search results containing \"".$_GET['search_query']."\"</h1><ul>";
 
         while ($result = $search_query_result->fetch_assoc()) {
-          echo "<p>". $result["title"]. "<p>";
+          echo "
+                  <li><b>". ucfirst($result["type"]). "</b> – <a href=\"user.php?id=".$result["id"]."\">"
+                  . $result["title"]. "</a></li>";
         }
+
+        echo "</ul>";
+      }
+      else {
+      echo "<div class=\"container\">
+            <p>
+            No search results were found for \"".$_GET['search_query']."\"!
+            <p>";
       }
     }
     else {
