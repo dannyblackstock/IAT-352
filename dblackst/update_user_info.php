@@ -13,7 +13,7 @@
         if(isset($_POST['user_type']) && ($_POST['user_type']) == "member") {
 
             // Prepared statements
-            if (!($memberStatement = $db->prepare("UPDATE `members` SET `name`=?, `bio`=?, `location`=?, `high_school`=?, `grad_year`=?, `phone`=?, `is_phone_preferred`=?, `twitter_handle`=?, `flickr_handle`=? WHERE email=\"".mysql_real_escape_string($_SESSION['valid_member'])."\""))) {
+            if (!($memberStatement = $db->prepare("UPDATE `members` SET `name`=?, `bio`=?, `location`=?, `high_school`=?, `grad_year`=?, `phone`=?, `is_phone_preferred`=?, `twitter_handle`=?, `flickr_handle`=? WHERE email=\"".$db->real_escape_string($_SESSION['valid_member'])."\""))) {
                 echo "Prepare failed: (" . $db->errno . ") " . $db->error;
             }
 
@@ -97,7 +97,7 @@
                 $memberStatement->close();
 
                 // to send the member back to their own page
-                $current_user_query = "SELECT `id` FROM `members` WHERE email=\"".mysql_real_escape_string($_SESSION['valid_member'])."\"";
+                $current_user_query = "SELECT `id` FROM `members` WHERE email=\"".$db->real_escape_string($_SESSION['valid_member'])."\"";
                 $current_user_result = $db->query($current_user_query);
 
                 echo $current_user_query;
@@ -123,7 +123,7 @@
         if(isset($_POST['user_type']) && ($_POST['user_type']) == "visitor") {
 
 
-            if (!($visitorStatement = $db->prepare("UPDATE `visitors` SET `name`=? WHERE email=\"".mysql_real_escape_string($_SESSION['valid_visitor'])."\""))) {
+            if (!($visitorStatement = $db->prepare("UPDATE `visitors` SET `name`=? WHERE email=\"".$db->real_escape_string($_SESSION['valid_visitor'])."\""))) {
                 echo "Prepare failed: (" . $db->errno . ") " . $db->error;
             }
 

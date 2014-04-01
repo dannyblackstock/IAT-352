@@ -15,13 +15,13 @@ if (!isset($_SESSION['valid_member'])) {
 }
 
 // Prepared statement
-if (!($stmt = $db->prepare("INSERT INTO `posts` (`user_id`, `title`, `content`, `date`) 
-    VALUES ((SELECT `id` FROM `members` WHERE email=\"".mysql_real_escape_string($_SESSION['valid_member'])."\"), ?, ?, NOW())"))) {
+if (!($stmt = $db->prepare("INSERT INTO `posts` (`user_id`, `title`, `content`, `date`)
+    VALUES ((SELECT `id` FROM `members` WHERE email=\"".$db->real_escape_string($_SESSION['valid_member'])."\"), ?, ?, NOW())"))) {
     echo "Prepare failed: (" . $db->errno . ") " . $db->error;
 }
 
 
-// INSERT INTO  `posts` (  `user_id` ,  `title` ,  `content` ,  `date` ) 
+// INSERT INTO  `posts` (  `user_id` ,  `title` ,  `content` ,  `date` )
 // VALUES ((SELECT  `id` FROM  `members` WHERE email =  "dannyblackstock@gmail.com"),  "Fun!",  "Content!", NOW( ))
 
 
@@ -57,7 +57,7 @@ if ($stmt->execute()) {
     printf("%d Row inserted.\n", $stmt->affected_rows);
     $stmt->close();
 
-    $current_user_query = "SELECT `id` FROM `members` WHERE email=\"".mysql_real_escape_string($_SESSION['valid_member'])."\"";
+    $current_user_query = "SELECT `id` FROM `members` WHERE email=\"".$db->real_escape_string($_SESSION['valid_member'])."\"";
     $current_user_result = $db->query($current_user_query);
 
     echo $current_user_query;
@@ -78,8 +78,8 @@ if ($db->connect_error)  {
     die('Connect Error: ' . $db->connect_error);
 }
 
-//Close database connection 
+//Close database connection
 $db->close();
 
-require_once("includes/footer.php"); 
+require_once("includes/footer.php");
 ?>

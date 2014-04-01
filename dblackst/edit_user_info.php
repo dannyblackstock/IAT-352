@@ -8,7 +8,7 @@
     <?php
     if (isset($_SESSION['valid_member']) || isset($_SESSION['valid_visitor'])) {
         if (isset($_SESSION['valid_member'])) {
-            $query = "SELECT * FROM `members` WHERE email=\"".mysql_real_escape_string($_SESSION['valid_member'])."\";";
+            $query = "SELECT * FROM `members` WHERE email=\"".$db->real_escape_string($_SESSION['valid_member'])."\";";
             $result = $db->query($query);
 
             if ($result) {
@@ -87,7 +87,7 @@
         }
         // for visitors
         if (isset($_SESSION['valid_visitor'])) {
-            $query = "SELECT * FROM `visitors` WHERE email=\"".mysql_real_escape_string($_SESSION['valid_visitor'])."\";";
+            $query = "SELECT * FROM `visitors` WHERE email=\"".$db->real_escape_string($_SESSION['valid_visitor'])."\";";
             $result = $db->query($query);
             if ($result) {
                 if ($result->num_rows > 0) {
