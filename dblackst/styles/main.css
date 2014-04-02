@@ -127,10 +127,28 @@
 #main-menu-bar-right .search-container {
   display: inline-block;
   margin: 10px 0 0 0;
+  width: 100%;
+}
+#main-menu-bar-right .search-container .search-bar {
+  width: 80%;
+}
+@media screen and (min-width: 548px) {
+  #main-menu-bar-right .search-container .search-bar {
+    width: auto;
+  }
+}
+#main-menu-bar-right .search-container .search-button {
+  width: 15%;
+}
+@media screen and (min-width: 548px) {
+  #main-menu-bar-right .search-container .search-button {
+    width: 35px;
+  }
 }
 @media screen and (min-width: 548px) {
   #main-menu-bar-right .search-container {
     margin: 0 0 0 5px;
+    width: auto;
   }
 }
 #main-menu-bar-right .right-nav-button {

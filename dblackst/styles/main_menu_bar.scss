@@ -61,10 +61,26 @@
 
     .search-container {
       display: inline-block;
-              margin: 10px 0 0 0;
+      margin: 10px 0 0 0;
+      width: 100%;
+
+        .search-bar {
+            width: 80%;
+            @include media($bigger-than-medium) {
+                width: auto;
+            }
+        }
+
+        .search-button {
+            width: 15%;
+            @include media($bigger-than-medium) {
+                width: 35px;
+            }
+        }
 
       @include media($bigger-than-medium) {
         margin: 0 0 0 5px;
+        width: auto;
         }
     }
 
