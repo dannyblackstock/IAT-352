@@ -3,7 +3,9 @@
 require_once("includes/database_info.php");
 require_once("includes/header.php");
 require_once("includes/main_menu_bar_https.php");
-
+?>
+<div id="content-container">
+<?php
 // // force HTTPS for the form submission if not set already
 // if($_SERVER["HTTPS"] != "on") {
 //     //header("Location: https://". $_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI']);
@@ -59,11 +61,12 @@ if (!isset($_SESSION['valid_member'])) {
         // check for results
         $result = $db->query($query);
 
-        echo $query;
+        // echo $query;
 
         // if success - redirect to info_success.php
-        if ($result) {
-            // visitor's name and password combination are correct
+        if ($result->num_rows > 0) {
+            // print_r($result);
+            // member's name and password combination are correct
             // do whatever matching is necessary - against the DB here
             $_SESSION['valid_member'] = $_POST['email'];
             echo "<br><br>Success!";
@@ -72,7 +75,7 @@ if (!isset($_SESSION['valid_member'])) {
 
         else {
             //login failed, let them try again
-            echo "<h1>Invalid login info, please try again</h1>";
+            echo "<h1 class='main-header'>Invalid login info, please try again.</h1>";
         }
 
 
@@ -112,7 +115,6 @@ else {
     //did not authenticate yet or failed previous attempt
     //show form
     ?>
-    <div id="content-container">
 
         <!-- Sign up form -->
         <form name="input" action="login_member_authenticate.php" method="post" class="user-info-form container">
