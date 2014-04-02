@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Mar 10, 2014 at 06:43 AM
+-- Generation Time: Apr 03, 2014 at 01:05 AM
 -- Server version: 5.6.14
 -- PHP Version: 5.5.6
 
@@ -74,7 +74,7 @@ CREATE TABLE IF NOT EXISTS `members` (
 --
 
 INSERT INTO `members` (`id`, `email`, `password`, `name`, `location`, `high_school`, `grad_year`, `phone`, `is_phone_preferred`, `bio`, `twitter_handle`, `flickr_handle`) VALUES
-(1, 'dannyblackstock@gmail.com', '5e884898da28047151d0e56f8dc6292773603d0d6aabbdd62a11ef721d1542d8', 'Daniel Blackstock', 'Coquitlam, BC', 'Archbishop Carney Regional Secondary School', 2011, '604-111-1234', 1, 'Danny''s interests in a wide range of design topics led him to enroll in the School of Interactive Arts and Technology (SIAT).', 'the_blackstock', 'mooglybear'),
+(1, 'dannyblackstock@gmail.com', '5e884898da28047151d0e56f8dc6292773603d0d6aabbdd62a11ef721d1542d8', 'Danny Blackstock', 'Coquitlam, BC', 'Archbishop Carney Regional Secondary School', 2011, '604-111-1234', 1, 'Danny''s interests in a wide range of design topics led him to enroll in the School of Interactive Arts and Technology (SIAT). Cool!!!\r\n\r\nExciting stuff.', 'the_blackstock', 'mooglybear'),
 (2, 'siat@sfu.ca', '5e884898da28047151d0e56f8dc6292773603d0d6aabbdd62a11ef721d1542d8', 'Billy Joel', 'Surrey, BC', 'Surrey Central High School', 2014, '604-123-9876', 1, 'Billy Joel likes singing and playing guitar all the time.', 'billyjoel', 'Guren C'),
 (3, 'test@sfu.ca', '5e884898da28047151d0e56f8dc6292773603d0d6aabbdd62a11ef721d1542d8', 'Quanjip Nishnajin', 'Africa', 'Africa High School', 2000, NULL, 0, NULL, 'CMDeGit', 'cameralabs'),
 (5, 'poop@sfu.ca', '5e884898da28047151d0e56f8dc6292773603d0d6aabbdd62a11ef721d1542d8', 'Fun Gai', 'Bangkok', 'Bagnkok High School', 2001, '1-800-267-2001', 1, 'Currently works for Alarm Force.', 'mblackstock', 'charliecm'),
@@ -98,7 +98,7 @@ CREATE TABLE IF NOT EXISTS `posts` (
   `content` text NOT NULL,
   `date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=33 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=35 ;
 
 --
 -- Dumping data for table `posts`
@@ -133,7 +133,8 @@ INSERT INTO `posts` (`id`, `user_id`, `title`, `content`, `date`) VALUES
 (26, 9, 'Hello', 'This is my first ever post. Isn''t that nice.', '2014-02-18 04:29:18'),
 (27, 9, 'Cool post', 'From the end user perspective, what is expected is a fully functioning website with working navigation, pages for users to create their accounts and edit/modify information in their accounts, post blog messages, for visitors to browse members, view posted blogs via different modes (e.g. by user, by timeline, by high school).', '2014-02-18 04:31:17'),
 (28, 9, 'Something about SQL', 'The tricky part here is how you submit the database. You need to submit a populated database with your website. It needs to be loaded with at least 3 high schools, at least 8 members, and at least 3 posts for each member, plus at least 2 members must have at least  6 posts each. To submit the database, follow these steps EXACTLY: ', '2014-02-18 04:31:31'),
-(32, 1, 'Testerosa', 'Just trying out my new Ferrari bud', '2014-03-08 23:19:03');
+(32, 1, 'Testerosa', 'Just trying out my new Ferrari bud', '2014-03-08 23:19:03'),
+(34, 1, 'Test post with line breaks', 'Money causes teenagers to feel stress. It makes them feel bad about themselves and envy other people. My friend, for instance, lives with her family and has to share a room with her sister, who is very cute and intelligent. \r\n\r\nThis girl wishes she could have her own room and have a lot of stuff, but she canâ€™t have these things because her family doesnâ€™t have much money. Her familyâ€™s income is pretty low because her father is old and doesnâ€™t go to work. Her sister is the only one who works. Because her family canâ€™t buy her the things she wants, she feels a lot of stress and gets angry sometimes. Once, she wanted a beautiful dress to wear to a sweetheart dance. She asked her sister for some money to buy the dress. She was disappointed because her sister didnâ€™t have money to give her. She sat in silence for a little while and then started yelling out loud. She said her friends got anything they wanted but she didnâ€™t. \r\n\r\nThen she felt sorry for herself and asked why she was born into a poor family. Not having money has caused this girl to think negatively about herself and her family. It has caused a lot of stress in her life.', '2014-04-01 20:10:02');
 
 -- --------------------------------------------------------
 
