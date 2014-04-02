@@ -10,7 +10,7 @@ require_once("includes/database_info.php");
 
 <div id="content-container">
     <h1 class="main-header">High Schools</h1>
-    
+
     <div class="toggle-switch" id="hs-members-toggle">
         <div class="sort-label">SORT BY </div>
         <a class="toggle-switch-left" href="index.php">
@@ -54,5 +54,5 @@ require_once("includes/database_info.php");
         ?>
     </table>
 </div>
-
+</div>
 <?php require("includes/footer.php"); ?>
