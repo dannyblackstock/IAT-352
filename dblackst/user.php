@@ -66,7 +66,7 @@ if (isset($_GET['id']) && is_numeric($_GET['id'])) {
       // Code for follow/unfollow button
       // user must login to a visitor account if they want to follow
       if (!isset($_SESSION['valid_member']) && !isset($_SESSION['valid_visitor'])) {
-        echo "<p><a href='login_visitor_authenticate.php' class='button' id='follow-button'>Follow</a></p>";
+        echo "<p class='user-action-button-container'><a href='login_visitor_authenticate.php' class='button' id='follow-button'>Follow</a></p>";
       }
 
       // if they are a visitor
@@ -80,11 +80,11 @@ if (isset($_GET['id']) && is_numeric($_GET['id'])) {
         // if already following
         if ($following_result->num_rows > 0) {
           // visitor can unfollow
-          echo "<p><a href='follow.php?unfollow=" . $userID . "' class='button' id='unfollow-button'>Unfollow</a></p>";
+          echo "<p class='user-action-button-container'><a href='follow.php?unfollow=" . $userID . "' class='button' id='unfollow-button'>Unfollow</a></p>";
         }
         else {
           // if they're not following, they can follow
-          echo "<p><a href='follow.php?follow=" . $userID . "' class='button'>Follow</a></p>";
+          echo "<p class='user-action-button-container'><a href='follow.php?follow=" . $userID . "' class='button'>Follow</a></p>";
         }
       }
 
@@ -98,11 +98,11 @@ if (isset($_GET['id']) && is_numeric($_GET['id'])) {
 
         $query_email = mysqli_fetch_array($member_result) [0];
 
-        // if already following
+        // if it is the member's page
         if (($member_result->num_rows > 0) && ($query_email == $member_email)) {
 
-          // visitor can unfollow
-          echo "<p><a href='edit_user_info.php' class='button' id='edit-my-account-button'>Edit my account</a></p>";
+          // they can edit their account
+          echo "<p class='user-action-button-container'><a href='edit_user_info.php' class='button' id='edit-my-account-button'>Edit my account</a></p>";
         }
       }
 

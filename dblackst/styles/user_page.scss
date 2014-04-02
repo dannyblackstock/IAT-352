@@ -41,6 +41,18 @@
             text-align: left;
         }
     }
+    .user-action-button-container {
+        text-align: center;
+        .button {
+            width: 100%;
+        }
+        @include media ($bigger-than-medium) {
+            text-align: left;
+            .button {
+                width: auto;
+            }
+        }
+    }
 }
 
 #flickr-photos {

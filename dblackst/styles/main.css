@@ -130,7 +130,7 @@
   width: 100%;
 }
 #main-menu-bar-right .search-container .search-bar {
-  width: 80%;
+  width: 82%;
 }
 @media screen and (min-width: 548px) {
   #main-menu-bar-right .search-container .search-bar {
@@ -486,6 +486,20 @@
 @media screen and (min-width: 548px) {
   #user-info-content .user-name {
     text-align: left;
+  }
+}
+#user-info-content .user-action-button-container {
+  text-align: center;
+}
+#user-info-content .user-action-button-container .button {
+  width: 100%;
+}
+@media screen and (min-width: 548px) {
+  #user-info-content .user-action-button-container {
+    text-align: left;
+  }
+  #user-info-content .user-action-button-container .button {
+    width: auto;
   }
 }
 
