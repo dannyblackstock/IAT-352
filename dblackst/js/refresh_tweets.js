@@ -25,8 +25,8 @@ setInterval(function() {
 
         var pulledTweetTimestamp = Math.round(($(this).find("date").html())/1000); // divide by 100 to ignore seconds in unix timestamp
 
-        console.log("pulled tweet: \n" + pulledTweetTimestamp);
-        console.log("last displayed tweet: \n" + lastDisplayedTweetTimestamp);
+        // console.log("pulled tweet: \n" + pulledTweetTimestamp);
+        // console.log("last displayed tweet: \n" + lastDisplayedTweetTimestamp);
 
         // compare the pulled tweet to the most recent tweet dispalyed on the page
         if (pulledTweetTimestamp > lastDisplayedTweetTimestamp) {

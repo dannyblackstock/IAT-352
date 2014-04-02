@@ -17,9 +17,6 @@
 
         <input class="form-input" type="text" name="name" placeholder="Full Name" required>
 
-        <!-- Profile picture upload-->
-        <!-- <input class="form-file-input" type='file' name='profilePicture'> -->
-
         <input class="form-button button-grey" type="submit" name="submit" value="Submit">
 
         <p>Already have an account? <a href="login.php">Log in</a></p>

@@ -566,6 +566,14 @@ label {
   color: #aaa;
 }
 
+.center-text {
+  text-align: center;
+}
+
+.smaller-font {
+  font-size: 12px;
+}
+
 .main-header {
   text-align: center;
   margin-top: 0;
@@ -591,10 +599,6 @@ a {
 }
 a:hover {
   color: #1a78d6;
-}
-
-.center-text {
-  text-align: center;
 }
 
 #content-container {

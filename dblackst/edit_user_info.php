@@ -19,7 +19,9 @@
 
                             <h1 class=\"center-text\">Edit my info</h1>
 
-                            <label for=\"file\">Upload profile picture:</label>
+                            <label for=\"file\">Upload profile picture:
+                                <div class=\"smaller-font\">(.jpeg, .jpg, gif, or .png less than 500KB)</div>
+                            </label>
                             <input type=\"file\" name=\"file\" id=\"file\">
 
                             <input class=\"form-input\" type=\"text\" name=\"name\" value=\"".$user['name']."\" required>
@@ -46,7 +48,7 @@
                                 echo "<input class=\"form-input\" type=\"checkbox\" name=\"isPhonePreferred\" id=\"isPhonePreferred\">";
                             }
 
-                            echo "<label for=\"isPhonePreferred\">I prefer to be contacted by phone.";
+                            echo "<label class=\"smaller-font\" for=\"isPhonePreferred\">I prefer to be contacted by phone.";
 
                             if ($user['bio'] != "NULL" && $user['bio'] != NULL && $user['bio'] != "") {
                                 echo "<textarea class=\"form-textarea\" name=\"bio\">".$user['bio']."</textarea>";

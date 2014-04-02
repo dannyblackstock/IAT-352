@@ -20,7 +20,7 @@ require_once ("includes/database_info.php");
     <ul>
       <li><a href="http://jquery.com/" target="_blank">JQuery</a></li>
       <li><a href="http://dev7studios.com/dropit/" target="_blank">Dropit</a></li>
-      <li><a href="http://momentjs.com/Moment.js" target="_blank">Moment.js</a></li>
+      <li><a href="http://momentjs.com" target="_blank">Moment.js</a></li>
       <li><a href="http://modernizr.com/" target="_blank">Modernizr</a></li>
       <li><a href="http://bourbon.io/" target="_blank">Bourbon</a></li>
       <li><a href="http://neat.bourbon.io/" target="_blank">Bourbon Neat</a></li>

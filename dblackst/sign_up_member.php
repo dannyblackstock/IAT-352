@@ -17,9 +17,6 @@
 
         <input class="form-input" type="text" name="name" placeholder="Full Name" required>
 
-        <!-- Profile picture upload-->
-        <!-- <input class="form-file-input" type='file' name='profilePicture'> -->
-
         <input class="form-input" type="text" name="location" placeholder="Current City" required>
 
         <input class="form-input" type="text" name="highschool" placeholder="High School" required>
@@ -29,7 +26,7 @@
         <input class="form-input" type="tel" name="phone" placeholder="Phone">
 
         <input class="form-input" type="checkbox" name="isPhonePreferred" id="isPhonePreferred">
-        <label for="isPhonePreferred">I prefer to be contacted by phone.
+        <label class="smaller-font" for="isPhonePreferred">I prefer to be contacted by phone.
 
         <textarea class="form-textarea" name="bio" placeholder="Bio"></textarea>
 
