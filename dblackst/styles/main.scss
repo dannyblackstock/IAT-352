@@ -41,6 +41,12 @@ label {
     cursor: pointer;
 }
 
+.center-img {
+    max-width:100%;
+    margin: 0 auto;
+    display: block;
+}
+
 // for IE placeholder text
 .placeholder {
     color: #aaa;
@@ -351,3 +357,4 @@ a {
         color: $default-text-color;
     }
 }
+// ----- END footer -----//
