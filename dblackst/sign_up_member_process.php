@@ -104,8 +104,8 @@
 
 	// execute database query
     if ($stmt->execute()) {
-        echo "Success!\n";
-        printf("%d Row inserted.\n", $stmt->affected_rows);
+        // echo "Success!\n";
+        // printf("%d Row inserted.\n", $stmt->affected_rows);
         $stmt->close();
         header('Location: register_success.php');
     }

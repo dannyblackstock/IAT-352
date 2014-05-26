@@ -57,20 +57,20 @@ if (isset($_POST['submit'])) {
         }
 
         else {
-          echo "Upload: " . $_FILES["file"]["name"] . "<br />";
-          echo "Type: " . $_FILES["file"]["type"] . "<br />";
-          echo "Size: " . ($_FILES["file"]["size"] / 1024) . " kB<br />";
-          echo "Temp file: " . $_FILES["file"]["tmp_name"] . "<br />";
+          // echo "Upload: " . $_FILES["file"]["name"] . "<br />";
+          // echo "Type: " . $_FILES["file"]["type"] . "<br />";
+          // echo "Size: " . ($_FILES["file"]["size"] / 1024) . " kB<br />";
+          // echo "Temp file: " . $_FILES["file"]["tmp_name"] . "<br />";
 
           foreach ($allowedExts as $ext) { // prepare to overwrite any file the user had previously
             if (file_exists("img/profile_pictures/" . $userID . "." . $ext)) {
-              echo "img/profile_pictures/" . $userID . "." . $ext . " already exists. ";
+              // echo "img/profile_pictures/" . $userID . "." . $ext . " already exists. ";
               unlink("img/profile_pictures/" . $userID . "." . $ext);
             }
           }
 
           move_uploaded_file($_FILES["file"]["tmp_name"], "img/profile_pictures/" . $userID . "." . $extension);
-          echo "Stored in: " . "img/profile_pictures/" . $userID . "." . $extension;
+          // echo "Stored in: " . "img/profile_pictures/" . $userID . "." . $extension;
           chmod("img/profile_pictures/" . $userID . "." . $extension, 0777);
         }
       }
@@ -121,7 +121,7 @@ if (isset($_POST['submit'])) {
       $phone = $_POST['phone'];
     }
     else {
-      echo "No phone number.\n";
+      // echo "No phone number.\n";
       $phone = 'NULL';
     }
 
@@ -162,8 +162,8 @@ if (isset($_POST['submit'])) {
     // update member's info
 
     if ($memberStatement->execute()) {
-      echo "Success!\n";
-      printf("%d Row modified.\n", $memberStatement->affected_rows);
+      // echo "Success!\n";
+      // printf("%d Row modified.\n", $memberStatement->affected_rows);
       $memberStatement->close();
 
       // send back to the user's page
@@ -171,7 +171,7 @@ if (isset($_POST['submit'])) {
       header("Location: user.php?id=" . $userID);
     }
     else {
-      echo "<br />POST SUBMITTED";
+      echo "<br />Your new information could not be added to the database. Please try again.";
     }
   }
 
@@ -198,8 +198,8 @@ if (isset($_POST['user_type']) && ($_POST['user_type']) == "visitor") {
   // update visitor's name
 
   if ($visitorStatement->execute()) {
-    echo "Success!\n";
-    printf("%d Row modified.\n", $visitorStatement->affected_rows);
+    // echo "Success!\n";
+    // printf("%d Row modified.\n", $visitorStatement->affected_rows);
     $visitorStatement->close();
     header("Location:" . $_SESSION['callback_URL']);
   }

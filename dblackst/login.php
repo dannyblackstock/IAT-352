@@ -1,4 +1,3 @@
-<!-- HTML header, title, body tags, etc -->
 <?php require("includes/header.php"); ?>
 
 <!-- Main menu bar for all pages -->
@@ -23,7 +22,7 @@
                 <a class="button" href="login_member_authenticate.php">
                     Member
                 </a>
-                or 
+                or
                 <!-- log in / sign out button -->
                 <a class="button" href="login_visitor_authenticate.php">
                     Visitor

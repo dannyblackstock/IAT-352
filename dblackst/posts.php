@@ -1,4 +1,3 @@
-<!-- HTML header, title, body tags, etc -->
 <?php require("includes/header.php"); ?>
 
 <!-- Main menu bar for all pages -->
@@ -9,7 +8,7 @@
     <div class="post-container container">
 
         <div class="post-info">
-            
+
             <div class="post-info-left">
                 <img class="user-profile-pic" src="img/user_icon.png" alt="User Profile Picture">
                 <div class="user-name">Danny Blackstock</div>
@@ -28,7 +27,7 @@
     <div class="post-container container">
 
         <div class="post-info">
-            
+
             <div class="post-info-left">
                 <img class="user-profile-pic" src="img/user_icon.png" alt="User Profile Picture">
                 <div class="user-name">Danny Blackstock</div>

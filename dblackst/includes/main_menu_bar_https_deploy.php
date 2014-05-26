@@ -1,11 +1,11 @@
-<?php
-// force HTTPS for the form submission if not set already
+
+<!-- // force HTTPS for the form submission if not set already
 if($_SERVER["HTTPS"] != "on") {
     //header("Location: https://". $_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI']);
     header("Location: https://". str_replace(":8080", "", $_SERVER['HTTP_HOST']) .$_SERVER['REQUEST_URI']);
     exit;
-}
-?>
+} -->
+
 
 <!-- START Main menu bar for all pages -->
 <div id="main-menu-bar-container">

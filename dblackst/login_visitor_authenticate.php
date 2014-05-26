@@ -1,11 +1,8 @@
 <?php
 // 1. Create a database connection
 require_once("includes/database_info.php");
-require_once("includes/header.php");
-require_once("includes/main_menu_bar_https.php");
-?>
-<div id="content-container">
-<?php
+
+$headersAdded = False;
 // // force HTTPS for the form submission if not set already
 // if($_SERVER["HTTPS"] != "on") {
 //     //header("Location: https://". $_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI']);
@@ -26,7 +23,12 @@ if (session_status() == PHP_SESSION_NONE) {
 
 // if logged in as a member
 if (isset($_SESSION['valid_member'])) {
-        echo "<h1 class=\"center-text\">You are already logged in!</h1>
+        if ($headersAdded == False) {
+            require_once("includes/header.php");
+            require_once("includes/main_menu_bar_https.php");
+            $headersAdded = True;
+        }
+        echo "<div id=\"content-container\"><h1 class=\"center-text\">You are already logged in!</h1>
             <p>You are already logged in as a member! Please <a href=\"logout.php\">logout</a> before logging into a visitor account.</p>";
         require_once("includes/footer.php");
         exit;
@@ -53,7 +55,6 @@ if (!isset($_SESSION['valid_visitor'])) {
             $email = '';
         }
 
-
         // Perform database query
 
         $query = "SELECT * FROM visitors WHERE `email`=\"".$email."\" AND `password`=\"".$password."\";";
@@ -68,13 +69,19 @@ if (!isset($_SESSION['valid_visitor'])) {
             // visitor's name and password combination are correct
             // do whatever matching is necessary - against the DB here
             $_SESSION['valid_visitor'] = $_POST['email'];
-            echo "<br><br>Success!";
+            // echo "<br><br>Success!";
               // header('Location: info_success.php');
         }
 
         else {
             //login failed, let them try again
-            echo "<h1>Invalid login info, please try again</h1>";
+            if ($headersAdded == False) {
+                require_once("includes/header.php");
+                require_once("includes/main_menu_bar_https.php");
+                $headersAdded = True;
+            }
+            echo "<div id=\"content-container\"><h1>Invalid login info, please try again</h1>";
+
         }
 
 
@@ -100,19 +107,29 @@ if (isset($_SESSION['valid_visitor'])) {
         // go back where you came from
         $callback_URL=$_SESSION['callback_URL'];
         unset($_SESSION['callback_URL']);
-        echo $callback_URL;
+        // echo $callback_URL;
         header('Location: '.$callback_URL);
         exit();
     }
 
     else {
-        echo "<h1>You are now logged in.</h1>";
+        if ($headersAdded == False) {
+            require_once("includes/header.php");
+            require_once("includes/main_menu_bar_https.php");
+            $headersAdded = True;
+        }
+        echo "<div id=\"content-container\"><h1>You are now logged in.</h1>";
     }
 }
 
 else {
     //did not authenticate yet or failed previous attempt
     //show form
+    if ($headersAdded == False) {
+        require_once("includes/header.php");
+        require_once("includes/main_menu_bar_https.php");
+        $headersAdded = True;
+    }
     ?>
 
         <!-- Sign up form -->

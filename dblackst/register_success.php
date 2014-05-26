@@ -1,4 +1,3 @@
-<!-- HTML header, title, body tags, etc -->
 <?php require("includes/header.php"); ?>
 
 <!-- Main menu bar for all pages -->

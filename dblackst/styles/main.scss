@@ -15,6 +15,8 @@ $bigger-than-large: new-breakpoint(min-width 780px 12);
 $sfu-grey: #6e6d64;
 $sfu-red: #b5111a;
 $default-text-color: #333;
+$link-color: #69ABED;
+$link-hover-color: darken($link-color, 20);
 
 @import "main_menu_bar.scss";
 @import "buttons_toggles.scss";
@@ -75,11 +77,11 @@ label {
 
 //links
 a {
-    color: #69ABED;
+    color: $link-color;
     text-decoration:none;
 
     &:hover {
-        color: darken(#69ABED, 20);
+        color: $link-hover-color;
     }
 }
 
@@ -360,6 +362,10 @@ a {
     }
     a {
         color: $default-text-color;
+
+        &:hover {
+            color: $link-hover-color;
+        }
     }
 }
 // ----- END footer -----//

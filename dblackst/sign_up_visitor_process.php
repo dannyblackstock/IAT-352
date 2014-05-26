@@ -2,7 +2,7 @@
 require_once("includes/database_info.php");
 
 // Prepared statement
-if (!($stmt = $db->prepare("INSERT INTO  `visitors`(`password`, `name`, `email`) 
+if (!($stmt = $db->prepare("INSERT INTO  `visitors`(`password`, `name`, `email`)
     VALUES (?, ?, ?)"))) {
     echo "Prepare failed: (" . $db->errno . ") " . $db->error;
 }
@@ -39,8 +39,8 @@ if(isset($_POST['submit'])) {
 
 // execute database query
 if ($stmt->execute()) {
-    echo "Success!\n";
-    printf("%d Row inserted.\n", $stmt->affected_rows);
+    // echo "Success!\n";
+    // printf("%d Row inserted.\n", $stmt->affected_rows);
     $stmt->close();
     header('Location: register_success.php');
 }
@@ -49,6 +49,6 @@ if ($db->connect_error)  {
     die('Connect Error: ' . $db->connect_error);
 }
 
-//Close database connection 
+//Close database connection
 $db->close();
 ?>

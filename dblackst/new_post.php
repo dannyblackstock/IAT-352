@@ -1,5 +1,3 @@
-<!-- HTML header, title, body tags, etc -->
-<!-- HTML header, title, body tags, etc -->
 <?php
 
 require_once("includes/header.php");

@@ -53,8 +53,8 @@ else {
 }
 // execute database query
 if ($stmt->execute()) {
-    echo "Success!\n";
-    printf("%d Row inserted.\n", $stmt->affected_rows);
+    // echo "Success!\n";
+    // printf("%d Row inserted.\n", $stmt->affected_rows);
     $stmt->close();
 
     $current_user_query = "SELECT `id` FROM `members` WHERE email=\"".$db->real_escape_string($_SESSION['valid_member'])."\"";
